@@ -1,0 +1,1970 @@
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+Code,Activity,Passage,Type of Translation,Source Language,Target Language,Topic / Domain ,,,,,,,,,,,,,,,,,,,,
+1,Translation,"""…I have not reviewed the scan results yet but from my initial observations, there are dark spots on the lungs and on the left breast, indicating the possibility that there might be tumors. There might not be tumors. But if it turns out that there are, like I suspect, then I will have to determine if the tumors are cancerous or non-cancerous. And if they are cancerous, are they malignant or benign. And if they are malignant, are they terminal or non-terminal...""","1. Literal  Translation                                 2. Semantic Translation - Example 1 - ""He kicked the bucket""                                            Example 2 -  ""She took a rain check""                                    3. Contextual",Example - English,Example - Hausa / Twi / Bakweri / Yoruba / Igbo / Swahili,Medical,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+Code,Activity,Passage/Text,Type of Translation,Source Language,Target Language,Topic / Domain ,Sentence Token,Sub Sentence Token,Word Token,Letter Token,Part-of-Speech - Source Language,Part-of-Speech - Target Language,Untranslatable Words,Direct Translation Possible?,Contextual Translation,Dictionary,Expression,Agglutinated words/Concatenated words,Modular Translation,Translation - Med. Prof.,Translation - Reg. People,Full Translation - Nigerian Pidgin,,,,
+1,Translation,"""…I have not reviewed the scan results yet but from my initial observations, there are dark spots on the lungs and on the left breast, indicating the possibility that there might be tumors. There might not be tumors. But if it turns out that there are, like I suspect, then I will have to determine if the tumors are cancerous or non-cancerous. And if they are cancerous, are they malignant or benign. And if they are malignant, are they terminal or non-terminal...""",A mix of literal and contextual depending on the audience                       ,Example - English,Pidgin English,Medical Document,"1. 1 - I have not reviewed the scan results yet but from my initial observations, 
+there are dark spots on the lungs and on the left breast, indicating the possibility that there might be tumors.
+
+1. 2 - There might not be tumors
+
+1. 3  - But if it turns out that there are, like I suspect, then I will have to determine if the tumors are cancerous or non-cancerous.
+
+1. 4 - if they are cancerous, are they malignant or benign
+
+1.5 - .And if they are malignant, are they terminal or non-terminal","1.1a - I have not reviewed the scan results yet
+
+1.1b - but from my initial observations,
+
+1.1c - there are dark spots on the lungs and on the left breast,
+
+1.1d - indicating the possibility that there might be tumors.
+
+1.2 - There might not be tumors. 
+
+1. 3a - But if it turns out that there are, like I suspect, 
+
+1. 3b - then I will have to determine if the tumors are cancerous or non-cancerous. 
+
+1.4 - And if they are cancerous, are they malignant or benign. 
+
+1. 5 - And if they are malignant, are they terminal or non-terminal...""","1.1a - I
+1.1b - have
+1.1c - Not
+1.1d - Reviewed
+1.1e - The
+1.1f - Scan
+1.1g - Results
+1.1h - Yet
+1.1i  - But
+1.1j - From 
+1.1k - My 
+1.1l - Initial 
+1.1m - Observations 
+1.1n - There 
+1.1o - Are 
+1.1p - Dark 
+1.1q - Spots 
+1.1r - On 
+1.1s - The 
+1.1t - Lungs 
+1.1u - And 
+1.1v - On 
+1.1w - The 
+1.1x - Left 
+1.1y - Breast, 
+1.1z - Indicating 
+1.1aa - The 
+1.1ab - Possibility 
+1.1ac - That 
+1.1ad - Here 
+1.1ae - Might 
+1.1af - Be 
+1.1ag - Tumors
+
+1.2a - There
+1.2b - Might
+1.2c - Not
+1.2d - Be
+1.2e - Tumors
+
+1.3a - But
+1.3b - If
+1.3c - It
+1.3d - Turns
+1.3e - Out
+1.3f - That
+1.3g - There
+1.3h - Are
+1.3i - Like
+1.3j - I
+1.3k - Suspect
+1.3l - Then
+1.3m - I
+1.3n - Will
+1.3o - Have
+1.3p - To
+1.3q - Determine
+1.3r - If
+1.3s - The
+1.3t - Tumors
+1.3u - Are
+1.3v - Cancerous
+1.3w - Or
+1.3x - Non
+1.3y - Cancerous
+
+1.4a - If
+1.4b - They
+1.4c - Are
+1.4d - Cancerous
+1.4e - Are
+1.4f - They
+1.4g - Malignant
+1.4h - Or
+1.4i - Benign
+
+1.5a - And
+1.5b - If
+1.5c - They
+1.5d - Are
+1.5e - Malignant
+1.5f - Are
+1.5g - They
+1.5h - Terminal
+1.5i - Or
+1.5j - Non-Terminal",,"1.1a - I  - (Pronoun)
+1.1b - have - (Auxiliary verb)
+1.1c - Not - (Adverb - Negation)
+1.1d - Reviewed - (Verb)
+1.1e - The - (Article)
+1.1f - Scan - (Noun)
+1.1g - Results - (Noun)
+1.1h - Yet - (Adverb)
+1.1i - But – (Conjunction) 
+1.1j - From – (Preposition) 
+1.1k - My – (Pronoun) 
+1.1l - Initial – (Adjective) 
+1.1m - Observations – (Noun) 
+1.1n - There – (Adverb)
+1.1o - Are – (Verb)
+1.1p - Dark – (Adjective) 
+1.1q - Spots – (Noun) 
+1.1r - On – (Preposition) 
+1.1s - The – (Article) 
+1.1t - Lungs – (Noun) 
+1.1u - And – (Conjunction) 
+1.1v - On – (Preposition) 
+1.1w - The – (Article) 
+1.1x - Left – (Adjective) 
+1.1y - Breast, - (Noun) 
+1.1z - Indicating – (Verb)
+1.1aa - The – (Article) 
+1.1ab - Possibility – (Noun) 
+1.1ac - That – (Conjunction) 
+1.1ad - Here – (Adverb) 
+1.1ae - Might – (Auxiliary Verb) 
+1.1af - Be – (Verb) 
+1.1ag - Tumors – (Noun)
+
+1.2a - There – (Adverb) 
+1.2b - Might – (Auxiliary Verb) 
+1.2c - Not – (Adverb) 
+1.2d - Be – (Verb) 
+1.2e - Tumors – (Noun)
+
+1.3a - But – (Conjunction) 
+1.3b - If – (Conjunction) 
+1.3c - It – (Pronoun) 
+1.3d - Turns – (Verb) 
+1.3e - Out – (Adverb) 
+1.3f - That – (Conjunction) 
+1.3g - There – (Adverb) 
+1.3h - Are – (Verb) 
+1.3i - Like – (Conjunction) 
+1.3j - I – (Pronoun) 
+1.3k - Suspect – (Verb) 
+1.3l - Then – (Adverb) 
+1.3m - I – (Pronoun) 
+1.3n - Will – (Auxiliary Verb)  
+1.3o - Have – (Verb) 
+1.3p - To – (Preposition/Infinitive Marker) 
+1.3q - Determine – (Verb) 
+1.3r - If – (Conjunction) 
+1.3s - The – (Article) 
+1.3t - Tumors – (Noun)
+ 1.3u - Are – (Verb) 
+1.3v - Cancerous – (Adjective) 
+1.3w - Or – (Conjunction) 
+1.3x - Non – (Adjective) 
+1.3y - Cancerous – (Adjective)
+
+1.4a - If (Conjunction)
+1.4b - They (Pronoun)
+1.4c - Are (Verb)
+1.4d - Cancerous (Adjective)
+1.4e - Are (Verb)
+1.4f - They (Pronoun)
+1.4g - Malignant (Adjective)
+1.4h - Or (Conjunction)
+1.4i - Benign (Adjective)
+
+1.5a - And (Conjunction)
+1.5b - If (Conjunction)
+1.5c - They (Pronoun)
+1.5d - Are (Verb)
+1.5e - Malignant (Adjective)
+1.5f - Are (Verb)
+1.5g - They (Pronoun)
+1.5h - Terminal (Adjective)
+1.5i - Or (Conjunction)
+1.5j - Non-Terminal (Adjective)","1.1a - I (Pronoun) 
+1.1b - neva (Adverb) 
+1.1c - chook (Verb) 
+1.1d - eye (Noun) 
+1.1e - for (Preposition) 
+1.1f - de (Article) 
+1.1g - scan (Adjective) 
+1.1h - result (Noun) 
+1.1i - finish (Adverb) 
+1.1j - but (Conjunction) 
+1.1k - as (Preposition) 
+1.1l - for (Preposition) 
+1.1m - de (Article) 
+1.1n - first (Adjective) 
+1.1o - eye (Noun) 
+1.1p - wey (Pronoun) 
+1.1q - i (Pronoun) 
+1.1r - take (Verb) 
+1.1s - luk (Verb) 
+1.1t - am (Pronoun) 
+1.1u - e (Pronoun) 
+1.1v - get (Verb) 
+1.1w - some (Adjective) 
+1.1x - dark (Adjective) 
+1.1y - spots (Noun) 
+1.1z - for (Preposition) 
+1.1aa - de (Article) 
+1.1ab - two (Adjective) 
+1.1ac - lungs (Noun) 
+1.1ad - and (Conjunction) 
+1.1ae - for (Preposition) 
+1.1af - de (Article) 
+1.1ag - breast (Noun) 
+1.1ah - wey (Pronoun) 
+1.1ai - dey (Verb) 
+1.1aj - left (Adjective) 
+1.1ak - side, (Noun) 
+1.1al - meaning (Verb) 
+1.1am - sey (Conjunction) 
+1.1an - e (Pronoun) 
+1.1ao - fit (Verb) 
+1.1ap - be (Verb) 
+1.1aq - swelling/tumor (Noun) 
+1.1ar - na (Verb) 
+1.1as - im (Pronoun) 
+1.1at - dey (Verb) 
+1.1au - dia. (Adverb)
+
+1.2a - E (Pronoun) 
+1.2b - fit (Verb) 
+1.2c - be (Verb) 
+1.2d - say (Conjunction) 
+1.2e - swelling/tumor (Noun) 
+1.2f - no (Adverb) 
+1.2g - dey (Verb) 
+1.2h - dia. (Adverb)
+
+1.3a - But (Conjunction) 
+1.3b - if (Conjunction) 
+1.3c - e (Pronoun) 
+1.3d - come (Verb) 
+1.3e - be (Verb) 
+1.3f - say (Conjunction) 
+1.3g - de (Article) 
+1.3h - tumor/swelling (Noun) 
+1.3i - dey (Verb) 
+1.3j - dia, (Adverb) 
+1.3k - as (Conjunction) 
+1.3l - i (Pronoun) 
+1.3m - dey (Verb) 
+1.3n - reason (Verb) 
+1.3o - am, (Pronoun) 
+1.3p - wetin (Pronoun) 
+1.3q - go (Verb) 
+1.3r - happen (Verb) 
+1.3s - be (Verb) 
+1.3t - sey (Conjunction) 
+1.3u - we (Pronoun) 
+1.3v - go (Verb) 
+1.3w - check (Verb) 
+1.3x - whether (Conjunction) 
+1.3y - de (Article) 
+1.3z - tumor/swelling (Noun) 
+1.3aa - dey (Verb) 
+1.3ab - cause (Verb) 
+1.3ac - cancer (Noun) 
+1.3ad - abi (Conjunction) 
+1.3ae - e (Pronoun) 
+1.3af - no (Adverb) 
+1.3ag - dey (Verb) 
+1.3ah - cause (Verb) 
+1.3ai - cancer. (Noun)
+
+1.4a - If (Conjunction) 
+1.4b - de (Article) 
+1.4c - tumor (Noun) 
+1.4d - or (Conjunction) 
+1.4e - swelling (Noun) 
+1.4f - na (Verb) 
+1.4g - de (Article) 
+1.4h - type (Noun) 
+1.4i - wey (Pronoun) 
+1.4j - dey (Verb) 
+1.4k - cause (Verb) 
+1.4l - cancer, (Noun) 
+1.4m - de (Article) 
+1.4n - cancer (Noun) 
+1.4o - na (Verb) 
+1.4p - de (Article) 
+1.4q - type (Noun) 
+1.4r - wey (Pronoun) 
+1.4s - dey (Verb) 
+1.4t - dangerous (Adjective) 
+1.4u - abi (Conjunction) 
+1.4v - na (Verb) 
+1.4w - de (Article) 
+1.4x - type (Noun) 
+1.4y - wey (Pronoun) 
+1.4z - no (Adverb) 
+1.4aa - dey (Verb) 
+1.4ab - dangerous (Adjective)
+
+1.5a - and (Conjunction) 
+1.5b - if (Conjunction) 
+1.5c - e (Pronoun) 
+1.5d - dey (Verb) 
+1.5e - dangerous (Adjective) 
+1.5f - na (Verb) 
+1.5g - de (Article) 
+1.5h - type (Noun) 
+1.5i - wey (Pronoun) 
+1.5j - go (Verb) 
+1.5k - kill (Verb) 
+1.5l - abi (Conjunction) 
+1.5m - na (Verb) 
+1.5n - de (Article) 
+1.5o - type (Noun) 
+1.5p - wey (Pronoun) 
+1.5q - no (Adverb) 
+1.5r - go (Verb) 
+1.5s - kill (Verb)","1.1 - Scan
+
+1.4 -Tumor 
+
+1.5 - Tumor
+
+1.7 - Cancerous (Cancer)
+
+1.8a - Malignant 
+
+1.8b Benign","1.1 - Scan - Yes(Pidgin), No(vernacular)
+
+1. 4 - Tumor -Yes(Pidgin), No(Vernacular)
+
+1.5 -  Yes(Pidgin), No(vernacular)
+
+1.7 - Cancerous  Yes(Pidgin), No(vernacular)
+
+1.8a - Malignant  No(pidgin & vernacular)
+
+1.8b -Benign  No (pidgin & vernacular)
+","1.1 - I neva chook eye 
+Meaning: Haven't  reviewed
+
+1. 4 - Tumor -No(Vernacular)
+
+1. 5 - No(vernacular)
+
+1.7 - Cancerous  No(vernacular)
+
+1.8a - Malignant  No(pidgin & vernacular) 
+""…. If de tumor or swelling na de type wey dey cause cancer, de cancer na de type wey dey kill or de type wey no dey kill?
+
+1.8b -Benign  No (pidgin & vernacular)","1.1 - Chook
+Meaning: Look (Verb)
+
+1.2 - Wey
+Meaning: 
+
+1.3 - Dey
+
+1.4a - Sey
+
+1.4b - e
+
+1.4c - Na
+
+1.4d - Im
+
+1.7a - Wetin
+
+1.7b - Abi",,,"1.1 - I have not reviewed the scan results yet
+""... I neva chook eye for de scan result finish
+
+1.2 - but from my initial observations,
+""... but as for de first eye wey i take luk am
+
+1.3 - there are dark spots on the lungs and on the left breast,
+""... e get some dark spots for de two lungs and for de breast wey dey left side
+
+1.4 - indicating the possibility that there might be tumors.
+""... meaning sey e fit be swelling/tumor na im dey dia
+
+1.5 - There might not be tumors. 
+"".... e fit be say swelling/tumor no dey dia
+
+1.6 - But if it turns out that there are, like I suspect, 
+""....  but if e come be say de tumor/swelling dey dia as i dey reason am
+
+1. 7 - then I will have to determine if the tumors are cancerous or non-cancerous. 
+""....  wetin go happen be sey we go check whether de tumor/swelling dey cause cancer abi e no dey cause cancer
+
+1. 8 - And if they are cancerous, are they malignant or benign. 
+…. If de tumor or swelling na de type wey dey cause cancer, de cancer na de type wey dey dangerous abi na de type wey no dey dangerous
+
+1. 9 - And if they are malignant, are they terminal or non-terminal...""
+""... and if e dey dangerous , na de type wey go kill abi na de type wey no go kill","1.1 -  I neva really check dat your scan result
+
+1.2 - but I dey feel say
+
+1.3 - you get dak spot for your lungs, even for your left breast,
+
+1.4 - and dat one mean say you get tumor.
+
+1.5 -  e possible say tumor no dey oo
+
+1.6 - but if say tumor dey der as i dey feel,
+
+1.7 - den i go need confirm weda e dey cancerous or not ,
+
+1.8 - and if e dey cancerous, i go check to see if na the one grow fast or not,
+
+1.9  - and if e dey grow fast, i go check weda e dey kill person or not.","1.1 -  I neva chook eye for de scan result finish.
+
+1.2 - but as for de first eye wey i take luk am,
+
+1.3 - e get some dark spots for de two lungs and for de breast wey dey left side,
+
+1.4 - meaning sey e fit be swelling/tumor na im dey dia.
+
+1.5 -  e fit be say swelling/tumor no dey dia
+
+1.6 - but if e come be say de tumor/swelling dey dia as i dey reason am,
+
+1.7 - wetin go happen be sey we go check whether de tumor/swelling dey cause cancer abi e no dey cause cancer ,
+
+1.8 - If de tumor or swelling na de type wey dey cause cancer, de cancer na de type wey dey dangerous abi na de type wey no dey dangerous,
+
+1.9  - and if e dey dangerous , na de type wey go kill abi na de type wey no go kill.","... I neva chook eye for de scan result finish but  as for de first eye wey i take luk am, e get some dark spots for de two lungs and for de breast wey dey left side, meaning sey e fit be swelling/tumor na im dey dia. E fit be say swelling/tumor no dey dia. But if e come be say de tumor/swelling dey dia, as i dey reason am, wetin go happen be sey we go check whether de tumor/swelling dey cause cancer abi e no dey cause cancer. If de tumor or swelling na de type wey dey cause cancer, de cancer na de type wey dey dangerous abi na de type wey no dey dangerous and if e dey dangerous , na de type wey go kill abi na de type wey no go kill",,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+Code,Activity,Passage/Text,Type of Translation,Source Language,Target Language,Topic / Domain ,Sentence Token,Sub Sentence Token,Word Token,Letter Token,Part-of-Speech - Source Language,Part-of-Speech - Target Language,Untranslatable Words,Direct Translation Possible?,Contextual Translation,Dictionary,Expression,Agglutinated words/Concatenated words,Modular Translation,Translation - Med. Prof.,Translation - Reg. People,Full Translation - Nigerian Pidgin,,,,
+2,Translation,"""…Statistics do not lie. My sample size is 100 and it is from a total population size of 1000. I broke the 1000 population into 25 sub clusters and picked 4 samples from each cluster. So my sampling methodology is accurate. I even adjusted my results for standard deviation. I can infer from the results that my team obtained, that the rains will come early this year and that there will be a bumper harvest in areas bordering the sub Sahel regions of Ghana, Togo, Benin, Nigeria and Cameroon...""",A mix of literal and contextual depending on the audience                       ,English,Pidgin English,Statistical Report,"2. 1 - Statistics do not lie.
+
+2. 2 -  My sample size is 100 and it is from a total population size of 1000.
+
+ 2. 3 - I broke the 1000 population into 25 sub clusters and picked 4 samples from each cluster.
+
+
+2. 4 - So my sampling methodology is accurate.
+
+2. 5 - I even adjusted my results for standard deviation.
+
+2. 6 - I can infer from the results that my team obtained, that the rains will come early this year and that there will be a bumper harvest in areas bordering the sub Sahel regions of Ghana, Togo, Benin, Nigeria and Cameroon.","2.1 - Statistics do not lie.
+
+2.2 - My sample size is 100 and it is from a total population size of 1000.
+
+2.3 - I broke the 1000 population into 25 sub clusters and picked 4 samples from each cluster
+
+2.4 - So my sampling methodology is accurate.
+
+2.5 - I even adjusted my results for standard deviation. 
+
+2.6 - I can infer from the results that my team obtained, 
+
+2. 7 - that the rains will come early this year 
+
+2. 8 - and that there will be a bumper harvest
+
+2. 9 - in areas bordering the sub Sahel regions of Ghana, Togo, Benin, Nigeria and Cameroon...""","2.1a - Statistics 
+2.1b - Do 
+2.1c - Not 
+2.1d – Lie
+
+2.2a - My 
+2.2b - Sample 
+2.2c - Size 
+2.2d - Is 
+2.2e - 100 
+2.2f - And 
+2.2g - It 
+2.2h – Is
+ 2.2i - From 
+2.2j - A 
+2.2k - Total 
+2.2l - Population 
+2.2m - Size 
+2.2n - Of 
+2.2o – 1000
+
+2.3a - I 
+2.3b - Broke 
+2.3c - The 
+2.3d - 1000 
+2.3e - Population 
+2.3f - Into 
+2.3g - 25 
+2.3h - Sub 
+2.3i - Clusters 
+2.3j - And 
+2.3k - Picked 
+2.3l - 4 
+2.3m - Samples 
+2.3n - From 
+2.3o - Each 
+2.3p – Cluster
+
+2.4a - So 
+2.4b - My 
+2.4c - Sampling 
+2.4d - Methodology 
+2.4e - Is 
+2.4f – Accurate
+
+2.5a - I 
+2.5b - Even 
+2.5c - Adjusted 
+2.5d - My 
+2.5e - Results 
+2.5f - For 
+2.5g - Standard 
+2.5h – Deviation
+
+2.6a - I 
+2.6b - Can 
+2.6c - Infer 
+2.6d - From 
+2.6e - The 
+2.6f - Results 
+2.6g - That 
+2.6h - My 
+2.6i - Team 
+2.6j – Obtained
+
+2.7a - That 
+2.7b - The 
+2.7c - Rains 
+2.7d - Will 
+2.7e - Come 
+2.7f - Early 
+2.7g - This 
+2.7h – Year
+
+2.8a - And 
+2.8b - That 
+2.8c - There 
+2.8d - Will 
+2.8e - Be 
+2.8f - A 
+2.8g - Bumper 
+2.8h – Harvest
+
+2.9a - In 
+2.9b - Areas 
+2.9c - Bordering 
+2.9d - The 
+2.9e - Sub 
+2.9f - Sahel 
+2.9g - Regions 
+2.9h - Of 
+2.9i - Ghana
+2.9j - Togo
+2.9k - Benin 
+2.9l - Nigeria 
+2.9m - And 
+2.9n - Cameroon
+",,"2.1a - Statistics (Noun) 
+2.1b - do (Verb) 
+2.1c - not (Adverb) 
+2.1d - lie. (Verb)
+
+2.2a - My (Pronoun) 
+2.2b - sample (Adjective) 
+2.2c - size (Noun) 
+2.2d - is (Verb) 
+2.2e - 100 (Noun) 
+2.2f - and (Conjunction) 
+2.2g - it (Pronoun) 
+2.2h - is (Verb) 
+2.2i - from (Preposition) 
+2.2j - a (Article) 
+2.2k - total (Adjective) 
+2.2l - population (Noun) 
+2.2m - size (Noun) 
+2.2n - of (Preposition) 
+2.2o - 1000. (Noun)
+
+2.3a - I (Pronoun) 
+2.3b - broke (Verb) 
+2.3c - the (Article) 
+2.3d - 1000 (Adjective) 
+2.3e - population (Noun) 
+2.3f - into (Preposition) 
+2.3g - 25 (Adjective) 
+2.3h - sub (Adjective) 
+2.3i - clusters (Noun) 
+2.3j - and (Conjunction) 
+2.3k - picked (Verb) 
+2.3l - 4 (Adjective) 
+2.3m - samples (Noun) 
+2.3n - from (Preposition) 
+2.3o - each (Adjective) 
+2.3p - cluster (Noun)
+
+2.4a - So (Conjunction) 
+2.4b - my (Pronoun) 
+2.4c - sampling (Adjective) 
+2.4d - methodology (Noun) 
+2.4e - is (Verb) 
+2.4f - accurate. (Adjective)
+
+2.5a - I (Pronoun) 
+2.5b - even (Adverb) 
+2.5c - adjusted (Verb) 
+2.5d - my (Pronoun) 
+2.5e - results (Noun) 
+2.5f - for (Preposition) 
+2.5g - standard (Adjective) 
+2.5h - deviation. (Noun)
+
+2.6a - I (Pronoun) 
+2.6b - can (Verb) 
+2.6c - infer (Verb) 
+2.6d - from (Preposition) 
+2.6e - the (Article) 
+2.6f - results (Noun) 
+2.6g - that (Pronoun) 
+2.6h - my (Pronoun) 
+2.6i - team (Noun) 
+2.6j - obtained, (Verb)
+
+2.7a - that (Conjunction) 
+2.7b - the (Article) 
+2.7c - rains (Noun) 
+2.7d - will (Verb) 
+2.7e - come (Verb) 
+2.7f - early (Adverb) 
+2.7g - this (Adjective) 
+2.7h - year (Noun)
+
+2.8a - and (Conjunction) 
+2.8b - that (Conjunction) 
+2.8c - there (Pronoun) 
+2.8d - will (Verb) 
+2.8e - be (Verb) 
+2.8f - a (Article) 
+2.8g - bumper (Adjective) 
+2.8h - harvest (Noun)
+
+2.9a - in (Preposition) 
+2.9b - areas (Noun) 
+2.9c - bordering (Verb) 
+2.9d - the (Article) 
+2.9e - sub (Adjective) 
+2.9f - Sahel (Noun) 
+2.9g - regions (Noun) 
+2.9h - of (Preposition) 
+2.9i - Ghana, (Noun) 
+2.9j - Togo, (Noun) 
+2.9k - Benin, (Noun) 
+2.9l - Nigeria (Noun) 
+2.9m - and (Conjunction) 
+2.9n - Cameroon (Noun)","2.1a - Statistics (Noun) 
+2.1b - No (Adverb) 
+2.1c - Dey (Verb) 
+2.1d - Lie. (Verb)
+
+2.2a - My (Pronoun) 
+2.2b - Sample (Adjective) 
+2.2c - Size (Noun) 
+2.2d - Na (Verb) 
+2.2e - 100 (Noun) 
+2.2f - And (Conjunction) 
+2.2g - E (Pronoun) 
+2.2h - Com (Verb) 
+2.2i - From (Preposition) 
+2.2j - Total (Adjective) 
+2.2k - Population, (Noun) 
+2.2l - Wey (Pronoun) 
+2.2m - Be (Verb) 
+2.2n - 1000 (Noun)
+
+2.3a - I (Pronoun) 
+2.3b - Share (Verb) 
+2.3c - De (Article) 
+2.3d - 1000 (Adjective) 
+2.3e - Population (Noun) 
+2.3f - To (Preposition) 
+2.3g - 25 (Adjective) 
+2.3h - Small (Adjective) 
+2.3i - Group (Noun) 
+2.3j - And (Conjunction) 
+2.3k - I (Pronoun) 
+2.3l - Com (Verb) 
+2.3m - Pick (Verb) 
+2.3n - 4 (Noun) 
+2.3o - For (Preposition) 
+2.3p - Inside (Preposition) 
+2.3q - All (Adjective) 
+2.3r - De (Article) 
+2.3s - Group (Noun)
+
+2.4a - De (Article) 
+2.4b - Way (Noun) 
+2.4c - I (Pronoun) 
+2.4d - Take (Verb) 
+2.4e - Do (Verb) 
+2.4f - De (Article) 
+2.4g - Sampling (Noun) 
+2.4h - Na (Verb) 
+2.4i - Correct (Adjective) 
+2.4j - Way (Noun)
+
+2.5a - I (Pronoun) 
+2.5b - Even (Adverb) 
+2.5c - Arrange (Verb) 
+2.5d - Am (Pronoun) 
+2.5e - Well (Adverb) 
+2.5f - For (Preposition) 
+2.5g - Standard (Adjective) 
+2.5h - Deviation. (Noun)
+
+2.6a - From (Preposition) 
+2.6b - De (Article) 
+2.6c - Result (Noun) 
+2.6d - Wey (Pronoun) 
+2.6e - My (Pronoun) 
+2.6f - Team (Noun) 
+2.6g - Get (Verb)
+
+2.7a - I (Pronoun) 
+2.7b - Fit (Verb) 
+2.7c - Conclude (Verb) 
+2.7d - Say (Conjunction) 
+2.7e - Rain (Noun) 
+2.7f - Go (Verb) 
+2.7g - Com (Verb) 
+2.7h - Quick (Adverb) 
+2.7i - Quick (Adverb) 
+2.7j - Dis (Adjective) 
+2.7k - Year (Noun)
+
+2.8a - And (Conjunction) 
+2.8b - Harvest (Noun) 
+2.8c - Go (Verb) 
+2.8d - Plenty (Verb) 
+2.8e - Well (Adverb) 
+2.8f - Well (Adverb)
+
+2.9a - For (Preposition) 
+2.9b - De (Article) 
+2.9c - Areas (Noun) 
+2.9d - Wey (Pronoun) 
+2.9e - Dey (Verb) 
+2.9f - Around (Preposition) 
+2.9g - Sub (Adjective) 
+2.9h - Sahel (Noun) 
+2.9i - For (Preposition) 
+2.9j - Ghana, (Noun) 
+2.9k - Togo, (Noun) 
+2.9l - Benin, (Noun) 
+2.9m - Naija (Noun) 
+2.9n - & (Conjunction) 
+2.9o - Cameroon (Noun)","2.1 - Statistics
+
+2.2 -Sample
+
+2.3 - Cluster
+
+2.4  - Sampling
+
+2.5 - Standard Deviation 
+
+2.9  - Sub Sahel  ","2.1 - Statistics - Yes(Pidgin) No(Vernacular)
+
+2. 2 -Sample -  No(Pidgin) No(Vernacular)
+
+2.3 - Cluster - Yes(Pidgin) No(Vernacular)
+
+2.4  - Sampling - Yes(Pidgin) No(Vernacular)
+
+2.5 - Standard Deviation  - Yes(Pidgin) No(Vernacular)
+
+2. 9  - Sub Sahel  - No(Pidgin) No(Vernacular)","2.1 - Statistics -No(Vernacular)
+           mathematics (pidgin)
+
+2.2 - Sample - No(Pidgin) No(Vernacular)
+
+2.3 - Cluster -  No(Vernacular)
+           small small group (pidgin)
+
+2.4  - Sampling - No(Vernacular)
+
+2.5 - Standard Deviation -No(Vernacular)
+          calculation (pidgin)","4.1a - don
+Meaning: Have (Auxiliary verb)
+4.1b - gree
+Meaning: Agree or Accept(Verb)
+4.1b - wey
+Meaning: That (Conjuction) 
+4.1c - De
+Meaning: Transliteration of The (Article)
+4.1d - Ontop
+Meaning: Translates roughly to ""regarding""
+
+4.2 - Dey
+Meaning: Is (Auxiliary verb)
+
+4.3a - Wahala
+Meaning: Problem/Challenges/Issues (Noun)
+
+4.3b - Chance
+Meaning: Challenge (Verb)
+
+",,,"2.1 - Statistics do not lie.
+""...Mathematics no dey lie
+
+2.2 - My sample size is 100 and it is from a total population size of 1000.
+""...De sample wey i use na 100 and e com from everitin wey be 1000
+
+2.3 - I broke the 1000 population into 25 sub clusters and picked 4 samples from each cluster
+""...i share de 1000 from everitin wey dey to 25 small small group and i com pick 4 for inside all of dem
+
+2.4 - So my sampling methodology is accurate.
+""...De pattern wey i use take do dis tin e correct well well
+
+2.5 - I even adjusted my results for standard deviation.
+ ""...I even arrange am well for my calculation
+
+2.6 - I can infer from the results that my team obtained, 
+""...from de result wey my team get.
+
+2. 7 - that the rains will come early this year 
+""...I fit conclude say rain go com quick quick dis year
+
+2. 8 - and that there will be a bumper harvest
+""...and harvest go plenty well well
+
+2. 9 - in areas bordering the sub Sahel regions of Ghana, Togo, Benin, Nigeria and Cameroon...""
+""...For de areas wey dey around Sub Sahel for Ghana, Togo, Benin, Naija & Cameroon.","2.1 -  Statistics no dey lie.
+
+2.2 - My sample size na 100 and e com from total population, wey be 1000   
+
+2.3 - I share de 1000 population to 25 small group and i com pick 4 for inside all de group
+
+2.4 - De way i take do de sampling na correct way
+
+2.5 -  I even arrange am well for standard deviation.
+
+2.6 - From de result wey my team get
+
+2.7 - I fit conclude say rain go com quick quick dis year
+
+2.8 - and harvest go plenty well well
+
+2.9  - For de areas wey dey around Sub Sahel for Ghana, Togo, Benin, Naija & Cameroon","2.1 -  Information no dey lie
+
+2.2 - De sample wey I use na 1000 and e com from everitin wey be 100
+
+2.3 -  I share de 1000 from everitin wey dey to 25 small small group and i com pick 4 for inside all of dem
+
+2.4 - De pattern wey i use take do dis tin e correct well well
+
+2.5 -  I even arrange am well for my calculation
+
+2.6 - From de result wey my team get.
+
+2.7 - I fit conclude say rain go com quick quick dis year
+
+2.8 - and harvest go plenty well well
+
+2.9  - For de areas wey dey around Sub Sahel for Ghana, Togo, Benin, Naija & Cameroon.","""...Mathematics no dey lie. De sample wey i use na 1000 and e com from everitin wey be 100 i share de 1000 from everitin wey dey to 25 small small group and i com pick 4 for inside all of dem. De pattern wey i use take do dis tin e correct well well. I even arrange am well for my calculation. From de result wey my team get, I fit conclude say rain go com quick quick dis year and harvest go plenty well well for de areas wey dey around Sub Sahel for Ghana, Togo, Benin, Naija & Cameroon.",,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+Code,Activity,Passage/Text,Type of Translation,Source Language,Target Language,Topic / Domain ,Sentence Token,Sub Sentence Token,Word Token,Letter Token,Part-of-Speech - Source Language,Part-of-Speech - Target Language,Untranslatable Words,Direct Translation Possible?,Contextual Translation,Dictionary,Expression,Agglutinated words/Concatenated words,Modular Translation,Translation - Med. Prof.,Translation - Reg. People,Full Translation - Nigerian Pidgin,,,,
+3,Translation,"""…Call us today at MamaPut Online...Order all your cooked African meals here……egusi, okro, oha, kenke, timambusa, jollof rice, fried rice, moin-moin, kpoff-kpoff, meat pie, chin-chin.. Also order all your West African specialties like Milo, Ovaltine, Lipton Tea, Peak Milk and Corn Flakes...                                                   We deliver to your doorstep within 24 hours in any city in the US... """,A mix of literal and contextual depending on the audience                       ,English,Pidgin English,Online Advertisement ,"3. 1 - Call us today at MamaPut Online
+
+ 3. 2 - Order all your cooked African meals here……egusi, okro, oha, kenke,  timambusa, jollof rice, fried rice, moin-moin, kpoff-kpoff, meat pie, chin-chin
+
+3. 3 - Also order all your West African specialties like Milo, Ovaltine, Lipton Tea, Peak Milk and Corn Flakes
+
+3. 4 - We deliver to your doorstep within 24 hours in any city in the US
+
+
+","3.1 - Call us today at MamaPut Online
+
+3.2 - Order all your cooked African meals here
+
+3.3 - egusi, okro, oha, kenke,  timambusa, jollof rice, fried rice, moin-moin, kpoff-kpoff, meat pie, chin-chin
+
+3.4 - Also order all your West African specialties
+
+3.5 - like Milo, Ovaltine, Lipton Tea, Peak Milk and Corn Flakes
+
+3.6 - We deliver to your doorstep within 24 hours in any city in the US 
+
+","3.1a - Call 
+3.1b - Us 
+3.1c - Today 
+3.1d - At 
+3.1e – MamaPut 
+3.1f - Online
+
+3.2a - Order 
+3.2b - All 
+3.2c - Your 
+3.2d - Cooked 
+3.2e - African 
+3.2f - Meals 
+3.2g - Here
+
+3.3a - Egusi, 
+3.3b - Okro, 
+3.3c - Oha, 
+3.3d - Kenke, 
+3.3e - Timambusa, 
+3.3f - Jollof 
+3.3g - Rice, 
+3.3h - Fried 
+3.3i - Rice, 
+3.3j - Moin-Moin, 
+3.3k - Kpoff-Kpoff, 
+3.3l - Meat 
+3.3m - Pie, 
+3.3n - Chin-Chin
+
+3.4a - Also 
+3.4b - Order 
+3.4c - All 
+3.4d - Your 
+3.4e - West 
+3.4f - African 
+3.4g - Specialties
+
+3.5a - Like 
+3.5b - Milo, 
+3.5c - Ovaltine, 
+3.5d - Lipton 
+3.5e - Tea, 
+3.5f - Peak 
+3.5g - Milk 
+3.5h - And 
+3.5i - Corn 
+3.5j - Flakes
+
+3.6a - We 
+3.6b - Deliver 
+3.6c - To 
+3.6d - Your 
+3.6e - Doorstep 
+3.6f - Within 
+3.6g - 24 
+3.6h - Hours 
+3.6i - In 
+3.6j - Any 
+3.6k - City 
+3.6l - In 
+3.6m - The 
+3.6n - US",,"3.1a - Call (Verb) 
+3.1b - Us (Pronoun) 
+3.1c - Today (Adverb) 
+3.1d - At (Preposition) 
+3.1e - Mamaput (Noun) 
+3.1f - Online (Noun)
+
+3.2a - Order (Verb) 
+3.2b - All (Adjective) 
+3.2c - Your (Pronoun) 
+3.2d - Cooked (Adjective) 
+3.2e - African (Adjective) 
+3.2f - Meals (Noun) 
+3.2g - Here (Adverb)
+
+3.3a - Egusi, (Noun) 
+3.3b - Okro, (Noun) 
+3.3c - Oha, (Noun) 
+3.3d - Kenke, (Noun) 
+3.3e - Timambusa, (Noun) 
+3.3f - Jollof (Adjective) 
+3.3g - Rice, (Noun) 
+3.3h - Fried (Adjective) 
+3.3i - Rice, (Noun) 
+3.3j - Moin-Moin, (Noun) 
+3.3k - Kpoff-Kpoff, (Noun) 
+3.3l - Meat (Noun) 
+3.3m - Pie, (Noun) 
+3.3n - Chin-Chin (Noun)
+
+3.4a - Also (Adverb) 
+3.4b - Order (Verb) 
+3.4c - All (Adjective) 
+3.4d - Your (Pronoun) 
+3.4e - West (Adjective) 
+3.4f - African (Adjective) 
+3.4g - Specialties (Noun)
+
+3.5a - Like (Preposition) 
+3.5b - Milo, (Noun) 
+3.5c - Ovaltine, (Noun) 
+3.5d - Lipton (Noun) 
+3.5e - Tea, (Noun) 
+3.5f - Peak (Noun) 
+3.5g - Milk (Noun) 
+3.5h - And (Conjunction) 
+3.5i - Corn (Noun) 
+3.5j - Flakes (Noun)
+
+3.6a - We (Pronoun) 
+3.6b - Deliver (Verb) 
+3.6c - To (Preposition) 
+3.6d - Your (Pronoun) 
+3.6e - Doorstep (Noun) 
+3.6f - Within (Preposition) 
+3.6g - 24 (Adjective) 
+3.6h - Hours (Noun) 
+3.6i - In (Preposition) 
+3.6j - Any (Adjective) 
+3.6k - City (Noun) 
+3.6l - In (Preposition) 
+3.6m - The (Article) 
+3.6n - US (Noun)","3.1a - Make (Verb) 
+3.1b - Una (Pronoun) 
+3.1c - Call (Verb) 
+3.1d - Us (Pronoun) 
+3.1e - Today (Adverb) 
+3.1f - For (Preposition) 
+3.1g - Mamaput (Noun) 
+3.1h - Online (Noun)
+
+3.2a - Arrange (Verb) 
+3.2b - All (Adjective) 
+3.2c - Una (Pronoun) 
+3.2d - African (Adjective) 
+3.2e - Food (Noun) 
+3.2f - Wey (Pronoun) 
+3.2g - Don (Verb) 
+3.2h - Redi (Adjective) 
+3.2i - For (Preposition) 
+3.2j - Our (Pronoun) 
+3.2k - Side (Noun)
+
+3.3a - Egusi, (Noun) 
+3.3b - Okro, (Noun) 
+3.3c - Oha, (Noun) 
+3.3d - Kenke, (Noun) 
+3.3e - Timambusa, (Noun) 
+3.3f - Jellof (Adjective) 
+3.3g - Rice, (Noun) 
+3.3h - Fried (Adjective) 
+3.3i - Rice, (Noun) 
+3.3j - Moin-Moin, (Noun) 
+3.3k - Kpoff-Kpoff, (Noun) 
+3.3l - Meat (Noun) 
+3.3m - Pie, (Noun) 
+3.3n - Chim-Chim (Noun)
+
+3.4a - Also (Adverb) 
+3.4b - Make (Verb) 
+3.4c - Una (Pronoun) 
+3.4d - Arrange (Verb) 
+3.4e - All (Adjective) 
+3.4f - Una (Pronoun) 
+3.4g - West (Adjective) 
+3.4h - African (Adjective) 
+3.4i - Ogbonge (Adjective) 
+3.4j - Items (Noun) 
+3.4k - Like (Preposition) 
+3.4l - Milo, (Noun) 
+3.4m - Ovatin, (Noun) 
+3.4n - Lipton (Noun) 
+3.4o - Tea, (Noun) 
+3.4p - Pik (Noun) 
+3.4q - Mik (Noun) 
+3.4r - And (Conjunction) 
+3.4s - Conflakes (Noun)
+
+3.5a - We (Pronoun) 
+3.5b - Go (Verb) 
+3.5c - Bring (Verb) 
+3.5d - Am (Pronoun) 
+3.5e - Com (Verb) 
+3.5f - Your (Pronoun) 
+3.5g - Domot (Noun) 
+3.5h - And (Conjunction) 
+3.5i - E (Pronoun) 
+3.5j - No (Adverb) 
+3.5k - Go (Verb) 
+3.5l - Pass (Verb) 
+3.5m - Inside (Preposition) 
+3.5n - One (Adjective) 
+3.5o - Day (Noun) 
+3.5p - For (Preposition) 
+3.5q - Anywia (Noun) 
+3.5r - Wey (Pronoun) 
+3.5s - You (Pronoun) 
+3.5t - Dey (Verb) 
+3.5u - For (Preposition) 
+3.5v - America (Noun)","
+
+N/A
+
+","
+Order - Yes(Pidgin) - Yes(Vernacular)
+
+Specialties - Yes(Pidgin) - Yes(Vernacular)
+
+Doorstep - Yes(Pidgin) - Yes(Vernacular) 
+",,"4.1a - don
+Meaning: Have (Auxiliary verb)
+4.1b - gree
+Meaning: Agree or Accept(Verb)
+4.1b - wey
+Meaning: That (Conjuction) 
+4.1c - De
+Meaning: Transliteration of The (Article)
+4.1d - Ontop
+Meaning: Translates roughly to ""regarding""
+
+4.2 - Dey
+Meaning: Is (Auxiliary verb)
+
+4.3a - Wahala
+Meaning: Problem/Challenges/Issues (Noun)
+
+4.3b - Chance
+Meaning: Challenge (Verb)
+
+",,,"3.1 - Call us today at MamaPut Online
+""...Make una call us today for MamaPut Online
+
+3.2 - Order all your cooked African meals here
+""...Arrange all una African food wey don redi for our side 
+
+3.3 - egusi, okro, oha, kenke,  timambusa, jollof rice, fried rice, moin-moin, kpoff-kpoff, meat pie, chin-chin
+""...egusi, okro, oha, kenke,  timambusa, jellof rice, fried rice, moin-moin, kpoff-kpoff, meat pie, chim-chim
+
+3.4 - Also order all your West African specialties like Milo, Ovaltine, Lipton Tea, Peak Milk and Corn Flakes
+""...Also make una arrange all una West African ogbonge items like Milo, Ovatin, Lipton Tea, Pik Mik and Con Flakes
+
+3.5 - We deliver to your doorstep within 24 hours in any city in the US 
+""...We go bring am com your domot and e no go pass inside one day for anywia wey you dey for America
+","3.1 - Make una call us today for MamaPut Online
+
+3.2 - Order all una cooked African food wey for our side 
+
+3.3 - egusi, okro, oha, kenke,  timambusa, jollof rice, fried rice, moin-moin, kpoff-kpoff, meat pie, chin-chin
+
+3.4 - Also make una order all una West African ogbonge items like Milo, Ovaltine, Lipton Tea, Peak Milk and Corn Flakes
+
+3.5 - We go bring am com your domot and e no go pass inside one day for anywia wey you dey for America","3.1 - Make una call us today for MamaPut Online
+
+3.2 - Arrange all una African food wey don redi for our side 
+
+3.3 - egusi, okro, oha, kenke,  timambusa, jellof rice, fried rice, moin-moin, kpoff-kpoff, meat pie, chim-chim
+
+3.4 - Also make una arrange all una West African ogbonge items like Milo, Ovatin, Lipton Tea, Pik Mik and Con Flakes
+
+3.5 - We go bring am com your domot and e no go pass inside one day for anywia wey you dey for America","""...Make una call us today for MamaPut Online...Arrange all una African food wey don redi for our side…egusi, okro, oha, kenke,  timambusa, jellof rice, fried rice, moin-moin, kpoff-kpoff, meat pie, chim-chim..Also make una arrange all una West African ogbonge items like Milo, Ovatin, Lipton Tea, Pik Mik and Con Flakes......We go bring am com your domot and e no go pass inside one day for anywia wey you dey for America...",,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+Code,Activity,Passage/Text,Type of Translation,Source Language,Target Language,Topic / Domain ,Sentence Token,Sub Sentence Token,Word Token,Letter Token,Part-of-Speech - Source Language,Part-of-Speech - Target Language,Untranslatable Words,Direct Translation Possible?,Contextual Translation,Dictionary,Expression,Agglutinated words/Concatenated words,Modular Translation,Translation - Med. Prof.,Translation - Reg. People,Full Translation - Nigerian Pidgin,,,,
+4,Translation,"""…   This agreement allows the assignor to assign, sell, convey, and transfer all of assignor's interest in a particular contract to assignee. Assignee agrees to hold harmless and indemnify assignor for such liens, claims or encumbrances. Assignor represents and warrants that his/her interest in the contract subject to this assignment is free of liens, claims or encumbrances of any kind by third parties.... """,A mix of literal and contextual depending on the audience                       ,Example - English,Pidgin English,Legal Document,"4. 1 - This agreement allows the assignor to assign, sell, convey, and transfer all of assignor's interest in a particular contract to assignee.
+
+4. 2 -  Assignee agrees to hold harmless and indemnify assignor for such liens, claims or encumbrances.
+
+4. 3 - Assignor represents and warrants that his/her interest in the contract subject to this assignment is free of liens, claims or encumbrances of any kind by third parties","4.1 - This agreement allows the assignor to assign, sell, convey, and transfer all of assignor's interest in a particular contract to assignee.
+
+4.2 - Assignee agrees to hold harmless and indemnify assignor for such liens, claims or encumbrances
+
+4.3 - Assignor represents and warrants that his/her interest in the contract subject to this assignment is free of liens, claims or encumbrances of any kind by third parties.","4.1a - This 
+4.1b - Agreement 
+4.1c - Allows 
+4.1d - The 
+4.1e - Assignor 
+4.1f - To 
+4.1g - Assign 
+4.1h - Sell 
+4.1i - Convey 
+4.1j - And 
+4.1k - Transfer 
+4.1l - All 
+4.1m - Of 
+4.1n - Assignor's 
+4.1o - Interest 
+4.1p - In 
+4.1q - A 
+4.1r - Particular 
+4.1s - Contract 
+4.1t - To 
+4.1u - Assignee
+
+4.2a - Assignee 
+4.2b - Agrees 
+4.2c - To 
+4.2d - Hold 
+4.2e - Harmless 
+4.2f - And 
+4.2g - Indemnify 
+4.2h - Assignor 
+4.2i - For 
+4.2j - Such 
+4.2k - Liens
+4.2l - Claims 
+4.2m - Or 
+4.2n - Encumbrances
+
+4.3a - Assignor 
+4.3b - Represents 
+4.3c - And 
+4.3d - Warrants 
+4.3e - That 
+4.3f - His/Her 
+4.3g - Interest 
+4.3h - In 
+4.3i - The 
+4.3j - Contract 
+4.3k - Subject 
+4.3l - To 
+4.3m - This 
+4.3n - Assignment 
+4.3o - Is 
+4.3p - Free 
+4.3q - Of 
+4.3r - Liens 
+4.3s - Claims 
+4.3t - Or 
+4.3u - Encumbrances 
+4.3v - Of 
+4.3w - Any 
+4.3x - Kind 
+4.3y - By 
+4.3z - Third 
+4.3aa - Parties",,"4.1a - This (Adjective) 
+4.1b - Agreement (Noun) 
+4.1c - Allows (Verb) 
+4.1d - The (Article) 
+4.1e - Assignor (Noun) 
+4.1f - To (Preposition) 
+4.1g - Assign (Verb) 
+4.1h - Sell (Verb) 
+4.1i - Convey (Verb) 
+4.1j - And (Conjunction) 
+4.1k - Transfer (Verb) 
+4.1l - All (Pronoun) 
+4.1m - Of (Preposition) 
+4.1n - Assignor's (Noun) 
+4.1o - Interest (Noun) 
+4.1p - In (Preposition) 
+4.1q - A (Article) 
+4.1r - Particular (Adjective) 
+4.1s - Contract (Noun) 
+4.1t - To (Preposition) 
+4.1u - Assignee (Noun)
+
+4.2a - Assignee (Noun) 
+4.2b - Agrees (Verb) 
+4.2c - To (Preposition) 
+4.2d - Hold (Verb) 
+4.2e - Harmless (Adjective) 
+4.2f - And (Conjunction) 
+4.2g - Indemnify (Verb) 
+4.2h - Assignor (Noun) 
+4.2i - For (Preposition) 
+4.2j - Such (Adjective) 
+4.2k - Liens (Noun) 
+4.2l - Claims (Noun) 
+4.2m - Or (Conjunction) 
+4.2n - Encumbrances (Noun)
+
+4.3a - Assignor (Noun) 
+4.3b - Represents (Verb) 
+4.3c - And (Conjunction) 
+4.3d - Warrants (Verb) 
+4.3e - That (Conjunction) 
+4.3f - His/Her (Pronoun) 
+4.3g - Interest (Noun) 
+4.3h - In (Preposition) 
+4.3i - The (Article) 
+4.3j - Contract (Noun) 
+4.3k - Subject (Adjective) 
+4.3l - To (Preposition) 
+4.3m - This (Adjective) 
+4.3n - Assignment (Noun) 
+4.3o - Is (Verb) 
+4.3p - Free (Adjective) 
+4.3q - Of (Preposition) 
+4.3r - Liens (Noun) 
+4.3s - Claims (Noun) 
+4.3t - Or (Conjunction) 
+4.3u - Encumbrances (Noun) 
+4.3v - Of (Preposition) 
+4.3w - Any (Adjective) 
+4.3x - Kind (Noun) 
+4.3y - By (Preposition) 
+4.3z - Third (Adjective) 
+4.3aa - Parties (Noun)","4.1a - As (Conjunction) 
+4.1b - We (Pronoun) 
+4.1c - Don (Verb) 
+4.1d - Gree (Verb) 
+4.1e - Say (Conjunction) 
+4.1f - Make (Verb) 
+4.1g - De (Article) 
+4.1h - Persin (Noun) 
+4.1i - Wey (Pronoun) 
+4.1j - Be (Verb) 
+4.1k - De (Article) 
+4.1l - Owner (Noun) 
+4.1m - Wey (Pronoun) 
+4.1n - Get (Verb) 
+4.1o - Power (Noun) 
+4.1p - Ontop (Preposition) 
+4.1q - Dis (Adjective) 
+4.1r - Our (Pronoun) 
+4.1s - Matter (Noun) 
+4.1t - Giv (Verb) 
+4.1u - Am (Pronoun) 
+4.1v - To (Preposition) 
+4.1w - Anoda (Adjective) 
+4.1x - Persin (Noun) 
+4.1y - You (Pronoun) 
+4.1z - Wey (Pronoun) 
+4.1aa - Get (Verb) 
+4.1ab - De (Article) 
+4.1ac - Powa (Noun) 
+4.1ad - Before (Adverb) 
+4.1ae - To (Preposition) 
+4.1af - Sell (Verb) 
+4.1ag - Convey (Verb) 
+4.1ah - Or (Conjunction) 
+4.1ai - Transfer (Verb) 
+4.1aj - Gree (Verb) 
+4.1ak - Say (Conjunction) 
+4.1al - Make (Verb) 
+4.1am - Dis (Adjective) 
+4.1an - New (Adjective) 
+4.1ao - Persin (Noun) 
+4.1ap - Take (Verb) 
+4.1aq - Ova (Adverb)
+
+4.2a - You (Pronoun) 
+4.2b - Wey (Pronoun) 
+4.2c - Take (Verb) 
+4.2d - Ova (Adverb) 
+4.2e - Don (Verb) 
+4.2f - Gree (Verb) 
+4.2g - Say (Conjunction) 
+4.2h - You (Pronoun) 
+4.2i - Go (Verb) 
+4.2j - Cova (Verb)
+ 4.2k - De (Article) 
+4.2l - Persin (Noun) 
+4.2m - Wey (Pronoun) 
+4.2n - Give (Verb) 
+4.2o - You (Pronoun) 
+4.2p - De (Article) 
+4.2q - Powa (Noun) 
+4.2r - Pay (Verb) 
+4.2s - Any (Adjective) 
+4.2t - Anytin (Noun) 
+4.2u - Wey (Pronoun) 
+4.2v - Be (Verb) 
+4.2w - Gbese (Noun) 
+4.2x - Money (Noun) 
+4.2y - Any (Adjective) 
+4.2z - Persin (Noun) 
+4.2aa - Wey (Pronoun) 
+4.2ab - E (Pronoun) 
+4.2ac - Dey (Verb) 
+4.2ad - Owe (Verb) 
+4.2ae - Wey (Pronoun) 
+4.2af - Come (Verb) 
+4.2ag - Look (Verb) 
+4.2ah - For (Preposition) 
+4.2ai - Am (Pronoun) 
+4.2aj - You (Pronoun) 
+4.2ak - Go (Verb) 
+4.2al - Settle (Verb) 
+4.2am - De (Article) 
+4.2an - Matter (Noun)
+
+4.3a - De (Article) 
+4.3b - Persin (Noun) 
+4.3c - Wey (Pronoun) 
+4.3d - Dey (Verb) 
+4.3e - Hand (Verb) 
+4.3f - Ova (Adverb) 
+4.3g - Dey (Verb) 
+4.3h - Assure (Verb) 
+4.3i - You (Pronoun) 
+4.3j - Say (Conjunction) 
+4.3k - Ontop (Preposition) 
+4.3l - For (Preposition) 
+4.3m - This (Adjective) 
+4.3n - Matter (Noun) 
+4.3o - Wey (Pronoun) 
+4.3p - E (Pronoun) 
+4.3q - Give (Verb) 
+4.3r - You (Pronoun) 
+4.3s - So (Adverb) 
+4.3t - No (Adjective) 
+4.3u - Wahala (Noun) 
+4.3v - Dey (Verb) 
+4.3w - Inside (Preposition) 
+4.3x - Am (Pronoun) 
+4.3y - Me (Pronoun) 
+4.3z - Wey (Pronoun) 
+4.3aa - Dey (Verb) 
+4.3ab - Hand (Verb)
+4.3ac - Ova (Adverb) 
+4.3ad - Dey (Verb) 
+4.3ae - Beat (Verb) 
+4.3af - My (Pronoun) 
+4.3ag - Chest (Noun) 
+4.3ah - Say (Conjunction) 
+4.3ai - You (Pronoun) 
+4.3aj - No (Adverb) 
+4.3ak - Get (Verb) 
+4.3al - Any (Adjective) 
+4.3am - Shakin (Noun) 
+4.3an - For (Preposition) 
+4.3ao - Dis (Adjective) 
+4.3ap - Matter (Noun) 
+4.3aq - Nobodi (Pronoun) 
+4.3ar - Fit (Verb) 
+4.3as - Com (Verb) 
+4.3at - Chance (Verb) 
+4.3au - You (Pronoun) 
+4.3av - On (Preposition) 
+4.3aw - Top (Noun) 
+4.3ax - Am (Pronoun)","4.1a - Assignor 
+4.1b - Assignee
+4.1c - Assign
+4.1d - Sell
+4.1e - Convey
+4.1f - Transfer
+
+4.2a - Indemnify
+4.2b - Lien
+4.2c - Claims
+4.2d - Encumbrances 
+
+4.3a  - Warrant
+4.3b - Contract
+  ","4.1a - Assignor - No(Pidgin) No(Vernacular)
+4.1b - Assignee - No(Pidgin) No(Vernacular)
+4.1c - Assign - No(Pidgin) No(Vernacular)
+4.1d - Sell - No(Pidgin) No(Vernacular)
+4.1e - Convey - No(Pidgin) No(Vernacular)
+4.1f - Transfer - No(Pidgin) No(Vernacular)
+
+4.2a - Indemnify - No(Pidgin) No(Vernacular)
+4.2b - Encumbrances - No(Pidgin) No(Vernacular)
+
+4.3a  - Warrant - No(Pidgin) No(Vernacular)
+4.3b - Lien - No(Pidgin) No(Vernacular)
+4.3c - Contract - No(Pidgin) No(Vernacular)
+  ","4.1a - Assignor 
+persin wey be de owner wey get power(Pidgin) 
+
+4.1b - Assignee 
+anoda persin(Pidgin)
+
+4.1c - Assign 
+giv am(Pidgin)
+
+4.2a - Indemnify 
+cova de persin(Pidgin) 
+
+4.2b - Liens, claims, encumbrances
+gbese money (Pidgin)
+  ","4.1a - don
+Meaning: Have (Auxiliary verb)
+4.1b - gree
+Meaning: Agree or Accept(Verb)
+4.1b - wey
+Meaning: That (Conjuction) 
+4.1c - De
+Meaning: Transliteration of The (Article)
+4.1d - Ontop
+Meaning: Translates roughly to ""regarding""
+
+4.2 - Dey
+Meaning: Is (Auxiliary verb)
+
+4.3a - Wahala
+Meaning: Problem/Challenges/Issues (Noun)
+
+4.3b - Chance
+Meaning: Challenge (Verb)
+
+","4.1a - we don gree
+Meaning: Agreement 
+
+4.3 -  beat my chest
+Meaning: Represents and warrants  
+
+4.3 - no get any shakin
+Meaning: Free of liens, claims or encumbrances",,"4.1 - This agreement allows the assignor to assign, sell, convey, and transfer all of assignor's interest in a particular contract to assignee.
+""...As we don gree say make de persin wey be de owner wey get power ontop dis our mata giv am to anoda persin, .you wey get de powa before to sell convey or transfer gree say make dis new persin take ova
+
+4.2 - Assignee agrees to hold harmless and indemnify assignor for such liens, claims or encumbrances
+""...you wey take ova don gree say you go cova de persin wey give you de powa, pay any anytin wey be gbese money, any persin wey e dey owe wey come look for am you go settle de mata.
+
+4.3 - Assignor represents and warrants that his/her interest in the contract subject to this assignment is free of liens, claims or encumbrances of any kind by third parties.
+""...The persin wey dey hand ova dey assure you say ontop this mata wey e give you so, no wahala dey inside am,me wey dey hand ova dey beat my chest say you no get any shakin for dis mata nobodi fit com chance you on top am.","4.1 - As we don gree for dis document say make de assignor for dis our mata giv de assignee powa to sell, convey or transfer everitin wey involve de assignor for dis mata,
+
+4.2 -  De assignee gree say e go cova de assignor, pay any anytin wey be gbese money, any persin wey e dey owe wey come look for am im go settle de mata. 
+
+4.3 - The assignor dey assure am say ontop dis mata wey e giv am so, no wahala dey inside am, him wey dey hand ova dey beat e chest say you no get any shakin for dis matter, nobodi fit com chance you on top am.","4.1 - As we don gree say make de persin wey be de owner wey get power ontop dis our matter giv am to anoda persin, .you wey get de powa before to sell convey or transfer gree say make dis new persin take ova
+
+4.2 - you wey take ova don gree say you go cova de persin wey give you de powa, pay any anytin wey be gbese money, any persin wey e dey owe wey come look for am you go settle de matter.
+
+4.3 - De persin wey dey hand ova dey assure you say ontop for this matter wey e give you so, no wahala dey inside am,
+me wey dey hand ova dey beat my chest say you no get any shakin for dis matter, nobodi fit com chance you on top am.","""...As we don gree say make de persin wey be de owner wey get power ontop dis our mata giv am to anoda persin, you wey get de powa before to sell, convey, or transfer gree say make dis new persin take ova. You wey take ova don gree say you go cova de persin wey give you de powa, pay any anytin wey be gbese money, any persin wey e dey owe wey come look for am you go settle de mata. De persin wey dey hand ova dey assure you say ontop dis mata wey e give you so, no wahala dey inside am, me wey dey hand ova dey beat my chest say you no get any shakin for dis matter, nobodi fit com chance you on top am.
+
+",,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+Code,Activity,Passage/Text,Type of Translation,Source Language,Target Language,Topic / Domain ,Sentence Token,Sub Sentence Token,Word Token,Letter Token,Part-of-Speech - Source Language,Part-of-Speech - Target Language,Untranslatable Words,Direct Translation Possible?,Contextual Translation,Dictionary,Expression,Agglutinated words/Concatenated words,Modular Translation,Translation - Med. Prof.,Translation - Reg. People,Full Translation - Nigerian Pidgin,,,,
+5,Translation,"""…   The objectives of these Regulations are to —
+(a) protect human health and environment from the harmful effect of
+chemicals, pesticides and other agrochemicals and to —
+(i) promote safety in their use,
+(ii) control the import, export, sale and handling of chemicals, and
+(ii) contribute to the sustainable development of agriculture and the
+conservation of the environment ;
+(5) ensure an Environmentally Sound Management (ESM) of chemical
+and pesticides within their life cycle for the protection of human health and
+environment ;  .... """,A mix of literal and contextual depending on the audience                       ,English,Pidgin English,Regulation Document,"5.1 - The objectives of these Regulations are to protect human health and environment from the harmful effect of
+chemicals, pesticides and other agrochemicals 
+
+5.2 - And to promote safety in their use, control the import, export, sale and handling of chemicals 
+
+5.3 - And contribute to the sustainable development of agriculture and the
+conservation of the environment 
+
+5.4 - ensure an Environmentally Sound Management (ESM) of chemical
+and pesticides within their life cycle for the protection of human health and
+environment ","5.1 - The objectives of these Regulations are
+
+5.2 - to protect human health and environment from the harmful effect of chemicals, pesticides and other agrochemicals
+
+5.3 - and to promote safety in their use,
+
+5.4 - control the import, export, sale and handling of chemicals
+
+5.5 - and contribute to the sustainable development of agriculture and the
+conservation of the environment
+
+5.6 - ensure an Environmentally Sound Management (ESM) of chemical
+and pesticides within their life cycle
+
+5.7 - for the protection of human health and
+environment","5.1a - The 
+5.1b - Objectives 
+5.1c - Of 
+5.1d - These 
+5.1e - Regulations 
+5.1f - Are
+
+5.2a - To 
+5.2b - Protect 
+5.2c - Human 
+5.2d - Health 
+5.2e - And 
+5.2f - Environment 
+5.2g - From 
+5.2h - The 
+5.2i - Harmful 
+5.2j - Effect 
+5.2k - Of 
+5.2l - Chemicals 
+5.2m - Pesticides 
+5.2n - And 
+5.2o - Other 
+5.2p - Agrochemicals
+
+5.3a - And 
+5.3b - To 
+5.3c - Promote 
+5.3d - Safety 
+5.3e - In 
+5.3f - Their 
+5.3g - Use
+
+5.4a - Control 
+5.4b - The 
+5.4c - Import 
+5.4d - Export 
+5.4e - Sale 
+5.4f - And 
+5.4g - Handling 
+5.4h - Of 
+5.4i - Chemicals
+
+5.5a - And 
+5.5b - Contribute 
+5.5c - To 
+5.5d - The 
+5.5e - Sustainable 
+5.5f - Development 
+5.5g - Of 
+5.5h - Agriculture 
+5.5i - And 
+5.5j - The 
+5.5k - Conservation 
+5.5l - Of 
+5.5m - The 
+5.5n - Environment
+
+5.6a - Ensure 
+5.6b - An 
+5.6c - Environmentally 
+5.6d - Sound 
+5.6e - Management 
+5.6f - (ESM) 
+5.6g - Of 
+5.6h - Chemical 
+5.6i - And 
+5.6j - Pesticides 
+5.6k - Within 
+5.6l - Their 
+5.6m - Life 
+5.6n - Cycle
+
+5.7a - For 
+5.7b - The 
+5.7c - Protection 
+5.7d - Of 
+5.7e - Human 
+5.7f - Health 
+5.7g - And 
+5.7h - Environment",,"5.1a - The (Article)
+5.1b - Objectives (Noun)
+5.1c - Of (Preposition)
+5.1d - These (Determiner)
+5.1e - Regulations (Noun)
+5.1f - Are (Auxiliary verb)
+
+5.2a - To (Preposition)
+5.2b - Protect (Verb)
+5.2c - Human (Adjective)
+5.2d - Health (Noun)
+5.2e - And (Conjunction)
+5.2f - Environment (Noun)
+5.2g - From (Preposition)
+5.2h - The (Article)
+5.2i - Harmful (Adjective)
+5.2j - Effect (Noun)
+5.2k - Of (Preposition)
+5.2l - Chemicals (Noun)
+5.2m - Pesticides (Noun)
+5.2n - And (Conjunction)
+5.2o - Other (Adjective)
+5.2p - Agrochemicals (Noun)
+
+5.3a - And (Conjunction)
+5.3b - To (Preposition)
+5.3c - Promote (Verb)
+5.3d - Safety (Noun)
+5.3e - In (Preposition)
+5.3f - Their (Pronoun)
+5.3g - Use (Noun)
+
+5.4a - Control (Verb)
+5.4b - The (Article)
+5.4c - Import (Noun)
+5.4d - Export (Noun)
+5.4e - Sale (Noun)
+5.4f - And (Conjunction)
+5.4g - Handling (Noun)
+5.4h - Of (Preposition)
+5.4i - Chemicals (Noun)
+
+5.5a - And (Conjunction)
+5.5b - Contribute (Verb)
+5.5c - To (Preposition)
+5.5d - The (Article)
+5.5e - Sustainable (Adjective)
+5.5f - Development (Noun)
+5.5g - Of (Preposition)
+5.5h - Agriculture (Noun)
+5.5i - And (Conjunction)
+5.5j - The (Article)
+5.5k - Conservation (Noun)
+5.5l - Of (Preposition)
+5.5m - The (Article)
+5.5n - Environment (Noun)
+
+5.6a - Ensure (Verb)
+5.6b - An (Article)
+5.6c - Environmentally (Adverb)
+5.6d - Sound (Adjective)
+5.6e - Management (Noun)
+5.6f - (ESM) (Noun)
+5.6g - Of (Preposition)
+5.6h - Chemical (Noun)
+5.6i - And (Conjunction)
+5.6j - Pesticides (Noun)
+5.6k - Within (Preposition)
+5.6l - Their (Pronoun)
+5.6m - Life (Noun)
+5.6n - Cycle (Noun)
+
+5.7a - For (Preposition)
+5.7b - The (Article)
+5.7c - Protection (Noun)
+5.7d - Of (Preposition)
+5.7e - Human (Adjective)
+5.7f - Health (Noun)
+5.7g - And (Conjunction)
+5.7h - Environment (Noun)","5.1a - Wetin (Pronoun)
+5.1b - Dem (Pronoun)
+5.1c - Cari (Verb)
+5.1d - For (Preposition)
+5.1e - Mind (Noun)
+5.1f - Comot (Verb)
+5.1g - Dis (Adjective)
+5.1h - Regulation (Noun)
+5.1i - Be (Verb)
+5.1j - Say (Conjunction)
+
+5.2a - Make (Verb)
+5.2b - Dem (Pronoun)
+5.2c - Protect (Verb)
+5.2d - Pipo (Noun)
+5.2e - Life (Noun)
+5.2f - An (Conjunction)
+5.2g - De (Article)
+5.2h - Area (Noun)
+5.2i - Wey (Pronoun)
+5.2j - Dem (Pronoun)
+5.2k - Dey (Verb)
+5.2l - Live (Verb)
+5.2m - Make (Verb)
+5.2n - All (Adjective)
+5.2o - De (Article)
+5.2p - Kemikal (Noun)
+5.2q - Wey (Pronoun)
+5.2r - Dey (Verb)
+5.2s - Kpai (Verb)
+5.2t - Insect (Noun)
+5.2u - Join (Conjunction)
+5.2v - De (Article)
+5.2w - One (Pronoun)
+5.2x - Wey (Pronoun)
+5.2y - Dem (Pronoun)
+5.2z - Spray (Verb)
+5.2aa - Put (Verb)
+5.2ab - For (Preposition)
+5.2ac - Farmland (Noun)
+5.2ad - No (Adverb)
+5.2ae - Spoil (Verb)
+5.2af - Tins (Noun)
+
+5.3a - Make (Verb)
+5.3b - Dem (Pronoun)
+5.3c - Dey (Verb)
+5.3d - Sure (Adjective)
+5.3e - Say (Conjunction)
+5.3f - E (Pronoun)
+5.3g - Dey (Verb)
+5.3h - Safe (Adjective)
+5.3i - For (Preposition)
+5.3j - Pipo (Noun)
+5.3k - Wey (Pronoun)
+5.3l - Dey (Verb)
+5.3m - Use (Verb)
+5.3n - Am (Pronoun)
+
+5.4a - Dey (Verb)
+5.4b - Check (Verb)
+5.4c - How (Adverb)
+5.4d - E (Pronoun)
+5.4e - Dey (Verb)
+5.4f - Tak (Verb)
+5.4g - Enta (Verb)
+5.4h - We (Pronoun)
+5.4i - Contri (Noun)
+5.4j - How (Adverb)
+5.4k - E (Pronoun)
+5.4l - Dey (Verb)
+5.4m - Take (Verb)
+5.4n - Comot (Verb)
+5.4o - How (Adverb)
+5.4p - Pipo (Noun)
+5.4q - Dey (Verb)
+5.4r - Tak (Verb)
+5.4s - Sell (Verb)
+5.4t - Am (Pronoun)
+5.4u - Join (Conjunction)
+5.4v - How (Adverb)
+5.4w - Dem (Pronoun)
+5.4x - Dey (Verb)
+5.4y - Tak (Verb)
+5.4z - Handle (Verb)
+5.4aa - Am (Pronoun)
+
+5.5a - Even (Adverb)
+5.5b - How (Adverb)
+5.5c - Dis (Adjective)
+5.5d - Kemikals (Noun)
+5.5e - Dem (Pronoun)
+5.5f - Fit (Verb)
+5.5g - Join (Verb)
+5.5h - Beta (Verb)
+5.5i - We (Pronoun)
+5.5j - Farmwork (Noun)
+5.5k - Dem (Pronoun)
+5.5l - Make (Verb)
+5.5m - E (Pronoun)
+5.5n - Tey (Verb)
+5.5o - How (Adverb)
+5.5p - E (Pronoun)
+5.5q - Go (Verb)
+5.5r - Folo (Verb)
+5.5s - Kip (Verb)
+5.5t - We (Pronoun)
+5.5u - Area (Noun)
+5.5v - For (Preposition)
+5.5w - Beta (Adjective)
+5.5x - Shape (Noun)
+
+5.6a - Make (Verb)
+5.6b - Sure (Adjective)
+5.6c - Say (Conjunction)
+5.6d - E (Pronoun)
+5.6e - Follo (Verb)
+5.6f - Environmentally (Adverb)
+5.6g - Sound (Adjective)
+5.6h - Management (Noun)
+5.6i - Pattern (Noun)
+5.6j - Wey (Pronoun)
+5.6k - Concine (Verb)
+5.6l - De (Article)
+5.6m - Kemikal (Noun)
+5.6n - Even (Adverb)
+5.6o - De (Article)
+5.6p - One (Pronoun)
+5.6q - Wey (Pronoun)
+5.6r - Dey (Verb)
+5.6s - Kpai (Verb)
+5.6t - Insect (Noun)
+5.6u - From (Preposition)
+5.6v - Wen (Conjunction)
+5.6w - Dem (Pronoun)
+5.6x - Make (Verb)
+5.6y - Am (Pronoun)
+5.6z - To (Preposition)
+5.6aa - Wen (Conjunction)
+5.6ab - E (Pronoun)
+5.6ac - Go (Verb)
+5.6ad - Expire (Verb)
+5.6ae - Dem (Pronoun)
+5.6af - Call (Verb)
+5.6ag - Am (Pronoun)
+5.6ah - ESM (Noun)
+
+5.7a - Make (Verb)
+5.7b - E (Pronoun)
+5.7c - Kip (Verb)
+5.7d - We (Pronoun)
+5.7e - Area (Noun)
+5.7f - An (Conjunction)
+5.7g - No (Adverb)
+5.7h - Kpai (Verb)
+5.7i - De (Article)
+5.7j - Pipo (Noun)
+5.7k - Wey (Pronoun)
+5.7l - Dey (Verb)
+5.7m - Live (Verb)
+5.7n - Inside (Preposition)
+5.7o - Am (Pronoun)","
+5.2a - Chemicals","
+5.2a - Chemicals - No(Pidgin) No(Vernacular)","
+5.2a - Chemicals - No(Pidgin) No(Vernacular)
+
+5.5 - Contribute
+dem fit join(Pidgin)","5.1a - wetin  
+Meaning: What (Determiner/Pronoun) 
+
+5.2a - wey
+Meaning: That (Conjuction) 
+5.2b - dey
+Meaning: Do (Action Verb)   
+5.2c - kpai 
+Meaning: Die (Verb)  
+
+5.2b - De
+Meaning: Transliteration of The (Article)
+
+5.5a - e
+Meaning: Reference (Pronoun) 
+5.5b - tey
+Meaning: To Last (Verb)
+
+5.6 - go
+Meaning: Will (Auxiliary verb)
+5.6 - wen dem make am to wen e go expire
+Meaning: Life cycle","5.1 - wetin dem cari for mind 
+Meaning: Objective 
+
+5.2a -  kemikal wey dey kpai insect
+Meaning: Pesticide  
+
+5.2b - De one wey dem spray put for farmland
+Meaning: Agrochemical
+
+5.5 - join beta we farmwork make e tey
+Meaning: Sustainable Development of Agriculture
+
+5.6 - wen dem make am to wen e go expire
+Meaning: Life cycle",,"5.1 - The objectives of these Regulations are
+""...Wetin dem cari for mind comot dis regulation be say
+
+5.2 - to protect human health and environment from the harmful effect of chemicals, pesticides and other agrochemicals
+""...say make dem protect pipo life an de area wey dem dey live, make all de kemikal wey dey kpai insect join de one wey dem spray put for farmland no spoil tins 
+
+5.3 - and to promote safety in their use,
+""...make dem dey sure say e dey safe for pipo wey dey use am 
+
+5.4 - control the import, export, sale and handling of chemicals
+""...dey check how e dey tak enta we contri, how e dey take comot, how pipo dey tak sell am join how dem dey tak handle am
+
+5.5 - and contribute to the sustainable development of agriculture and the
+conservation of the environment
+""...even how dis chemicals dem fit join beta we farmwork dem, make e tey, how e go folo kip we area for beta shape
+
+5.6 - ensure an Environmentally Sound Management (ESM) of chemical
+and pesticides within their life cycle
+""...make sure say e follo Environmentally Sound Management pattern wey concine de kemikal, even de one wey dey kpai insect, from wen dem make am to wen e go expire, dem call am ESM.
+
+5.7 - for the protection of human health and
+environment
+""...make e kip we area an no kpai de pipo wey dey live inside am.","5.1 - Wetin dem cari for mind comot dis regulation be say
+
+5.2 - say e suppose protect persin helt and de area from bad kemikal, pesticid, agrokemikal wahala 
+
+5.3 - an to dey sure say e dey safe for dem to use 
+
+5.4 - dey check how de kemikals dey tak enta we contri, how e dey take comot, how pipo dey tak sell am join how dem dey tak handle am
+
+5.5 - even how dis kemikal fit contribute to de sustainable development of we farmwork, how we go tak conserve de area
+
+5.6 - make sure say e follo Environmentally Sound Management pattern wey concine de kemikal, even de pesticid, from wen dem make am to wen e go expire.
+
+5.7 - make e kip we area an no kpai de pipo wey dey live inside am.","5.1 - Wetin dem cari for mind comot dis regulation be say 
+
+5.2 - make dem protect pipo life an de area wey dem dey live, make all de kemikal wey dey kpai insect join de one wey dem spray put for farmland no spoil tins
+
+5.3 - make dem dey sure say e dey safe for pipo wey dey use am
+
+5.4 - dey check how e dey tak enta we contri, how e dey take comot, how pipo dey tak sell am join how dem dey tak handle am
+
+5.5 - even how dis kemikals dem fit join beta we farmwork dem, make e tey, how e go folo kip we area for beta shape 
+
+5.6 - make sure say e follo Environmentally Sound Management pattern wey concine de kemikal, even de one wey dey kpai insect, from wen dem make am to wen e go expire, dem call am ESM.
+
+5.7 - Make e kip we area an no kpai de pipo wey dey live inside am.","""...Wetin dem cari for mind comot dis regulation be say make dem protect pipo life an de area wey dem dey live, make all de kemikal wey dey kpai insect join de one wey dem spray put for farmland no spoil tins, make dem dey sure say e dey safe for pipo wey dey use am
+dey check how e dey tak enta we contri, how e dey take comot, how pipo dey tak sell am join how dem dey tak handle am, even how dis kemikals dem fit join beta we farmwork dem, make e tey, how e go folo kip we area for beta shape make sure say e follo Environmentally Sound Management pattern wey concine de kemikal, even de one wey dey kpai insect, from wen dem make am to wen e go expire, dem call am ESM. Make e kip we area an no kpai de pipo wey dey live inside am.",,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,

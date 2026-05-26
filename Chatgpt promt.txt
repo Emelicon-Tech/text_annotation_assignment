@@ -1,0 +1,2400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PriceLens Africa — Smart Price Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #F8F9FC;
+  --bg2: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface2: #F1F3F8;
+  --surface3: #E8ECF5;
+  --border: rgba(30,40,80,0.08);
+  --border2: rgba(30,40,80,0.14);
+  --accent: #1A56DB;
+  --accent2: #1347BF;
+  --accent-dim: rgba(26,86,219,0.07);
+  --accent-mid: rgba(26,86,219,0.15);
+  --green: #0B9462;
+  --green-dim: rgba(11,148,98,0.08);
+  --amber: #D97706;
+  --amber-dim: rgba(217,119,6,0.09);
+  --red: #DC2626;
+  --red-dim: rgba(220,38,38,0.07);
+  --purple: #7C3AED;
+  --purple-dim: rgba(124,58,237,0.07);
+  --text: #111827;
+  --text2: #374151;
+  --muted: #9CA3AF;
+  --muted2: #6B7280;
+  --font: 'Plus Jakarta Sans', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 16px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--surface2);}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+
+/* ══ HEADER ══ */
+header{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm);}
+.logo{display:flex;align-items:center;gap:10px;font-size:1.15rem;font-weight:800;letter-spacing:-.03em;color:var(--text);}
+.logo-icon{width:34px;height:34px;background:var(--accent);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;}
+.logo .af{color:var(--accent);font-size:0.68rem;font-weight:700;background:var(--accent-dim);border:1px solid rgba(26,86,219,0.2);padding:2px 8px;border-radius:4px;margin-left:4px;letter-spacing:0.04em;}
+
+nav{display:flex;align-items:center;gap:4px;}
+.nav-item{position:relative;}
+.nav-link{display:flex;align-items:center;gap:5px;padding:7px 13px;font-size:0.82rem;font-weight:600;color:var(--muted2);border-radius:7px;cursor:pointer;transition:all .2s;border:none;background:transparent;font-family:var(--font);}
+.nav-link:hover{color:var(--text);background:var(--surface2);}
+.nav-link .chev{font-size:.65rem;opacity:.5;transition:transform .2s;}
+.nav-item:hover .chev{transform:rotate(180deg);}
+.dropdown{position:absolute;top:calc(100% + 6px);left:0;min-width:220px;background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:8px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .2s;z-index:600;box-shadow:var(--shadow-lg);}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0);}
+.dd-head{font-size:.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;padding:6px 10px 3px;}
+.dd-link{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;font-size:.82rem;color:var(--text2);transition:all .15s;cursor:pointer;}
+.dd-link:hover{background:var(--accent-dim);color:var(--accent);}
+.dd-link .dd-ico{width:24px;height:24px;background:var(--surface2);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.75rem;}
+.dd-divider{height:1px;background:var(--border);margin:4px 0;}
+.nav-cta{background:var(--accent);color:#fff;font-weight:700;font-size:.82rem;padding:8px 18px;border-radius:8px;border:none;cursor:pointer;font-family:var(--font);transition:all .2s;margin-left:6px;}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 4px 12px rgba(26,86,219,0.3);}
+.nav-login{background:transparent;color:var(--text2);font-weight:600;font-size:.82rem;padding:8px 16px;border-radius:8px;border:1px solid var(--border2);cursor:pointer;font-family:var(--font);transition:all .2s;margin-left:4px;}
+.nav-login:hover{background:var(--surface2);}
+.live-badge{display:flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;color:var(--green);background:var(--green-dim);border:1px solid rgba(11,148,98,.2);padding:5px 11px;border-radius:20px;margin-right:8px;}
+.live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 1.5s ease infinite;}
+
+/* ══ TICKER ══ */
+.ticker{background:var(--accent);padding:9px 0;overflow:hidden;margin-top:64px;}
+.ticker-inner{display:flex;gap:48px;animation:ticker 35s linear infinite;white-space:nowrap;}
+.t-item{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;flex-shrink:0;color:rgba(255,255,255,0.75);}
+.t-name{color:#fff;font-weight:600;}
+.t-up{color:#FCD34D;font-weight:700;}
+.t-dn{color:#6EE7B7;font-weight:700;}
+.t-sep{color:rgba(255,255,255,0.3);font-size:1rem;}
+
+/* ══ HERO ══ */
+.hero{min-height:88vh;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:56px 64px 48px;position:relative;overflow:hidden;background:linear-gradient(135deg, #F8F9FC 0%, #EEF2FF 100%);}
+.hero-bg-blob{position:absolute;top:-100px;right:-60px;width:500px;height:500px;background:radial-gradient(circle,rgba(26,86,219,0.07) 0%,transparent 70%);pointer-events:none;}
+.hero-bg-blob2{position:absolute;bottom:-80px;left:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(11,148,98,0.05) 0%,transparent 70%);pointer-events:none;}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(26,86,219,0.12) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse 70% 80% at 80% 40%,black 30%,transparent 100%);pointer-events:none;}
+
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid rgba(26,86,219,.2);color:var(--accent);font-size:.72rem;font-weight:700;padding:5px 13px;border-radius:20px;margin-bottom:22px;letter-spacing:.04em;text-transform:uppercase;}
+h1{font-size:clamp(2.4rem,4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;margin-bottom:20px;color:var(--text);}
+h1 .hl{color:var(--accent);}
+h1 .hl2{color:var(--green);}
+.hero-sub{color:var(--muted2);font-size:1rem;line-height:1.75;font-weight:400;max-width:500px;margin-bottom:34px;}
+
+/* SEARCH BAR */
+.search-bar{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:16px;margin-bottom:28px;box-shadow:var(--shadow);}
+.search-row{display:flex;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:5px 5px 5px 14px;margin-bottom:12px;transition:border-color .2s;}
+.search-row:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,86,219,0.08);}
+.search-row input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:var(--font);font-size:.92rem;}
+.search-row input::placeholder{color:var(--muted);}
+.search-go{background:var(--accent);color:#fff;border:none;padding:9px 20px;border-radius:7px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:var(--font);transition:all .2s;white-space:nowrap;}
+.search-go:hover{background:var(--accent2);}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;}
+.sel-wrap{position:relative;display:inline-block;}
+.sel-wrap select{appearance:none;background:var(--surface);border:1px solid var(--border2);color:var(--text2);font-family:var(--font);font-size:.78rem;font-weight:600;padding:7px 28px 7px 11px;border-radius:7px;cursor:pointer;outline:none;transition:all .2s;}
+.sel-wrap select:hover{border-color:var(--accent);}
+.sel-wrap::after{content:'▾';position:absolute;right:9px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.65rem;}
+.hero-stats{display:flex;gap:32px;}
+.hstat{text-align:left;}
+.hstat-num{font-size:2rem;font-weight:800;letter-spacing:-.04em;color:var(--accent);line-height:1;font-family:'Space Grotesk',sans-serif;}
+.hstat-lbl{font-size:.68rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;font-weight:600;}
+
+/* HERO RIGHT — LIVE CARDS */
+.live-panel{background:var(--surface);border:1px solid var(--border2);border-radius:20px;padding:22px;box-shadow:var(--shadow-lg);}
+.lp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.lp-title{font-size:.88rem;font-weight:800;color:var(--text);}
+.lp-updated{font-family:var(--mono);font-size:.67rem;color:var(--muted);}
+.live-cards-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;}
+.lc{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:12px 10px;text-align:center;transition:all .2s;}
+.lc:hover{border-color:var(--accent);background:var(--accent-dim);}
+.lc.best{background:rgba(26,86,219,0.05);border-color:rgba(26,86,219,0.2);}
+.lc-emoji{width:52px;height:52px;margin:0 auto 6px;border-radius:10px;overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
+.lc-emoji img{width:100%;height:100%;object-fit:cover;border-radius:10px;}
+.lc-name{font-size:.68rem;color:var(--muted2);font-weight:600;margin-bottom:4px;}
+.lc-price{font-family:var(--mono);font-weight:700;font-size:.88rem;color:var(--text);margin-bottom:2px;}
+.best-price{color:var(--accent);}
+.lc-loc{font-size:.6rem;color:var(--muted);margin-bottom:3px;}
+.chg-up{color:var(--red);font-size:.65rem;font-weight:700;font-family:var(--mono);}
+.chg-dn{color:var(--green);font-size:.65rem;font-weight:700;font-family:var(--mono);}
+.ai-tip{background:linear-gradient(135deg, rgba(26,86,219,0.06), rgba(124,58,237,0.05));border:1px solid rgba(26,86,219,0.14);border-radius:10px;padding:10px 14px;font-size:.78rem;color:var(--text2);line-height:1.55;}
+
+/* ══ SECTIONS ══ */
+.sec{padding:80px 64px;}
+.sec.alt{background:var(--surface);}
+.sec.blue-alt{background:linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%);}
+.sec-label{display:inline-flex;align-items:center;gap:6px;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.sec-label.green{color:var(--green);}
+.sec-label.amber{color:var(--amber);}
+h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;letter-spacing:-.04em;margin-bottom:10px;color:var(--text);}
+.sec-sub{font-size:.95rem;color:var(--muted2);line-height:1.75;max-width:620px;margin-bottom:36px;}
+
+/* ══ MODAL BASE ══ */
+.modal-overlay{position:fixed;inset:0;background:rgba(17,24,39,0.5);backdrop-filter:blur(6px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-box{background:var(--surface);border-radius:24px;box-shadow:0 32px 80px rgba(0,0,0,0.18);width:100%;max-width:500px;max-height:92vh;overflow-y:auto;padding:40px;position:relative;transform:scale(0.96) translateY(10px);transition:transform .3s;}
+.modal-overlay.open .modal-box{transform:scale(1) translateY(0);}
+.modal-close{position:absolute;top:18px;right:18px;width:32px;height:32px;background:var(--surface2);border:none;border-radius:8px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;color:var(--muted2);transition:all .15s;}
+.modal-close:hover{background:var(--surface3);color:var(--text);}
+.modal-title{font-size:1.6rem;font-weight:800;letter-spacing:-.04em;margin-bottom:6px;color:var(--text);}
+.modal-sub{font-size:.85rem;color:var(--muted2);margin-bottom:28px;line-height:1.6;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.form-group{margin-bottom:12px;}
+.form-label{font-size:.75rem;font-weight:700;color:var(--text2);margin-bottom:6px;display:block;letter-spacing:.01em;}
+.form-input{width:100%;padding:11px 14px;border:1.5px solid var(--border2);border-radius:10px;font-family:var(--font);font-size:.9rem;color:var(--text);background:var(--surface);outline:none;transition:all .2s;}
+.form-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,86,219,0.08);}
+.form-input::placeholder{color:var(--muted);}
+.form-select{width:100%;padding:11px 14px;border:1.5px solid var(--border2);border-radius:10px;font-family:var(--font);font-size:.9rem;color:var(--text);background:var(--surface);outline:none;appearance:none;transition:all .2s;cursor:pointer;}
+.form-select:focus{border-color:var(--accent);}
+.form-hint{font-size:.7rem;color:var(--muted);margin-top:4px;}
+.form-divider{display:flex;align-items:center;gap:12px;margin:20px 0;font-size:.75rem;color:var(--muted);font-weight:600;}
+.form-divider::before,.form-divider::after{content:'';flex:1;height:1px;background:var(--border2);}
+.btn-primary{width:100%;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:11px;font-family:var(--font);font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;margin-top:8px;}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,86,219,0.3);}
+.btn-secondary{width:100%;padding:12px;background:transparent;color:var(--text2);border:1.5px solid var(--border2);border-radius:11px;font-family:var(--font);font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;margin-top:8px;}
+.btn-secondary:hover{background:var(--surface2);}
+.auth-switch{text-align:center;font-size:.82rem;color:var(--muted2);margin-top:16px;}
+.auth-switch a{color:var(--accent);font-weight:700;cursor:pointer;}
+.form-success{background:var(--green-dim);border:1px solid rgba(11,148,98,0.2);border-radius:10px;padding:14px 16px;color:var(--green);font-size:.85rem;font-weight:600;margin-bottom:16px;display:none;}
+.terms{font-size:.72rem;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6;}
+.terms a{color:var(--accent);}
+
+/* ══ DASHBOARD MODAL ══ */
+.dashboard-box{max-width:900px;padding:0;border-radius:24px;overflow:hidden;}
+.dash-sidebar{background:var(--accent);padding:32px 24px;color:#fff;min-width:220px;}
+.dash-sidebar h3{font-size:1rem;font-weight:800;margin-bottom:4px;}
+.dash-sidebar p{font-size:.78rem;opacity:.7;margin-bottom:28px;}
+.dash-nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:4px;opacity:.7;}
+.dash-nav-item:hover,.dash-nav-item.active{background:rgba(255,255,255,0.15);opacity:1;}
+.dash-main{padding:32px;flex:1;overflow-y:auto;max-height:85vh;}
+.dash-layout{display:flex;}
+.dash-greeting{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;margin-bottom:4px;}
+.dash-sub{font-size:.85rem;color:var(--muted2);margin-bottom:28px;}
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
+.dash-stat{background:var(--surface2);border-radius:12px;padding:16px;}
+.ds-val{font-size:1.5rem;font-weight:800;font-family:'Space Grotesk',sans-serif;letter-spacing:-.03em;color:var(--accent);}
+.ds-lbl{font-size:.7rem;color:var(--muted2);margin-top:3px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+
+/* ══ SHOPPING LIST ANALYZER ══ */
+.list-panel{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:24px;}
+.list-panel h4{font-size:1rem;font-weight:800;margin-bottom:4px;color:var(--text);}
+.list-panel p{font-size:.8rem;color:var(--muted2);margin-bottom:18px;line-height:1.6;}
+.list-upload-zone{border:2px dashed var(--border2);border-radius:12px;padding:28px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px;background:var(--surface);}
+.list-upload-zone:hover{border-color:var(--accent);background:var(--accent-dim);}
+.list-upload-zone.drag-over{border-color:var(--accent);background:var(--accent-dim);}
+.lz-icon{font-size:2rem;margin-bottom:8px;}
+.lz-text{font-size:.85rem;font-weight:700;color:var(--text2);margin-bottom:4px;}
+.lz-sub{font-size:.75rem;color:var(--muted);}
+.manual-list{width:100%;}
+.item-input-row{display:flex;gap:8px;margin-bottom:8px;}
+.item-input{flex:1;padding:9px 12px;border:1.5px solid var(--border2);border-radius:8px;font-family:var(--font);font-size:.85rem;color:var(--text);outline:none;background:var(--surface);}
+.item-input:focus{border-color:var(--accent);}
+.qty-input{width:70px;padding:9px 10px;border:1.5px solid var(--border2);border-radius:8px;font-family:var(--font);font-size:.85rem;color:var(--text);outline:none;background:var(--surface);text-align:center;}
+.remove-btn{width:32px;height:36px;background:var(--red-dim);border:none;border-radius:7px;color:var(--red);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;}
+.add-item-btn{width:100%;padding:9px;background:var(--accent-dim);color:var(--accent);border:1.5px dashed rgba(26,86,219,0.25);border-radius:8px;font-family:var(--font);font-size:.82rem;font-weight:700;cursor:pointer;margin-top:4px;transition:all .2s;}
+.add-item-btn:hover{background:var(--accent-mid);}
+.location-picker{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.loc-chip{padding:7px 14px;border:1.5px solid var(--border2);border-radius:20px;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s;color:var(--text2);background:var(--surface);}
+.loc-chip:hover{border-color:var(--accent);}
+.loc-chip.selected{background:var(--accent);color:#fff;border-color:var(--accent);}
+.analyze-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--accent),var(--purple));color:#fff;border:none;border-radius:11px;font-family:var(--font);font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.analyze-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,86,219,0.3);}
+
+/* AI RESULTS */
+.ai-result{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:20px;}
+.ai-result-header{background:linear-gradient(135deg,var(--accent),var(--purple));padding:18px 22px;color:#fff;}
+.ai-result-title{font-size:1rem;font-weight:800;margin-bottom:3px;}
+.ai-result-sub{font-size:.78rem;opacity:.8;}
+.ai-result-body{padding:20px;}
+.store-recommendation{border:1.5px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px;transition:all .2s;cursor:pointer;}
+.store-recommendation:hover{border-color:var(--accent);box-shadow:var(--shadow);}
+.store-recommendation.top-pick{border-color:var(--accent);background:rgba(26,86,219,0.03);}
+.sr-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+.sr-rank{font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.sr-rank.first{color:var(--accent);}
+.sr-rank.second{color:var(--amber);}
+.sr-rank.third{color:var(--green);}
+.sr-store-name{font-weight:800;font-size:.95rem;color:var(--text);}
+.sr-type{font-size:.65rem;background:var(--surface2);color:var(--muted2);padding:2px 8px;border-radius:4px;font-weight:600;}
+.sr-total{font-family:var(--mono);font-weight:800;font-size:1.2rem;color:var(--accent);}
+.sr-total-lbl{font-size:.68rem;color:var(--muted);font-family:var(--mono);}
+.sr-items{display:flex;flex-direction:column;gap:5px;margin-top:10px;}
+.sr-item-row{display:flex;justify-content:space-between;font-size:.78rem;padding:5px 8px;background:var(--surface2);border-radius:6px;}
+.sr-item-n{color:var(--text2);}
+.sr-item-p{font-family:var(--mono);font-weight:700;color:var(--text);}
+.sr-item-p.best{color:var(--green);}
+.ai-insight{background:linear-gradient(135deg,rgba(26,86,219,0.04),rgba(124,58,237,0.03));border:1px solid rgba(26,86,219,0.12);border-radius:10px;padding:14px 16px;font-size:.8rem;color:var(--text2);line-height:1.65;margin-top:16px;}
+.loading-spinner{display:flex;align-items:center;justify-content:center;gap:12px;padding:32px;color:var(--muted2);font-size:.88rem;}
+.spinner{width:22px;height:22px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ══ LOCATIONS ══ */
+.loc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px;}
+.loc-card{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all .2s;text-align:center;}
+.loc-card:hover{border-color:var(--accent);box-shadow:var(--shadow);}
+.loc-card.active{border-color:var(--accent);background:var(--accent-dim);}
+.loc-flag{font-size:1.4rem;margin-bottom:5px;}
+.loc-name{font-weight:700;font-size:.8rem;color:var(--text);margin-bottom:2px;}
+.loc-type{font-size:.63rem;color:var(--muted);margin-bottom:8px;}
+.loc-idx{font-family:var(--mono);font-weight:700;font-size:.78rem;padding:3px 8px;border-radius:5px;}
+.idx-hi{background:var(--red-dim);color:var(--red);}
+.idx-mid{background:var(--amber-dim);color:var(--amber);}
+.idx-lo{background:var(--green-dim);color:var(--green);}
+
+/* ══ STORES GRID ══ */
+.stores-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.store-card{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:22px;transition:all .25s;box-shadow:var(--shadow-sm);}
+.store-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);}
+.store-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
+.store-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+.store-name{font-weight:800;font-size:.95rem;color:var(--text);}
+.store-type{font-size:.62rem;font-weight:700;padding:3px 8px;border-radius:5px;letter-spacing:.04em;}
+.type-super{background:var(--accent-dim);color:var(--accent);}
+.type-market{background:var(--green-dim);color:var(--green);}
+.store-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;background:var(--surface2);border-radius:10px;padding:10px;}
+.sm{text-align:center;}
+.sm-val{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1.1rem;color:var(--text);}
+.sm-lbl{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:1px;}
+.store-best{background:var(--surface2);border-radius:10px;padding:12px;}
+.sb-label{font-size:.68rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
+.sb-items{display:flex;flex-direction:column;gap:5px;}
+.sb-item{display:flex;justify-content:space-between;font-size:.78rem;}
+.sb-item-name{color:var(--text2);}
+.sb-item-price{font-family:var(--mono);font-weight:700;color:var(--accent);}
+
+/* ══ CHART CARDS ══ */
+.chart-section-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:20px;margin-bottom:20px;}
+.chart-card{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:22px;box-shadow:var(--shadow-sm);}
+.chart-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;}
+.chart-title{font-weight:800;font-size:.92rem;color:var(--text);}
+.chart-sub{font-size:.72rem;color:var(--muted);margin-top:3px;}
+.chart-tabs{display:flex;gap:4px;}
+.chart-tab{padding:5px 12px;border-radius:6px;font-size:.72rem;font-weight:700;cursor:pointer;border:1.5px solid var(--border2);color:var(--muted2);background:transparent;transition:all .15s;font-family:var(--font);}
+.chart-tab.active,.chart-tab:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.chart-canvas-wrap{position:relative;height:220px;}
+.chart-legend{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;}
+.cl-item{display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--muted2);}
+.cl-dot{width:10px;height:10px;border-radius:50%;}
+.mini-charts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+.mini-chart-card{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:18px;box-shadow:var(--shadow-sm);}
+.mc-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.mc-title{font-weight:700;font-size:.88rem;color:var(--text);}
+.mc-change{font-family:var(--mono);font-weight:700;font-size:.82rem;padding:3px 8px;border-radius:5px;}
+.mc-canvas-wrap{position:relative;height:100px;}
+
+/* ══ PRODUCT CARDS ══ */
+.cat-tabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:28px;padding-bottom:4px;scrollbar-width:none;}
+.cat-tabs::-webkit-scrollbar{display:none;}
+.cat-tab2{display:flex;align-items:center;gap:6px;background:var(--surface);border:1.5px solid var(--border2);padding:8px 16px;border-radius:20px;font-size:.78rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .2s;color:var(--text2);}
+.cat-tab2.active,.cat-tab2:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;}
+.prod-card{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;transition:all .25s;cursor:pointer;box-shadow:var(--shadow-sm);}
+.prod-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:rgba(26,86,219,0.25);}
+.prod-img{height:130px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--surface2);position:relative;overflow:hidden;}
+.prod-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
+.prod-card:hover .prod-img img{transform:scale(1.07);}
+.prod-cat-tag{position:absolute;top:8px;left:8px;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.05em;}
+.tag-grains{background:rgba(217,119,6,.12);color:var(--amber);}
+.tag-protein{background:var(--red-dim);color:var(--red);}
+.tag-produce{background:var(--green-dim);color:var(--green);}
+.tag-dairy{background:rgba(26,86,219,.08);color:var(--accent);}
+.tag-cooking{background:rgba(217,119,6,.12);color:var(--amber);}
+.tag-household{background:var(--purple-dim);color:var(--purple);}
+.tag-beverages{background:rgba(26,86,219,.08);color:var(--accent);}
+.tag-bakery{background:rgba(217,119,6,.12);color:var(--amber);}
+.tag-pharma{background:var(--red-dim);color:var(--red);}
+.tag-baby{background:var(--purple-dim);color:var(--purple);}
+.prod-body{padding:13px;}
+.prod-name{font-weight:800;font-size:.9rem;letter-spacing:-.01em;margin-bottom:2px;color:var(--text);}
+.prod-unit{font-size:.68rem;color:var(--muted);margin-bottom:10px;}
+.price-rows{display:flex;flex-direction:column;gap:5px;}
+.pr-row{display:flex;justify-content:space-between;align-items:center;padding:5px 8px;border-radius:6px;background:var(--surface2);}
+.pr-row.market-row{background:rgba(11,148,98,0.06);}
+.pr-store{font-size:.68rem;color:var(--muted2);}
+.pr-val{font-family:var(--mono);font-weight:700;font-size:.82rem;color:var(--text);}
+.pr-val.best-val{color:var(--green);}
+.pr-val.high-val{color:var(--muted2);}
+.best-lbl{background:var(--green);color:#fff;font-size:.55rem;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px;}
+.save-chip{background:var(--green-dim);color:var(--green);font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:4px;margin-top:8px;display:inline-block;border:1px solid rgba(11,148,98,.2);}
+
+/* ══ ANALYTICS KPIs ══ */
+.analytics-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.kpi{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow-sm);}
+.kpi-label{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;font-weight:700;}
+.kpi-val{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1.9rem;letter-spacing:-.04em;line-height:1;margin-bottom:6px;}
+.kpi-val.green{color:var(--green);}
+.kpi-val.amber{color:var(--amber);}
+.kpi-val.red{color:var(--red);}
+.kpi-val.blue{color:var(--accent);}
+.kpi-sub{font-size:.7rem;color:var(--muted2);}
+
+/* ══ AI PREDICTION ══ */
+.prediction-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.pred-card{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow-sm);}
+.pred-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px;}
+.pred-icon{width:44px;height:44px;border-radius:10px;background:var(--amber-dim);border:1px solid rgba(217,119,6,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.pred-title{font-weight:800;font-size:1rem;letter-spacing:-.02em;margin-bottom:4px;color:var(--text);}
+.pred-sub{font-size:.72rem;color:var(--muted);}
+.confidence-bar{background:var(--surface2);border-radius:20px;height:6px;margin-bottom:16px;overflow:hidden;}
+.cb-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--accent),var(--purple));}
+.conf-label{display:flex;justify-content:space-between;font-size:.7rem;color:var(--muted);margin-bottom:6px;font-weight:600;}
+.conf-val{font-family:var(--mono);font-weight:700;color:var(--amber);}
+.pred-list{display:flex;flex-direction:column;gap:10px;}
+.pred-item{display:flex;align-items:flex-start;gap:10px;padding:12px;background:var(--surface2);border-radius:10px;border:1px solid var(--border);}
+.pred-item-icon{font-size:1.2rem;flex-shrink:0;}
+.pred-item-name{font-weight:700;font-size:.85rem;margin-bottom:3px;color:var(--text);}
+.pred-item-text{font-size:.75rem;color:var(--muted2);line-height:1.5;}
+.pred-signal{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:4px;display:inline-block;margin-top:5px;text-transform:uppercase;letter-spacing:.04em;}
+.sig-buy{background:var(--green-dim);color:var(--green);}
+.sig-hold{background:var(--amber-dim);color:var(--amber);}
+.sig-wait{background:var(--red-dim);color:var(--red);}
+
+/* ══ HISTORICAL TABLE ══ */
+.hist-tabs{display:flex;gap:6px;margin-bottom:20px;}
+.hist-tab{padding:7px 16px;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:1.5px solid var(--border2);color:var(--muted2);background:transparent;transition:all .2s;font-family:var(--font);}
+.hist-tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.hist-table{width:100%;border-collapse:collapse;}
+.hist-table th{background:var(--surface2);color:var(--muted2);font-size:.72rem;font-weight:700;padding:11px 14px;text-align:left;letter-spacing:.03em;border-bottom:1.5px solid var(--border);}
+.hist-table td{padding:11px 14px;font-size:.82rem;border-bottom:1px solid var(--border);color:var(--text2);}
+.hist-table tr:hover td{background:var(--surface2);}
+.hist-price{font-family:var(--mono);font-weight:700;color:var(--text);}
+.hist-chg-up{color:var(--red);font-family:var(--mono);font-size:.75rem;font-weight:700;}
+.hist-chg-dn{color:var(--green);font-family:var(--mono);font-size:.75rem;font-weight:700;}
+.period-badge{font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:4px;background:var(--surface2);color:var(--muted2);}
+
+/* ══ RECOMMENDER ══ */
+.rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.rec-card{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:22px;transition:all .25s;box-shadow:var(--shadow-sm);}
+.rec-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.rec-store-name{font-weight:800;font-size:1.05rem;letter-spacing:-.02em;margin-bottom:4px;color:var(--text);}
+.rec-type-badge{font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em;display:inline-block;margin-bottom:14px;}
+.rec-score-num{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:2rem;letter-spacing:-.04em;color:var(--accent);}
+.rec-score-max{font-size:.8rem;color:var(--muted);}
+.rec-items{display:flex;flex-direction:column;gap:5px;margin:14px 0;}
+.rec-item{display:flex;justify-content:space-between;font-size:.75rem;padding:5px 0;border-bottom:1px solid var(--border);}
+.rec-item:last-child{border:none;}
+.rec-item-n{color:var(--muted2);}
+.rec-item-p{font-family:var(--mono);font-weight:700;}
+.rec-save-box{background:var(--green-dim);border:1px solid rgba(11,148,98,.2);border-radius:8px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;}
+.rsb-label{font-size:.72rem;color:var(--muted2);}
+.rsb-amount{font-family:var(--mono);font-weight:800;font-size:1rem;color:var(--green);}
+
+/* ══ STATE SELECTOR ══ */
+.state-selector-bar{background:var(--surface);border-bottom:1.5px solid var(--border);padding:14px 64px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:64px;z-index:400;box-shadow:var(--shadow-sm);}
+.ssb-label{font-size:.75rem;font-weight:800;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+.region-tabs{display:flex;gap:4px;flex-wrap:wrap;}
+.rtab{padding:6px 14px;border:1.5px solid var(--border2);border-radius:20px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s;color:var(--text2);background:var(--surface);white-space:nowrap;}
+.rtab:hover{border-color:var(--accent);}
+.rtab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.state-chips{display:flex;gap:6px;flex-wrap:wrap;}
+.state-chip{padding:6px 14px;border:1.5px solid var(--border2);border-radius:20px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s;color:var(--text2);background:var(--surface);white-space:nowrap;}
+.state-chip:hover{border-color:var(--accent);}
+.state-chip.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.state-divider{width:1px;height:28px;background:var(--border2);}
+/* state panel */
+.state-panel{display:none;background:var(--bg);padding:48px 64px;border-bottom:2px solid var(--border);}
+.state-panel.visible{display:block;}
+.state-panel-header{display:flex;align-items:flex-start;gap:24px;margin-bottom:32px;}
+.sph-badge{width:60px;height:60px;background:linear-gradient(135deg,var(--accent),var(--purple));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.sph-title{font-size:1.8rem;font-weight:800;letter-spacing:-.04em;color:var(--text);margin-bottom:4px;}
+.sph-sub{font-size:.85rem;color:var(--muted2);}
+.state-content-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.state-locs h4,.state-stores h4{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px;}
+.loc-list{display:flex;flex-direction:column;gap:8px;}
+.loc-list-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all .2s;}
+.loc-list-item:hover{border-color:var(--accent);background:var(--accent-dim);}
+.lli-name{font-weight:700;font-size:.88rem;color:var(--text);}
+.lli-type{font-size:.67rem;color:var(--muted2);}
+.lli-idx{font-family:var(--mono);font-weight:700;font-size:.75rem;padding:2px 8px;border-radius:5px;}
+.stores-grid-sm{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.store-sm-card{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px;transition:all .2s;}
+.store-sm-card:hover{border-color:var(--accent);box-shadow:var(--shadow);}
+.ssc-icon{font-size:1.4rem;margin-bottom:6px;}
+.ssc-name{font-weight:800;font-size:.82rem;color:var(--text);margin-bottom:2px;}
+.ssc-area{font-size:.67rem;color:var(--muted);}
+.ssc-type{font-size:.62rem;font-weight:700;padding:2px 7px;border-radius:4px;margin-top:6px;display:inline-block;}
+@media(max-width:900px){
+  .state-selector-bar{padding:10px 20px;}
+  .state-panel{padding:32px 20px;}
+  .state-content-grid{grid-template-columns:1fr;}
+  .stores-grid-sm{grid-template-columns:1fr;}
+}
+
+/* ══ PIPELINE ══ */
+.pipeline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pipeline-card{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:22px;transition:all .2s;box-shadow:var(--shadow-sm);}
+.pipeline-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow);}
+.pipeline-icon{width:44px;height:44px;background:var(--accent-dim);border:1px solid rgba(26,86,219,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:14px;}
+.pipeline-card h3{font-weight:800;font-size:.95rem;letter-spacing:-.02em;margin-bottom:8px;color:var(--text);}
+.pipeline-card p{font-size:.8rem;color:var(--muted2);line-height:1.6;}
+
+/* ══ CTA ══ */
+.cta-sec{padding:80px 64px;background:linear-gradient(135deg,#1A56DB 0%,#7C3AED 100%);text-align:center;position:relative;overflow:hidden;}
+.cta-sec h2{color:#fff;letter-spacing:-.04em;}
+.cta-sec p{color:rgba(255,255,255,.75);}
+.email-row{display:flex;gap:0;max-width:420px;margin:28px auto 12px;border:1.5px solid rgba(255,255,255,.25);border-radius:11px;overflow:hidden;background:rgba(255,255,255,.1);}
+.email-row input{flex:1;background:transparent;border:none;outline:none;color:#fff;font-family:var(--font);font-size:.88rem;padding:13px 18px;}
+.email-row input::placeholder{color:rgba(255,255,255,.5);}
+.email-row button{background:#fff;color:var(--accent);border:none;padding:13px 22px;font-family:var(--font);font-weight:800;font-size:.82rem;cursor:pointer;transition:all .2s;}
+.email-row button:hover{background:#EEF2FF;}
+
+/* ══ AFRICA MAP ══ */
+.africa-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:32px;align-items:start;}
+.map-container{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow-sm);}
+.country-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.country-card{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px;transition:all .2s;box-shadow:var(--shadow-sm);}
+.country-card:hover,.country-card.active{border-color:var(--accent);}
+.cc-flag{font-size:1.4rem;margin-bottom:4px;}
+.cc-name{font-weight:800;font-size:.88rem;color:var(--text);margin-bottom:2px;}
+.cc-currency{font-size:.65rem;color:var(--muted);margin-bottom:8px;}
+.cc-status{font-size:.63rem;font-weight:700;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:6px;}
+.status-live{background:var(--green-dim);color:var(--green);}
+.status-soon{background:var(--amber-dim);color:var(--amber);}
+.status-plan{background:var(--surface2);color:var(--muted2);}
+.cc-cities{font-size:.7rem;color:var(--muted2);}
+.map-cities{margin-top:16px;border-top:1px solid var(--border);padding-top:14px;}
+.map-city-row{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--border);}
+.map-city-row:last-child{border:none;}
+.city-name{font-weight:700;font-size:.8rem;color:var(--text);}
+.city-country{font-size:.68rem;color:var(--muted);margin-top:2px;}
+
+/* ══ FOOTER ══ */
+footer{background:var(--text);border-top:1px solid var(--border);padding:56px 64px 28px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+.footer-brand .logo{margin-bottom:12px;}
+.footer-brand p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.7;max-width:240px;}
+.footer-col h4{font-weight:800;font-size:.85rem;color:rgba(255,255,255,.9);margin-bottom:14px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-col ul li a{font-size:.8rem;color:rgba(255,255,255,.45);transition:color .2s;}
+.footer-col ul li a:hover{color:rgba(255,255,255,.9);}
+.footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.35);}
+
+/* ══ ANIMATIONS ══ */
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideR{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.vis{opacity:1;transform:translateY(0);}
+.hero-l{animation:fadeUp .7s .1s ease both;}
+.hero-r{animation:slideR .7s .25s ease both;}
+
+/* ══ PROFILE BADGE ══ */
+.profile-badge{display:flex;align-items:center;gap:8px;padding:6px 12px;border:1.5px solid var(--border2);border-radius:20px;cursor:pointer;transition:all .2s;font-size:.82rem;font-weight:700;color:var(--text2);background:var(--surface);}
+.profile-badge:hover{border-color:var(--accent);background:var(--accent-dim);color:var(--accent);}
+.profile-avatar{width:26px;height:26px;background:linear-gradient(135deg,var(--accent),var(--purple));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.7rem;font-weight:800;}
+
+/* ══ MOBILE ══ */
+@media(max-width:900px){
+  header{padding:0 20px;}nav{display:none;}
+  .hero{grid-template-columns:1fr;padding:80px 20px 40px;}.hero-r{display:none;}
+  .sec{padding:56px 20px;}
+  .loc-grid{grid-template-columns:repeat(3,1fr);}
+  .africa-grid{grid-template-columns:1fr;}
+  .stores-grid{grid-template-columns:1fr 1fr;}
+  .chart-section-grid{grid-template-columns:1fr;}
+  .mini-charts{grid-template-columns:1fr;}
+  .prediction-grid{grid-template-columns:1fr;}
+  .analytics-kpis{grid-template-columns:1fr 1fr;}
+  .rec-grid{grid-template-columns:1fr;}
+  .pipeline-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .country-cards{grid-template-columns:1fr 1fr;}
+  .dash-layout{flex-direction:column;}
+  .form-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">🔍</div>
+    PriceLens<span class="af">AFRICA</span>
+  </div>
+  <nav>
+    <div class="nav-item">
+      <button class="nav-link">Locations <span class="chev">▾</span></button>
+      <div class="dropdown">
+        <div class="dd-head">Lagos Island</div>
+        <div class="dd-link" onclick="scrollTo('#locations')"><div class="dd-ico">🏛️</div>Marina / Victoria Island</div>
+        <div class="dd-link" onclick="scrollTo('#locations')"><div class="dd-ico">🏘️</div>Lekki / Ajah / Epe</div>
+        <div class="dd-divider"></div>
+        <div class="dd-head">Lagos Mainland</div>
+        <div class="dd-link" onclick="scrollTo('#locations')"><div class="dd-ico">✈️</div>Ikeja / Surulere / Yaba</div>
+        <div class="dd-link" onclick="scrollTo('#locations')"><div class="dd-ico">🥦</div>Mile 12 / Oshodi</div>
+        <div class="dd-divider"></div>
+        <div class="dd-head">South East</div>
+        <div class="dd-link" onclick="selectStateAndScroll('enugu')"><div class="dd-ico">⛏️</div>Enugu — GRA, Ogui Rd, Trans-Ekulu</div>
+        <div class="dd-link" onclick="selectStateAndScroll('anambra')"><div class="dd-ico">🦅</div>Anambra — Onitsha, Awka, Nnewi</div>
+        <div class="dd-divider"></div>
+        <div class="dd-head">South South</div>
+        <div class="dd-link" onclick="selectStateAndScroll('rivers')"><div class="dd-ico">⛽</div>Rivers — Port Harcourt GRA, Mile 1</div>
+        <div class="dd-link" onclick="selectStateAndScroll('delta')"><div class="dd-ico">🌴</div>Delta — Asaba, Warri, Agbor</div>
+        <div class="dd-divider"></div>
+        <div class="dd-head">South West</div>
+        <div class="dd-link" onclick="selectStateAndScroll('ogun')"><div class="dd-ico">🌿</div>Ogun — Abeokuta, Sagamu</div>
+        <div class="dd-divider"></div>
+        <div class="dd-head">FCT / North</div>
+        <div class="dd-link" onclick="selectStateAndScroll('abuja')"><div class="dd-ico">🏛️</div>Abuja — Maitama, Wuse, Jabi</div>
+        <div class="dd-link" onclick="selectStateAndScroll('kano')"><div class="dd-ico">🏛️</div>Kano — GRA, Sabon Gari, Bompai</div>
+        <div class="dd-link" onclick="selectStateAndScroll('kaduna')"><div class="dd-ico">🌴</div>Kaduna — GRA, Barnawa, Zaria</div>
+        <div class="dd-link" onclick="scrollTo('#africa')"><div class="dd-ico">🌍</div>Ghana · Kenya · South Africa</div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button class="nav-link">Products <span class="chev">▾</span></button>
+      <div class="dropdown">
+        <div class="dd-link" onclick="filterCat('all')"><div class="dd-ico">🗂️</div>All Products</div>
+        <div class="dd-link" onclick="filterCat('grains')"><div class="dd-ico">🌾</div>Grains & Staples</div>
+        <div class="dd-link" onclick="filterCat('protein')"><div class="dd-ico">🥩</div>Protein & Meat</div>
+        <div class="dd-link" onclick="filterCat('produce')"><div class="dd-ico">🥦</div>Produce & Vegetables</div>
+        <div class="dd-link" onclick="filterCat('dairy')"><div class="dd-ico">🥛</div>Dairy & Eggs</div>
+        <div class="dd-link" onclick="filterCat('cooking')"><div class="dd-ico">🫙</div>Cooking & Condiments</div>
+        <div class="dd-link" onclick="filterCat('household')"><div class="dd-ico">🧴</div>Household & Cleaning</div>
+        <div class="dd-link" onclick="filterCat('beverages')"><div class="dd-ico">🥤</div>Beverages</div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button class="nav-link">Analytics <span class="chev">▾</span></button>
+      <div class="dropdown">
+        <div class="dd-link" onclick="scrollTo('#charts')"><div class="dd-ico">📈</div>Price Charts</div>
+        <div class="dd-link" onclick="scrollTo('#historical')"><div class="dd-ico">📅</div>Historical Data</div>
+        <div class="dd-link" onclick="scrollTo('#analytics')"><div class="dd-ico">📊</div>Market Analytics</div>
+        <div class="dd-link" onclick="scrollTo('#prediction')"><div class="dd-ico">🤖</div>AI Price Prediction</div>
+        <div class="dd-link" onclick="scrollTo('#recommender')"><div class="dd-ico">⭐</div>Best Buy Recommender</div>
+      </div>
+    </div>
+    <div class="live-badge"><div class="live-dot"></div>Live Data</div>
+    <div id="authButtons">
+      <button class="nav-login" onclick="openModal('loginModal')">Sign In</button>
+      <button class="nav-cta" onclick="openModal('registerModal')">Create Account →</button>
+    </div>
+    <div id="profileBadge" style="display:none">
+      <div class="profile-badge" onclick="openModal('dashboardModal')">
+        <div class="profile-avatar" id="profileInitials">?</div>
+        <span id="profileName">User</span>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="tickerInner">
+    <div class="t-item"><span class="t-name">Rice 50kg</span> Mile12 <span class="t-dn">₦38,500 ↓3.2%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Tomatoes basket</span> Ajah <span class="t-up">₦4,200 ↑8.1%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Chicken 1.5kg</span> Ebeano VI <span class="t-up">₦7,500 ↑5.0%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Yam tuber</span> Balogun <span class="t-dn">₦2,800 ↓6.3%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Palm Oil 5L</span> Lekki Mkt <span class="t-dn">₦3,800 ↓2.5%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Eggs crate</span> Blenco <span class="t-up">₦3,400 ↑4.4%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Garri 25kg</span> Oyingbo <span class="t-dn">₦11,200 ↓1.9%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Beef lean 1kg</span> Oyingbo <span class="t-up">₦5,800 ↑9.2%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Groundnut Oil 3L</span> Justrite <span class="t-dn">₦5,600 ↓1.8%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Mackerel 1kg</span> Balogun <span class="t-up">₦4,200 ↑7.3%</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="t-item"><span class="t-name">Rice 50kg</span> Mile12 <span class="t-dn">₦38,500 ↓3.2%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Tomatoes basket</span> Ajah <span class="t-up">₦4,200 ↑8.1%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Chicken 1.5kg</span> Ebeano VI <span class="t-up">₦7,500 ↑5.0%</span></div><span class="t-sep">·</span>
+    <div class="t-item"><span class="t-name">Yam tuber</span> Balogun <span class="t-dn">₦2,800 ↓6.3%</span></div>
+  </div>
+</div>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg-blob"></div><div class="hero-bg-blob2"></div><div class="hero-dots"></div>
+  <div class="hero-l">
+    <div class="hero-tag"><div class="live-dot" style="background:var(--green)"></div>Africa's #1 Retail Price Intelligence Platform</div>
+    <h1>Stop paying<br>more than you<br>should in <span class="hl2">Africa.</span></h1>
+    <p class="hero-sub">Real-time price comparison across Lagos markets, supermarkets, and shops. Upload your shopping list and our AI finds where to get everything cheapest — near you.</p>
+    <div class="search-bar">
+      <div class="search-row">
+        <span style="color:var(--muted);font-size:1rem">🔍</span>
+        <input type="text" id="heroSearch" placeholder="Search any product — Rice, Chicken, Tomatoes, Omo...">
+        <button class="search-go" onclick="doSearch()">Search Prices</button>
+      </div>
+      <div class="filter-row">
+        <div class="sel-wrap">
+          <select id="heroLocSelect" onchange="filterByLoc(this.value)">
+            <option value="">📍 All Locations</option>
+          </select>
+        </div>
+        <div class="sel-wrap">
+          <select>
+            <option value="">🗂 All Categories</option>
+            <option>Grains & Staples</option><option>Protein & Meat</option>
+            <option>Produce & Vegetables</option><option>Dairy & Eggs</option>
+            <option>Cooking & Condiments</option><option>Household & Cleaning</option>
+            <option>Beverages</option>
+          </select>
+        </div>
+        <button class="search-go" style="border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--purple));padding:8px 16px;font-size:.78rem;" onclick="openModal(isLoggedIn?'dashboardModal':'registerModal')">
+          🛒 Upload Shopping List
+        </button>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-num">50+</div><div class="hstat-lbl">Products</div></div>
+      <div class="hstat"><div class="hstat-num">20</div><div class="hstat-lbl">Lagos Zones</div></div>
+      <div class="hstat"><div class="hstat-num">13+</div><div class="hstat-lbl">Stores Mapped</div></div>
+      <div class="hstat"><div class="hstat-num">5</div><div class="hstat-lbl">Countries Soon</div></div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="live-panel">
+      <div class="lp-header">
+        <div class="lp-title">📍 Live Prices · Lekki Phase 1</div>
+        <div class="lp-updated" id="heroTime">Updated just now</div>
+      </div>
+      <div class="live-cards-grid">
+        <div class="lc best"><div class="lc-emoji"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=120&q=80" alt="Rice"></div><div class="lc-name">Rice 50kg</div><div class="lc-price best-price">₦38,500</div><div class="lc-loc">Mile 12 Market</div><div class="chg-dn">↓ 3.2% wk</div></div>
+        <div class="lc"><div class="lc-emoji"><img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=120&q=80" alt="Tomatoes"></div><div class="lc-name">Tomatoes</div><div class="lc-price">₦4,200</div><div class="lc-loc">Ajah Market</div><div class="chg-up">↑ 8.1% wk</div></div>
+        <div class="lc"><div class="lc-emoji"><img src="https://images.unsplash.com/photo-1604503468506-a8da13d11d36?w=120&q=80" alt="Chicken"></div><div class="lc-name">Chicken</div><div class="lc-price">₦7,500</div><div class="lc-loc">Ebeano VI</div><div class="chg-up">↑ 5.0% wk</div></div>
+        <div class="lc best"><div class="lc-emoji"><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=120&q=80" alt="Palm Oil"></div><div class="lc-name">Palm Oil 5L</div><div class="lc-price best-price">₦3,800</div><div class="lc-loc">Lekki Market</div><div class="chg-dn">↓ 2.5% wk</div></div>
+        <div class="lc"><div class="lc-emoji"><img src="https://images.unsplash.com/photo-1607690424560-35d967d6ad7a?w=120&q=80" alt="Eggs"></div><div class="lc-name">Eggs (crate)</div><div class="lc-price">₦3,400</div><div class="lc-loc">Blenco</div><div class="chg-up">↑ 4.4% wk</div></div>
+        <div class="lc"><div class="lc-emoji"><img src="https://images.unsplash.com/photo-1551446591-142875a901a1?w=120&q=80" alt="Beef"></div><div class="lc-name">Beef 1kg</div><div class="lc-price">₦5,800</div><div class="lc-loc">Oyingbo Mkt</div><div class="chg-up">↑ 9.2% wk</div></div>
+      </div>
+      <div class="ai-tip">🤖 <strong>AI Signal:</strong> Buy rice &amp; palm oil now. Prices predicted to rise +12–18% in 3 weeks based on seasonal patterns.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ LOCATIONS ════════ -->
+<section class="sec alt" id="locations">
+  <div class="sec-label">Price Index by Zone</div>
+  <h2>Compare Across Lagos — and All Nigeria</h2>
+  <p class="sec-sub">Lagos zones below. Use the <strong>Shop by State</strong> bar (just below) to explore prices across Enugu, Abuja, Kano, PH, and 10 more states.</p>
+  <h3 style="font-size:.8rem;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;">Lagos Island Corridor</h3>
+  <div class="loc-grid">
+    <div class="loc-card active" onclick="selectZone(this)"><div class="loc-flag">🏛️</div><div class="loc-name">Marina</div><div class="loc-type">CBD</div><div class="loc-idx idx-hi">+18%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🏙️</div><div class="loc-name">Victoria Island</div><div class="loc-type">Upscale</div><div class="loc-idx idx-hi">+22%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🌿</div><div class="loc-name">Ikoyi</div><div class="loc-type">Premium</div><div class="loc-idx idx-hi">+25%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🏘️</div><div class="loc-name">Lekki Phase 1</div><div class="loc-type">Mid-High</div><div class="loc-idx idx-mid">+11%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🏗️</div><div class="loc-name">Lekki Phase 2</div><div class="loc-type">Residential</div><div class="loc-idx idx-mid">+7%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🛒</div><div class="loc-name">Ajah</div><div class="loc-type">Market Hub</div><div class="loc-idx idx-lo">Base</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🏡</div><div class="loc-name">Sangotedo</div><div class="loc-type">Suburban</div><div class="loc-idx idx-lo">−4%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🌊</div><div class="loc-name">Lakowe</div><div class="loc-type">Peri-urban</div><div class="loc-idx idx-lo">−8%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🌾</div><div class="loc-name">Epe</div><div class="loc-type">Rural</div><div class="loc-idx idx-lo">−14%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">⛽</div><div class="loc-name">Chevron</div><div class="loc-type">Mixed</div><div class="loc-idx idx-mid">+9%</div></div>
+  </div>
+  <h3 style="font-size:.8rem;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin:24px 0 12px;">Lagos Mainland</h3>
+  <div class="loc-grid">
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">✈️</div><div class="loc-name">Ikeja</div><div class="loc-type">State Capital</div><div class="loc-idx idx-mid">+10%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🎭</div><div class="loc-name">Surulere</div><div class="loc-type">Residential</div><div class="loc-idx idx-mid">+5%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🎓</div><div class="loc-name">Yaba</div><div class="loc-type">Tech Hub</div><div class="loc-idx idx-mid">+3%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🚌</div><div class="loc-name">Oshodi</div><div class="loc-type">Transit Hub</div><div class="loc-idx idx-lo">−2%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🕌</div><div class="loc-name">Agege</div><div class="loc-type">Dense Res.</div><div class="loc-idx idx-lo">−6%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🛵</div><div class="loc-name">Mushin</div><div class="loc-type">Working Class</div><div class="loc-idx idx-lo">−11%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🌳</div><div class="loc-name">Gbagada</div><div class="loc-type">Quiet Res.</div><div class="loc-idx idx-mid">+4%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🔀</div><div class="loc-name">Ketu</div><div class="loc-type">Border</div><div class="loc-idx idx-lo">−4%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🥦</div><div class="loc-name">Mile 12</div><div class="loc-type">Biggest Market</div><div class="loc-idx idx-lo">−16%</div></div>
+    <div class="loc-card" onclick="selectZone(this)"><div class="loc-flag">🏙️</div><div class="loc-name">Alimosho</div><div class="loc-type">Largest LGA</div><div class="loc-idx idx-lo">−9%</div></div>
+  </div>
+</section>
+
+
+<!-- ════════ STATE SELECTOR BAR ════════ -->
+<div class="state-selector-bar" id="stateSelectorBar">
+  <span class="ssb-label">🇳🇬 Shop by State:</span>
+  <div class="region-tabs">
+    <div class="rtab active" onclick="filterRegion('all',this)">All Nigeria</div>
+    <div class="rtab" onclick="filterRegion('sw',this)">South West</div>
+    <div class="rtab" onclick="filterRegion('ss',this)">South South</div>
+    <div class="rtab" onclick="filterRegion('se',this)">South East</div>
+    <div class="rtab" onclick="filterRegion('nc',this)">North Central</div>
+    <div class="rtab" onclick="filterRegion('ne',this)">North East</div>
+    <div class="rtab" onclick="filterRegion('nw',this)">North West</div>
+    <div class="rtab" onclick="filterRegion('fct',this)">FCT Abuja</div>
+  </div>
+  <div class="state-divider"></div>
+  <div class="state-chips" id="stateChips"></div>
+</div>
+<div id="nigeriaStatesContainer"></div>
+
+<!-- ════════ AFRICA MAP ════════ -->
+<section class="sec blue-alt" id="africa">
+  <div class="sec-label">Coverage Map</div>
+  <h2>PriceLens Across Africa</h2>
+  <p class="sec-sub">Starting with Lagos, expanding across Nigeria, then Ghana, Kenya, South Africa and beyond.</p>
+  <div class="africa-grid reveal">
+    <div class="map-container">
+      <div style="font-weight:800;font-size:.9rem;margin-bottom:14px;color:var(--text);">🌍 Africa Coverage — Live &amp; Planned</div>
+      <svg viewBox="0 0 400 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:320px;">
+        <path d="M160,20 L220,18 L260,30 L290,55 L300,90 L295,120 L310,145 L320,170 L315,200 L325,230 L330,260 L320,295 L300,325 L275,355 L250,385 L230,410 L210,425 L195,420 L180,400 L160,375 L140,345 L115,310 L95,275 L80,245 L75,215 L70,185 L65,155 L55,130 L50,100 L60,70 L80,45 L110,28 Z" fill="rgba(26,86,219,0.04)" stroke="rgba(26,86,219,0.2)" stroke-width="1.5"/>
+        <circle cx="185" cy="195" r="8" fill="var(--accent)" opacity=".9"/>
+        <circle cx="185" cy="195" r="14" fill="var(--accent)" opacity=".15"/>
+        <circle cx="185" cy="195" r="20" fill="var(--accent)" opacity=".07"/>
+        <text x="198" y="191" fill="var(--accent)" font-size="9" font-weight="700">NIGERIA</text>
+        <text x="198" y="202" fill="#059669" font-size="7" font-weight="700">LIVE</text>
+        <circle cx="178" cy="205" r="4" fill="var(--amber)"/>
+        <text x="186" y="209" fill="var(--amber)" font-size="7" font-weight="600">Lagos</text>
+        <circle cx="160" cy="202" r="5" fill="var(--amber)" opacity=".7"/>
+        <text x="128" y="198" fill="var(--amber)" font-size="7" font-weight="600">Ghana</text>
+        <circle cx="245" cy="222" r="5" fill="var(--purple)" opacity=".8"/>
+        <text x="252" y="226" fill="var(--purple)" font-size="7" font-weight="600">Kenya</text>
+        <circle cx="210" cy="340" r="5" fill="var(--red)" opacity=".6"/>
+        <text x="218" y="344" fill="var(--red)" font-size="7" font-weight="600">South Africa</text>
+        <circle cx="128" cy="175" r="4" fill="var(--muted)" opacity=".5"/>
+        <text x="108" y="171" fill="var(--muted)" font-size="7">Senegal</text>
+        <circle cx="265" cy="200" r="4" fill="var(--muted)" opacity=".5"/>
+        <text x="270" y="197" fill="var(--muted)" font-size="7">Ethiopia</text>
+      </svg>
+      <div class="map-cities">
+        <div class="map-city-row"><div><div class="city-name">Lagos, Nigeria 🟢</div><div class="city-country">Ikeja · Lekki · VI · Marina · Mile 12</div></div><span class="cc-status status-live">LIVE</span></div>
+        <div class="map-city-row"><div><div class="city-name">Abuja, Nigeria</div><div class="city-country">Wuse · Garki · Maitama</div></div><span class="cc-status status-soon">Q3 2025</span></div>
+        <div class="map-city-row"><div><div class="city-name">Accra, Ghana</div><div class="city-country">Osu · Accra Mall · Makola Market</div></div><span class="cc-status status-soon">Q4 2025</span></div>
+        <div class="map-city-row"><div><div class="city-name">Nairobi, Kenya</div><div class="city-country">Westlands · Gikomba Market</div></div><span class="cc-status status-plan">2026</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="country-cards">
+        <div class="country-card active"><div class="cc-flag">🇳🇬</div><div class="cc-name">Nigeria</div><div class="cc-currency">NGN — Nigerian Naira</div><span class="cc-status status-live">✓ Live</span><div class="cc-cities">Lagos · Abuja · Port Harcourt</div></div>
+        <div class="country-card"><div class="cc-flag">🇬🇭</div><div class="cc-name">Ghana</div><div class="cc-currency">GHS — Ghanaian Cedi</div><span class="cc-status status-soon">Q4 2025</span><div class="cc-cities">Accra · Kumasi</div></div>
+        <div class="country-card"><div class="cc-flag">🇰🇪</div><div class="cc-name">Kenya</div><div class="cc-currency">KES — Kenyan Shilling</div><span class="cc-status status-soon">2026</span><div class="cc-cities">Nairobi · Mombasa</div></div>
+        <div class="country-card"><div class="cc-flag">🇿🇦</div><div class="cc-name">South Africa</div><div class="cc-currency">ZAR — SA Rand</div><span class="cc-status status-plan">2026</span><div class="cc-cities">Johannesburg · Cape Town</div></div>
+        <div class="country-card"><div class="cc-flag">🇸🇳</div><div class="cc-name">Senegal</div><div class="cc-currency">XOF — West African Franc</div><span class="cc-status status-plan">TBD</span><div class="cc-cities">Dakar</div></div>
+        <div class="country-card"><div class="cc-flag">🇪🇹</div><div class="cc-name">Ethiopia</div><div class="cc-currency">ETB — Ethiopian Birr</div><span class="cc-status status-plan">TBD</span><div class="cc-cities">Addis Ababa</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ STORE PROFILES ════════ -->
+<section class="sec" id="stores">
+  <div class="sec-label green">Store Intelligence</div>
+  <h2>Store Profiles</h2>
+  <p class="sec-sub">Deep data on each store — price positioning, best categories, value scores, and real-time pricing.</p>
+  <div class="stores-grid reveal">
+    <div class="store-card">
+      <div class="store-header"><div style="display:flex;align-items:center;gap:12px;"><div class="store-icon" style="background:rgba(26,86,219,.08)">🛍️</div><div><div class="store-name">Ebeano Supermarket</div><div style="font-size:.7rem;color:var(--muted)">Victoria Island · Lekki · Ikoyi</div></div></div><span class="store-type type-super">Supermarket</span></div>
+      <div class="store-metrics"><div class="sm"><div class="sm-val">78</div><div class="sm-lbl">Value Score</div></div><div class="sm"><div class="sm-val">1,200+</div><div class="sm-lbl">SKUs</div></div><div class="sm"><div class="sm-val">3 hrs</div><div class="sm-lbl">Update Freq</div></div></div>
+      <div class="store-best"><div class="sb-label">Best Prices Today</div><div class="sb-items"><div class="sb-item"><span class="sb-item-name">Frozen Chicken 1.5kg</span><span class="sb-item-price">₦7,500</span></div><div class="sb-item"><span class="sb-item-name">Eggs crate</span><span class="sb-item-price">₦3,300</span></div><div class="sb-item"><span class="sb-item-name">Butter 500g</span><span class="sb-item-price">₦1,900</span></div></div></div>
+    </div>
+    <div class="store-card">
+      <div class="store-header"><div style="display:flex;align-items:center;gap:12px;"><div class="store-icon" style="background:rgba(11,148,98,.08)">💚</div><div><div class="store-name">Spa Supermarket</div><div style="font-size:.7rem;color:var(--muted)">Lekki · Ajah · Chevron</div></div></div><span class="store-type type-super">Supermarket</span></div>
+      <div class="store-metrics"><div class="sm"><div class="sm-val">81</div><div class="sm-lbl">Value Score</div></div><div class="sm"><div class="sm-val">950+</div><div class="sm-lbl">SKUs</div></div><div class="sm"><div class="sm-val">6 hrs</div><div class="sm-lbl">Update Freq</div></div></div>
+      <div class="store-best"><div class="sb-label">Best Prices Today</div><div class="sb-items"><div class="sb-item"><span class="sb-item-name">Nescafé 200g</span><span class="sb-item-price">₦3,100</span></div><div class="sb-item"><span class="sb-item-name">Indomie carton</span><span class="sb-item-price">₦8,200</span></div><div class="sb-item"><span class="sb-item-name">Toothpaste 150ml</span><span class="sb-item-price">₦680</span></div></div></div>
+    </div>
+    <div class="store-card">
+      <div class="store-header"><div style="display:flex;align-items:center;gap:12px;"><div class="store-icon" style="background:rgba(26,86,219,.06)">🔵</div><div><div class="store-name">Blenco Supermarket</div><div style="font-size:.7rem;color:var(--muted)">Ajah · Sangotedo · Lekki</div></div></div><span class="store-type type-super">Supermarket</span></div>
+      <div class="store-metrics"><div class="sm"><div class="sm-val">83</div><div class="sm-lbl">Value Score</div></div><div class="sm"><div class="sm-val">800+</div><div class="sm-lbl">SKUs</div></div><div class="sm"><div class="sm-val">6 hrs</div><div class="sm-lbl">Update Freq</div></div></div>
+      <div class="store-best"><div class="sb-label">Best Prices Today</div><div class="sb-items"><div class="sb-item"><span class="sb-item-name">Peak Milk 400g</span><span class="sb-item-price">₦2,050</span></div><div class="sb-item"><span class="sb-item-name">Table Water 20L</span><span class="sb-item-price">₦1,100</span></div><div class="sb-item"><span class="sb-item-name">Garri 25kg</span><span class="sb-item-price">₦13,500</span></div></div></div>
+    </div>
+    <div class="store-card">
+      <div class="store-header"><div style="display:flex;align-items:center;gap:12px;"><div class="store-icon" style="background:rgba(217,119,6,.08)">🟡</div><div><div class="store-name">Justrite Superstore</div><div style="font-size:.7rem;color:var(--muted)">Surulere · Gbagada · Yaba</div></div></div><span class="store-type type-super">Supermarket</span></div>
+      <div class="store-metrics"><div class="sm"><div class="sm-val">85</div><div class="sm-lbl">Value Score</div></div><div class="sm"><div class="sm-val">1,500+</div><div class="sm-lbl">SKUs</div></div><div class="sm"><div class="sm-val">6 hrs</div><div class="sm-lbl">Update Freq</div></div></div>
+      <div class="store-best"><div class="sb-label">Best Prices Today</div><div class="sb-items"><div class="sb-item"><span class="sb-item-name">Omo Detergent 2kg</span><span class="sb-item-price">₦3,100</span></div><div class="sb-item"><span class="sb-item-name">Semolina 10kg</span><span class="sb-item-price">₦9,200</span></div><div class="sb-item"><span class="sb-item-name">Palm Oil 5L</span><span class="sb-item-price">₦4,400</span></div></div></div>
+    </div>
+    <div class="store-card">
+      <div class="store-header"><div style="display:flex;align-items:center;gap:12px;"><div class="store-icon" style="background:rgba(11,148,98,.08)">🧺</div><div><div class="store-name">Mile 12 Market</div><div style="font-size:.7rem;color:var(--muted)">Mile 12, Mainland · Lagos's biggest food market</div></div></div><span class="store-type type-market">Open Market</span></div>
+      <div class="store-metrics"><div class="sm"><div class="sm-val">96</div><div class="sm-lbl">Value Score</div></div><div class="sm"><div class="sm-val">500+</div><div class="sm-lbl">SKUs</div></div><div class="sm"><div class="sm-val">Daily</div><div class="sm-lbl">Update Freq</div></div></div>
+      <div class="store-best"><div class="sb-label">Best Prices Today</div><div class="sb-items"><div class="sb-item"><span class="sb-item-name">Rice 50kg</span><span class="sb-item-price" style="color:var(--green)">₦38,500 ⭐</span></div><div class="sb-item"><span class="sb-item-name">Tomatoes basket</span><span class="sb-item-price" style="color:var(--green)">₦3,500 ⭐</span></div><div class="sb-item"><span class="sb-item-name">Onion 1kg</span><span class="sb-item-price" style="color:var(--green)">₦850 ⭐</span></div></div></div>
+    </div>
+    <div class="store-card">
+      <div class="store-header"><div style="display:flex;align-items:center;gap:12px;"><div class="store-icon" style="background:rgba(11,148,98,.06)">🌊</div><div><div class="store-name">Oyingbo / Balogun</div><div style="font-size:.7rem;color:var(--muted)">Oyingbo, Mainland · Balogun Island</div></div></div><span class="store-type type-market">Open Market</span></div>
+      <div class="store-metrics"><div class="sm"><div class="sm-val">90</div><div class="sm-lbl">Value Score</div></div><div class="sm"><div class="sm-val">300+</div><div class="sm-lbl">SKUs</div></div><div class="sm"><div class="sm-val">Daily</div><div class="sm-lbl">Update Freq</div></div></div>
+      <div class="store-best"><div class="sb-label">Best Prices Today</div><div class="sb-items"><div class="sb-item"><span class="sb-item-name">Beef 1kg</span><span class="sb-item-price" style="color:var(--green)">₦4,500 ⭐</span></div><div class="sb-item"><span class="sb-item-name">Pepper 1kg</span><span class="sb-item-price" style="color:var(--green)">₦2,200 ⭐</span></div><div class="sb-item"><span class="sb-item-name">Garri 25kg</span><span class="sb-item-price" style="color:var(--green)">₦11,200 ⭐</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PRICE CHARTS ════════ -->
+<section class="sec alt" id="charts">
+  <div class="sec-label">Price Charts</div>
+  <h2>Historical Price Tracking</h2>
+  <p class="sec-sub">Every price we record is stored forever. Compare across days, weeks, months, years.</p>
+  <div class="chart-section-grid reveal">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div><div class="chart-title">🍚 Rice (50kg) — Price History</div><div class="chart-sub">All locations · Market vs Supermarket</div></div>
+        <div class="chart-tabs">
+          <button class="chart-tab" onclick="updateChart('7d',this)">7D</button>
+          <button class="chart-tab" onclick="updateChart('1m',this)">1M</button>
+          <button class="chart-tab active" onclick="updateChart('3m',this)">3M</button>
+          <button class="chart-tab" onclick="updateChart('1y',this)">1Y</button>
+          <button class="chart-tab" onclick="updateChart('all',this)">ALL</button>
+        </div>
+      </div>
+      <div class="chart-canvas-wrap"><canvas id="mainChart"></canvas></div>
+      <div class="chart-legend">
+        <div class="cl-item"><div class="cl-dot" style="background:#0B9462"></div>Mile 12 Market</div>
+        <div class="cl-item"><div class="cl-dot" style="background:#1A56DB"></div>Ajah Market</div>
+        <div class="cl-item"><div class="cl-dot" style="background:#D97706"></div>Ebeano / Shoprite</div>
+        <div class="cl-item"><div class="cl-dot" style="background:#DC2626"></div>QMB / Blenco</div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header"><div><div class="chart-title">Inflation Index</div><div class="chart-sub">Month-over-month basket cost</div></div></div>
+      <div class="chart-canvas-wrap"><canvas id="inflationChart"></canvas></div>
+      <div style="margin-top:12px;padding:10px 12px;background:var(--surface2);border-radius:8px;">
+        <div style="font-size:.7rem;color:var(--muted);margin-bottom:4px;font-weight:600;">YTD Basket Inflation</div>
+        <div style="font-family:var(--mono);font-size:1.4rem;font-weight:700;color:var(--red);">+34.2%</div>
+        <div style="font-size:.7rem;color:var(--muted2);">vs National CPI: 32.7%</div>
+      </div>
+    </div>
+  </div>
+  <div class="mini-charts reveal">
+    <div class="mini-chart-card">
+      <div class="mc-header"><div class="mc-title">🍅 Tomatoes — 90 Days</div><div class="mc-change" style="background:var(--red-dim);color:var(--red);">+18.2%</div></div>
+      <div class="mc-canvas-wrap"><canvas id="chart2"></canvas></div>
+    </div>
+    <div class="mini-chart-card">
+      <div class="mc-header"><div class="mc-title">🐔 Frozen Chicken — 90 Days</div><div class="mc-change" style="background:var(--red-dim);color:var(--red);">+12.5%</div></div>
+      <div class="mc-canvas-wrap"><canvas id="chart3"></canvas></div>
+    </div>
+    <div class="mini-chart-card">
+      <div class="mc-header"><div class="mc-title">🫙 Palm Oil — 90 Days</div><div class="mc-change" style="background:var(--green-dim);color:var(--green);">−5.3%</div></div>
+      <div class="mc-canvas-wrap"><canvas id="chart4"></canvas></div>
+    </div>
+    <div class="mini-chart-card">
+      <div class="mc-header"><div class="mc-title">🥚 Eggs (Crate) — 90 Days</div><div class="mc-change" style="background:var(--red-dim);color:var(--red);">+9.8%</div></div>
+      <div class="mc-canvas-wrap"><canvas id="chart5"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PRODUCTS ════════ -->
+<section class="sec" id="products">
+  <div class="sec-label">Product Catalogue</div>
+  <h2>50+ Products Tracked</h2>
+  <p class="sec-sub">Every major product category Lagos households buy — market vs supermarket, side by side.</p>
+  <div class="cat-tabs" id="catTabs">
+    <div class="cat-tab2 active" onclick="filterCat('all',this)">🗂 All</div>
+    <div class="cat-tab2" onclick="filterCat('grains',this)">🌾 Grains</div>
+    <div class="cat-tab2" onclick="filterCat('protein',this)">🥩 Protein</div>
+    <div class="cat-tab2" onclick="filterCat('produce',this)">🥦 Produce</div>
+    <div class="cat-tab2" onclick="filterCat('dairy',this)">🥛 Dairy</div>
+    <div class="cat-tab2" onclick="filterCat('cooking',this)">🫙 Cooking</div>
+    <div class="cat-tab2" onclick="filterCat('household',this)">🧴 Household</div>
+    <div class="cat-tab2" onclick="filterCat('beverages',this)">🥤 Drinks</div>
+    <div class="cat-tab2" onclick="filterCat('bakery',this)">🍞 Bakery</div>
+    <div class="cat-tab2" onclick="filterCat('pharma',this)">💊 Pharmacy</div>
+    <div class="cat-tab2" onclick="filterCat('baby',this)">🍼 Baby</div>
+  </div>
+  <div class="prod-grid" id="prodGrid">
+    <div class="prod-card" data-cat="grains"><div class="prod-img"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&q=80" alt="Parboiled Rice" loading="lazy"><div class="prod-cat-tag tag-grains">Grains</div></div><div class="prod-body"><div class="prod-name">Parboiled Rice</div><div class="prod-unit">Per 50kg bag</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🧺 Mile 12</span><span class="pr-val best-val">₦38,500<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🛍️ Ebeano VI</span><span class="pr-val high-val">₦44,000</span></div></div><span class="save-chip">Save ₦5,500 vs supermarket</span></div></div>
+    <div class="prod-card" data-cat="grains"><div class="prod-img"><img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&q=80" alt="White Garri" loading="lazy"><div class="prod-cat-tag tag-grains">Grains</div></div><div class="prod-body"><div class="prod-name">White Garri</div><div class="prod-unit">Per 25kg bag</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🌊 Oyingbo</span><span class="pr-val best-val">₦11,200<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🔵 Blenco Ajah</span><span class="pr-val high-val">₦14,500</span></div></div><span class="save-chip">Save ₦3,300</span></div></div>
+    <div class="prod-card" data-cat="grains"><div class="prod-img"><img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&q=80" alt="Semolina" loading="lazy"><div class="prod-cat-tag tag-grains">Grains</div></div><div class="prod-body"><div class="prod-name">Semolina</div><div class="prod-unit">Per 10kg bag</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🧺 Balogun</span><span class="pr-val best-val">₦8,400<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">💚 Spa</span><span class="pr-val high-val">₦10,200</span></div></div><span class="save-chip">Save ₦1,800</span></div></div>
+    <div class="prod-card" data-cat="grains"><div class="prod-img"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Wheat Flour" loading="lazy"><div class="prod-cat-tag tag-grains">Grains</div></div><div class="prod-body"><div class="prod-name">Wheat Flour</div><div class="prod-unit">Per 50kg bag</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🏬 Ajah Mkt</span><span class="pr-val best-val">₦32,000<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🔴 Shoprite VI</span><span class="pr-val high-val">₦37,500</span></div></div><span class="save-chip">Save ₦5,500</span></div></div>
+    <div class="prod-card" data-cat="grains"><div class="prod-img"><img src="https://images.unsplash.com/photo-1587735243475-37bf5a2c2067?w=400&q=80" alt="Black-Eye Beans" loading="lazy"><div class="prod-cat-tag tag-grains">Grains</div></div><div class="prod-body"><div class="prod-name">Black-Eye Beans</div><div class="prod-unit">Per 5kg bag</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🌊 Oyingbo</span><span class="pr-val best-val">₦8,500<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🟤 Bokku Mart</span><span class="pr-val high-val">₦10,500</span></div></div><span class="save-chip">Save ₦2,000</span></div></div>
+    <div class="prod-card" data-cat="grains"><div class="prod-img"><img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=400&q=80" alt="Indomie Noodles" loading="lazy"><div class="prod-cat-tag tag-grains">Grains</div></div><div class="prod-body"><div class="prod-name">Indomie Noodles</div><div class="prod-unit">Per carton (40 packs)</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🧺 Balogun</span><span class="pr-val best-val">₦8,200<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🟠 Justrite</span><span class="pr-val high-val">₦9,000</span></div></div><span class="save-chip">Save ₦800</span></div></div>
+    <div class="prod-card" data-cat="protein"><div class="prod-img"><img src="https://images.unsplash.com/photo-1604503468506-a8da13d11d36?w=400&q=80" alt="Frozen Chicken" loading="lazy"><div class="prod-cat-tag tag-protein">Protein</div></div><div class="prod-body"><div class="prod-name">Frozen Chicken</div><div class="prod-unit">Whole bird ~1.5kg</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🛒 Lekki Mkt</span><span class="pr-val best-val">₦6,800<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🛍️ Ebeano VI</span><span class="pr-val high-val">₦7,800</span></div></div><span class="save-chip">Save ₦1,000</span></div></div>
+    <div class="prod-card" data-cat="protein"><div class="prod-img"><img src="https://images.unsplash.com/photo-1551446591-142875a901a1?w=400&q=80" alt="Beef" loading="lazy"><div class="prod-cat-tag tag-protein">Protein</div></div><div class="prod-body"><div class="prod-name">Beef (Lean Cuts)</div><div class="prod-unit">Per 1kg</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🌊 Oyingbo</span><span class="pr-val best-val">₦4,500<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">💚 Spa</span><span class="pr-val high-val">₦6,200</span></div></div><span class="save-chip">Save ₦1,700/kg</span></div></div>
+    <div class="prod-card" data-cat="protein"><div class="prod-img"><img src="https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=400&q=80" alt="Croaker Fish" loading="lazy"><div class="prod-cat-tag tag-protein">Protein</div></div><div class="prod-body"><div class="prod-name">Croaker Fish (Dried)</div><div class="prod-unit">Per 1kg</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🧺 Balogun</span><span class="pr-val best-val">₦3,800<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🟠 Justrite</span><span class="pr-val high-val">₦5,000</span></div></div><span class="save-chip">Save ₦1,200</span></div></div>
+    <div class="prod-card" data-cat="protein"><div class="prod-img"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=80" alt="Mackerel Titus" loading="lazy"><div class="prod-cat-tag tag-protein">Protein</div></div><div class="prod-body"><div class="prod-name">Mackerel (Titus)</div><div class="prod-unit">Per 1kg frozen</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🧺 Balogun</span><span class="pr-val best-val">₦4,200<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🔴 Shoprite</span><span class="pr-val high-val">₦5,400</span></div></div><span class="save-chip">Save ₦1,200</span></div></div>
+    <div class="prod-card" data-cat="protein"><div class="prod-img"><img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&q=80" alt="Dry Shrimp" loading="lazy"><div class="prod-cat-tag tag-protein">Protein</div></div><div class="prod-body"><div class="prod-name">Dry Shrimp</div><div class="prod-unit">Per 200g pack</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🏬 Ajah Mkt</span><span class="pr-val best-val">₦1,800<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🔵 Blenco</span><span class="pr-val high-val">₦2,400</span></div></div><span class="save-chip">Save ₦600</span></div></div>
+    <div class="prod-card" data-cat="produce"><div class="prod-img"><img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400&q=80" alt="Fresh Tomatoes" loading="lazy"><div class="prod-cat-tag tag-produce">Produce</div></div><div class="prod-body"><div class="prod-name">Fresh Tomatoes</div><div class="prod-unit">Per basket ~5kg</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🌿 Mile 12</span><span class="pr-val best-val">₦3,500<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🛍️ Ebeano</span><span class="pr-val high-val">₦5,600</span></div></div><span class="save-chip">Save ₦2,100</span></div></div>
+    <div class="prod-card" data-cat="produce"><div class="prod-img"><img src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=400&q=80" alt="Scotch Bonnet Pepper" loading="lazy"><div class="prod-cat-tag tag-produce">Produce</div></div><div class="prod-body"><div class="prod-name">Scotch Bonnet Pepper</div><div class="prod-unit">Per 1kg</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🌊 Oyingbo</span><span class="pr-val best-val">₦2,200<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">💚 Spa</span><span class="pr-val high-val">₦3,500</span></div></div><span class="save-chip">Save ₦1,300</span></div></div>
+    <div class="prod-card" data-cat="produce"><div class="prod-img"><img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=400&q=80" alt="Yam Tuber" loading="lazy"><div class="prod-cat-tag tag-produce">Produce</div></div><div class="prod-body"><div class="prod-name">Yam (Tuber)</div><div class="prod-unit">Medium tuber ~2kg</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🧺 Balogun</span><span class="pr-val best-val">₦2,800<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🟤 Bokku</span><span class="pr-val high-val">₦3,800</span></div></div><span class="save-chip">Save ₦1,000</span></div></div>
+    <div class="prod-card" data-cat="produce"><div class="prod-img"><img src="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=400&q=80" alt="Onion" loading="lazy"><div class="prod-cat-tag tag-produce">Produce</div></div><div class="prod-body"><div class="prod-name">Onion</div><div class="prod-unit">Per 1kg</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🌿 Mile 12</span><span class="pr-val best-val">₦850<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🔴 Shoprite</span><span class="pr-val high-val">₦1,600</span></div></div><span class="save-chip">Save ₦750</span></div></div>
+    <div class="prod-card" data-cat="produce"><div class="prod-img"><img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&q=80" alt="Ugu Pumpkin Leaf" loading="lazy"><div class="prod-cat-tag tag-produce">Produce</div></div><div class="prod-body"><div class="prod-name">Ugu (Pumpkin Leaf)</div><div class="prod-unit">Per bunch</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🌿 Mile 12</span><span class="pr-val best-val">₦400<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🛍️ Ebeano</span><span class="pr-val high-val">₦700</span></div></div><span class="save-chip">Save ₦300</span></div></div>
+    <div class="prod-card" data-cat="dairy"><div class="prod-img"><img src="https://images.unsplash.com/photo-1607690424560-35d967d6ad7a?w=400&q=80" alt="Eggs Crate" loading="lazy"><div class="prod-cat-tag tag-dairy">Dairy</div></div><div class="prod-body"><div class="prod-name">Eggs (Crate 30)</div><div class="prod-unit">30 pieces</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🏬 Ajah Mkt</span><span class="pr-val best-val">₦3,000<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🔵 Blenco</span><span class="pr-val high-val">₦3,600</span></div></div><span class="save-chip">Save ₦600</span></div></div>
+    <div class="prod-card" data-cat="dairy"><div class="prod-img"><img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&q=80" alt="Peak Milk" loading="lazy"><div class="prod-cat-tag tag-dairy">Dairy</div></div><div class="prod-body"><div class="prod-name">Peak Milk (Tin)</div><div class="prod-unit">400g tin</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🧺 Balogun</span><span class="pr-val best-val">₦2,100<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🛍️ Ebeano</span><span class="pr-val high-val">₦2,450</span></div></div><span class="save-chip">Save ₦350</span></div></div>
+    <div class="prod-card" data-cat="cooking"><div class="prod-img"><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&q=80" alt="Palm Oil" loading="lazy"><div class="prod-cat-tag tag-cooking">Cooking</div></div><div class="prod-body"><div class="prod-name">Palm Oil</div><div class="prod-unit">5 litre jerry can</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🛒 Lekki Mkt</span><span class="pr-val best-val">₦3,800<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🔴 Shoprite</span><span class="pr-val high-val">₦4,800</span></div></div><span class="save-chip">Save ₦1,000</span></div></div>
+    <div class="prod-card" data-cat="cooking"><div class="prod-img"><img src="https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?w=400&q=80" alt="Groundnut Oil" loading="lazy"><div class="prod-cat-tag tag-cooking">Cooking</div></div><div class="prod-body"><div class="prod-name">Groundnut Oil</div><div class="prod-unit">3 litre bottle</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🌊 Oyingbo</span><span class="pr-val best-val">₦4,800<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🟡 QMB</span><span class="pr-val high-val">₦5,800</span></div></div><span class="save-chip">Save ₦1,000</span></div></div>
+    <div class="prod-card" data-cat="cooking"><div class="prod-img"><img src="https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?w=400&q=80" alt="Table Salt" loading="lazy"><div class="prod-cat-tag tag-cooking">Cooking</div></div><div class="prod-body"><div class="prod-name">Table Salt</div><div class="prod-unit">1kg pack</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🏬 Ajah Mkt</span><span class="pr-val best-val">₦350<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🔵 Blenco</span><span class="pr-val high-val">₦500</span></div></div><span class="save-chip">Save ₦150</span></div></div>
+    <div class="prod-card" data-cat="cooking"><div class="prod-img"><img src="https://images.unsplash.com/photo-1615484477778-ca3b77940c25?w=400&q=80" alt="Maggi Seasoning" loading="lazy"><div class="prod-cat-tag tag-cooking">Cooking</div></div><div class="prod-body"><div class="prod-name">Maggi Seasoning</div><div class="prod-unit">Box of 50 cubes</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🧺 Balogun</span><span class="pr-val best-val">₦900<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🛍️ Ebeano</span><span class="pr-val high-val">₦1,100</span></div></div><span class="save-chip">Save ₦200</span></div></div>
+    <div class="prod-card" data-cat="household"><div class="prod-img"><img src="https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=400&q=80" alt="Omo Detergent" loading="lazy"><div class="prod-cat-tag tag-household">Household</div></div><div class="prod-body"><div class="prod-name">Omo Detergent</div><div class="prod-unit">2kg sachet box</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🏬 Ajah Mkt</span><span class="pr-val best-val">₦3,200<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🟤 Bokku</span><span class="pr-val high-val">₦3,800</span></div></div><span class="save-chip">Save ₦600</span></div></div>
+    <div class="prod-card" data-cat="household"><div class="prod-img"><img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400&q=80" alt="Toilet Rolls" loading="lazy"><div class="prod-cat-tag tag-household">Household</div></div><div class="prod-body"><div class="prod-name">Toilet Rolls</div><div class="prod-unit">Pack of 12</div><div class="price-rows"><div class="pr-row"><span class="pr-store">🟡 QMB</span><span class="pr-val best-val">₦1,800<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🔵 Blenco</span><span class="pr-val high-val">₦2,100</span></div></div><span class="save-chip">Save ₦300</span></div></div>
+    <div class="prod-card" data-cat="beverages"><div class="prod-img"><img src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=400&q=80" alt="Lipton Tea" loading="lazy"><div class="prod-cat-tag tag-beverages">Beverages</div></div><div class="prod-body"><div class="prod-name">Lipton Tea</div><div class="prod-unit">Box of 100 bags</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🏬 Ajah Mkt</span><span class="pr-val best-val">₦1,700<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🛍️ Ebeano</span><span class="pr-val high-val">₦2,050</span></div></div><span class="save-chip">Save ₦350</span></div></div>
+    <div class="prod-card" data-cat="beverages"><div class="prod-img"><img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400&q=80" alt="Coca-Cola Crate" loading="lazy"><div class="prod-cat-tag tag-beverages">Beverages</div></div><div class="prod-body"><div class="prod-name">Coca-Cola (Crate)</div><div class="prod-unit">24 × 50cl bottles</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🧺 Balogun</span><span class="pr-val best-val">₦5,400<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🔴 Shoprite</span><span class="pr-val high-val">₦6,200</span></div></div><span class="save-chip">Save ₦800</span></div></div>
+    <div class="prod-card" data-cat="beverages"><div class="prod-img"><img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&q=80" alt="Table Water" loading="lazy"><div class="prod-cat-tag tag-beverages">Beverages</div></div><div class="prod-body"><div class="prod-name">Table Water (20L)</div><div class="prod-unit">Dispenser gallon</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🛒 Lekki Mkt</span><span class="pr-val best-val">₦900<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🔵 Blenco</span><span class="pr-val high-val">₦1,200</span></div></div><span class="save-chip">Save ₦300</span></div></div>
+    <div class="prod-card" data-cat="bakery"><div class="prod-img"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&q=80" alt="Agege Bread" loading="lazy"><div class="prod-cat-tag tag-bakery">Bakery</div></div><div class="prod-body"><div class="prod-name">Agege Bread (Large)</div><div class="prod-unit">Per loaf (~600g)</div><div class="price-rows"><div class="pr-row market-row"><span class="pr-store">🧺 Local Baker</span><span class="pr-val best-val">₦1,100<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🛍️ Ebeano</span><span class="pr-val high-val">₦1,400</span></div></div><span class="save-chip">Save ₦300</span></div></div>
+    <div class="prod-card" data-cat="pharma"><div class="prod-img"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80" alt="Paracetamol" loading="lazy"><div class="prod-cat-tag tag-pharma">Pharmacy</div></div><div class="prod-body"><div class="prod-name">Paracetamol (Emzor)</div><div class="prod-unit">Per 1000mg strip</div><div class="price-rows"><div class="pr-row"><span class="pr-store">🏥 Pharmacy chain</span><span class="pr-val best-val">₦100<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🛍️ Supermarket</span><span class="pr-val high-val">₦180</span></div></div><span class="save-chip">Save ₦80</span></div></div>
+    <div class="prod-card" data-cat="baby"><div class="prod-img"><img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&q=80" alt="Baby Formula" loading="lazy"><div class="prod-cat-tag tag-baby">Baby</div></div><div class="prod-body"><div class="prod-name">Nan Baby Formula</div><div class="prod-unit">400g tin</div><div class="price-rows"><div class="pr-row"><span class="pr-store">🟠 Justrite</span><span class="pr-val best-val">₦7,200<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🛍️ Ebeano</span><span class="pr-val high-val">₦8,500</span></div></div><span class="save-chip">Save ₦1,300</span></div></div>
+    <div class="prod-card" data-cat="baby"><div class="prod-img"><img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?w=400&q=80" alt="Pampers Diapers" loading="lazy"><div class="prod-cat-tag tag-baby">Baby</div></div><div class="prod-body"><div class="prod-name">Pampers Diapers</div><div class="prod-unit">Size 3, pack of 40</div><div class="price-rows"><div class="pr-row"><span class="pr-store">🔵 Blenco</span><span class="pr-val best-val">₦5,800<span class="best-lbl">BEST</span></span></div><div class="pr-row"><span class="pr-store">🛍️ Ebeano</span><span class="pr-val high-val">₦6,800</span></div></div><span class="save-chip">Save ₦1,000</span></div></div>
+  </div>
+</section>
+
+<!-- ════════ ANALYTICS ════════ -->
+<section class="sec alt" id="analytics">
+  <div class="sec-label">Market Analytics</div>
+  <h2>Price Intelligence Dashboard</h2>
+  <p class="sec-sub">KPIs, inflation tracking, and market vs supermarket premium analysis across all Lagos zones.</p>
+  <div class="analytics-kpis reveal">
+    <div class="kpi"><div class="kpi-label">Weekly Basket Inflation</div><div class="kpi-val red">+2.8%</div><div class="kpi-sub">Month avg: +1.9% · Last wk: +2.1%</div></div>
+    <div class="kpi"><div class="kpi-label">Max Price Saving (Today)</div><div class="kpi-val green">₦6,500</div><div class="kpi-sub">On Rice 50kg · Market vs Supermarket</div></div>
+    <div class="kpi"><div class="kpi-label">Products Tracking Up</div><div class="kpi-val amber">31/50</div><div class="kpi-sub">62% of tracked SKUs rising this week</div></div>
+    <div class="kpi"><div class="kpi-label">Avg Market Premium Paid</div><div class="kpi-val blue">+24%</div><div class="kpi-sub">If shopping only at supermarkets in VI</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;" class="reveal">
+    <div class="chart-card">
+      <div class="chart-header"><div><div class="chart-title">Market vs Supermarket Premium by Product</div><div class="chart-sub">How much more you pay at supermarkets</div></div></div>
+      <div class="chart-canvas-wrap"><canvas id="premiumChart"></canvas></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="chart-card" style="flex:1">
+        <div class="chart-title" style="margin-bottom:14px">🔥 Top Price Risers</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--surface2);border-radius:7px;font-size:.78rem;"><span>🍅 Tomatoes</span><span style="font-family:var(--mono);color:var(--red);font-weight:700;">+18.2%</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--surface2);border-radius:7px;font-size:.78rem;"><span>🥩 Beef 1kg</span><span style="font-family:var(--mono);color:var(--red);font-weight:700;">+9.2%</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--surface2);border-radius:7px;font-size:.78rem;"><span>🍞 Wheat Flour</span><span style="font-family:var(--mono);color:var(--red);font-weight:700;">+6.7%</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--surface2);border-radius:7px;font-size:.78rem;"><span>🐔 Chicken</span><span style="font-family:var(--mono);color:var(--red);font-weight:700;">+5.0%</span></div>
+        </div>
+      </div>
+      <div class="chart-card" style="flex:1">
+        <div class="chart-title" style="margin-bottom:14px">💚 Top Price Fallers</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--surface2);border-radius:7px;font-size:.78rem;"><span>🍠 Yam tuber</span><span style="font-family:var(--mono);color:var(--green);font-weight:700;">−6.3%</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--surface2);border-radius:7px;font-size:.78rem;"><span>🫙 Palm Oil</span><span style="font-family:var(--mono);color:var(--green);font-weight:700;">−2.5%</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--surface2);border-radius:7px;font-size:.78rem;"><span>🍚 Rice 50kg</span><span style="font-family:var(--mono);color:var(--green);font-weight:700;">−3.2%</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--surface2);border-radius:7px;font-size:.78rem;"><span>🫘 Garri 25kg</span><span style="font-family:var(--mono);color:var(--green);font-weight:700;">−1.9%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ AI PREDICTION ════════ -->
+<section class="sec blue-alt" id="prediction">
+  <div class="sec-label amber">AI Engine</div>
+  <h2>AI Price Prediction</h2>
+  <p class="sec-sub">Our model analyses seasonal trends, historical data, supply chain signals and inflation patterns to predict future price movements — up to 30 days out.</p>
+  <div class="prediction-grid reveal">
+    <div class="pred-card">
+      <div class="pred-header"><div class="pred-icon">🤖</div><div><div class="pred-title">Model Confidence</div><div class="pred-sub">Based on 18 months of Lagos price data</div></div></div>
+      <div class="conf-label"><span>Model accuracy (30-day)</span><span class="conf-val">87.4%</span></div>
+      <div class="confidence-bar"><div class="cb-fill" style="width:87%"></div></div>
+      <div class="pred-list">
+        <div class="pred-item"><div class="pred-item-icon">🍅</div><div><div class="pred-item-name">Tomatoes — BUY NOW</div><div class="pred-item-text">Prices spike 25–35% in December due to dry season. Current: ₦4,200. Predicted: ₦5,500–₦6,000.</div><span class="pred-signal sig-buy">📈 BUY NOW</span></div></div>
+        <div class="pred-item"><div class="pred-item-icon">🍚</div><div><div class="pred-item-name">Rice 50kg — BUY NOW</div><div class="pred-item-text">Post-harvest season ends in 3 weeks. Expected +10–15% when dry season begins. Current: ₦38,500.</div><span class="pred-signal sig-buy">📈 BUY NOW</span></div></div>
+        <div class="pred-item"><div class="pred-item-icon">🥩</div><div><div class="pred-item-name">Beef — HOLD</div><div class="pred-item-text">Prices rising due to transport fuel costs. Wait 2–3 weeks for stabilization before bulk purchase.</div><span class="pred-signal sig-hold">⏸ HOLD</span></div></div>
+        <div class="pred-item"><div class="pred-item-icon">🫙</div><div><div class="pred-item-name">Palm Oil — WAIT</div><div class="pred-item-text">New palm season supply incoming. Predicted further 5–8% drop over next 2 weeks.</div><span class="pred-signal sig-wait">⬇ WAIT 2 WKS</span></div></div>
+      </div>
+    </div>
+    <div class="pred-card">
+      <div class="pred-header"><div class="pred-icon">📅</div><div><div class="pred-title">30-Day Price Forecast</div><div class="pred-sub">Predicted price ranges · Next 4 weeks</div></div></div>
+      <div class="chart-canvas-wrap"><canvas id="forecastChart"></canvas></div>
+      <div style="margin-top:16px;padding:14px;background:var(--amber-dim);border-radius:10px;border:1px solid rgba(217,119,6,.2);">
+        <div style="font-size:.7rem;font-weight:700;color:var(--amber);margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase;">⚡ This Month's Signal</div>
+        <div style="font-size:.82rem;color:var(--text2);line-height:1.65;">Stock up on <strong>rice, tomatoes, and grains</strong> before the 3rd week. Our model shows <strong style="color:var(--red)">+14.2%</strong> average increase expected across these categories.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ RECOMMENDER ════════ -->
+<section class="sec" id="recommender">
+  <div class="sec-label">AI Recommender</div>
+  <h2>Where Should You Shop Today?</h2>
+  <p class="sec-sub">Scored daily on price, freshness, proximity, and category mix. Updated every morning by our AI engine.</p>
+  <div style="display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;">
+    <div class="sel-wrap"><select><option>🛒 Full Grocery Run</option><option>Protein Only</option><option>Fresh Produce Only</option><option>Household Items</option></select></div>
+    <div class="sel-wrap"><select><option>Budget: Any</option><option>Under ₦20k</option><option>₦20k–₦50k</option><option>Above ₦50k</option></select></div>
+    <button onclick="openModal(isLoggedIn?'dashboardModal':'registerModal')" style="background:linear-gradient(135deg,var(--accent),var(--purple));color:#fff;border:none;padding:9px 18px;border-radius:8px;font-family:var(--font);font-weight:700;font-size:.82rem;cursor:pointer;">🛒 Upload My List for AI Analysis</button>
+  </div>
+  <div class="rec-grid reveal">
+    <div class="rec-card" style="border-color:rgba(26,86,219,.4)">
+      <div style="background:var(--accent);color:#fff;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:4px;margin-bottom:12px;display:inline-block;letter-spacing:.05em;">🏆 #1 BEST VALUE TODAY</div>
+      <div class="rec-store-name">Mile 12 Market</div>
+      <span class="rec-type-badge" style="background:var(--green-dim);color:var(--green);">Open Market</span>
+      <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:4px;"><div class="rec-score-num">94</div><div class="rec-score-max">/100</div></div>
+      <div class="rec-items"><div class="rec-item"><span class="rec-item-n">Rice 50kg</span><span class="rec-item-p" style="color:var(--green)">₦38,500</span></div><div class="rec-item"><span class="rec-item-n">Tomatoes basket</span><span class="rec-item-p" style="color:var(--green)">₦3,500</span></div><div class="rec-item"><span class="rec-item-n">Onion 1kg</span><span class="rec-item-p" style="color:var(--green)">₦850</span></div><div class="rec-item"><span class="rec-item-n">Palm Oil 5L</span><span class="rec-item-p" style="color:var(--green)">₦3,900</span></div></div>
+      <div class="rec-save-box"><span class="rsb-label">Est. monthly savings</span><span class="rsb-amount">₦12,400</span></div>
+    </div>
+    <div class="rec-card">
+      <div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">#2 Best for Packaged Goods</div>
+      <div class="rec-store-name">Justrite Superstore</div>
+      <span class="rec-type-badge" style="background:var(--accent-dim);color:var(--accent);">Supermarket</span>
+      <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:4px;"><div class="rec-score-num" style="color:var(--amber)">85</div><div class="rec-score-max">/100</div></div>
+      <div class="rec-items"><div class="rec-item"><span class="rec-item-n">Omo Detergent 2kg</span><span class="rec-item-p">₦3,100</span></div><div class="rec-item"><span class="rec-item-n">Nescafé 200g</span><span class="rec-item-p">₦3,200</span></div><div class="rec-item"><span class="rec-item-n">Semolina 10kg</span><span class="rec-item-p">₦9,200</span></div></div>
+      <div class="rec-save-box"><span class="rsb-label">Best for branded goods</span><span class="rsb-amount">₦4,100</span></div>
+    </div>
+    <div class="rec-card">
+      <div style="font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">#3 Best for Daily Fresh</div>
+      <div class="rec-store-name">Ajah Market</div>
+      <span class="rec-type-badge" style="background:var(--green-dim);color:var(--green);">Open Market</span>
+      <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:4px;"><div class="rec-score-num" style="color:var(--green)">88</div><div class="rec-score-max">/100</div></div>
+      <div class="rec-items"><div class="rec-item"><span class="rec-item-n">Eggs crate (30)</span><span class="rec-item-p">₦3,000</span></div><div class="rec-item"><span class="rec-item-n">Pepper 1kg</span><span class="rec-item-p">₦2,200</span></div><div class="rec-item"><span class="rec-item-n">Okra 500g</span><span class="rec-item-p">₦600</span></div></div>
+      <div class="rec-save-box"><span class="rsb-label">Best for fresh &amp; daily</span><span class="rsb-amount">₦7,800</span></div>
+    </div>
+  </div>
+  <div style="margin-top:20px;background:rgba(26,86,219,0.04);border:1.5px solid rgba(26,86,219,.12);border-radius:14px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;" class="reveal">
+    <div style="font-size:1.5rem">🤖</div>
+    <div><div style="font-weight:800;font-size:.95rem;margin-bottom:8px;color:var(--accent);">AI Strategy: Split Your Shop for Maximum Savings</div><div style="font-size:.85rem;color:var(--muted2);line-height:1.7;">Buy all <strong style="color:var(--text)">fresh produce, grains, and raw meat at Mile 12 or Ajah</strong> (save 30–60%). Buy <strong style="color:var(--text)">packaged, branded, and household goods at Justrite or QMB</strong>. Never buy fresh tomatoes, beef, or vegetables in VI/Ikoyi supermarkets — you pay 38–60% premium for identical quality.</div></div>
+  </div>
+</section>
+
+<!-- ════════ DATA PIPELINE ════════ -->
+<section class="sec blue-alt" id="data">
+  <div class="sec-label">Data System</div>
+  <h2>How We Collect Price Data</h2>
+  <p class="sec-sub">A hybrid, self-reinforcing data pipeline. Multiple sources cross-validate each other. Every data point stored permanently.</p>
+  <div class="pipeline-grid reveal">
+    <div class="pipeline-card"><div class="pipeline-icon">👟</div><h3>Field Agents</h3><p>Part-time scouts visit Mile 12, Ajah, Balogun, Oyingbo weekly. Simple WhatsApp price log form. ₦5k–₦10k/week per zone.</p></div>
+    <div class="pipeline-card"><div class="pipeline-icon">👥</div><h3>Crowdsourced Reports</h3><p>Users earn airtime credits for submitting prices while shopping. WhatsApp-first flow for low-data users.</p></div>
+    <div class="pipeline-card"><div class="pipeline-icon">🤖</div><h3>Auto-Scraping</h3><p>Daily scraping of Jumia, Konga, and supermarket online stores. Price-change alerts every 6 hours.</p></div>
+    <div class="pipeline-card"><div class="pipeline-icon">🏪</div><h3>Vendor Direct Feed</h3><p>Subscribed vendors update their own prices via a simple dashboard. Accuracy incentivized — wrong prices get flagged.</p></div>
+    <div class="pipeline-card"><div class="pipeline-icon">🧾</div><h3>Receipt Scanning</h3><p>Users upload supermarket receipts. AI extracts product names, prices, quantities automatically.</p></div>
+    <div class="pipeline-card"><div class="pipeline-icon">🗄️</div><h3>Permanent Storage</h3><p>Every price point stored with timestamp, source, location, and store. Never deleted. Full historical access via dashboard and API.</p></div>
+  </div>
+</section>
+
+<!-- ════════ CTA ════════ -->
+<section class="cta-sec" id="waitlist">
+  <div class="sec-label" style="justify-content:center;margin:0 auto 16px;color:rgba(255,255,255,.8);background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);">Early Access Open</div>
+  <h2>Stop overpaying.<br>Start seeing through every price.</h2>
+  <p style="font-size:1rem;max-width:460px;margin:14px auto 0;line-height:1.75;">Join early — free for the first 1,000 users. AI shopping list analysis included.</p>
+  <div style="display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap;">
+    <button onclick="openModal('registerModal')" style="background:#fff;color:var(--accent);border:none;padding:14px 28px;border-radius:10px;font-family:var(--font);font-weight:800;font-size:.92rem;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='#EEF2FF'" onmouseout="this.style.background='#fff'">Create Free Account →</button>
+    <button onclick="openModal('loginModal')" style="background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.3);padding:14px 24px;border-radius:10px;font-family:var(--font);font-weight:700;font-size:.92rem;cursor:pointer;">Sign In</button>
+  </div>
+  <p style="font-size:.75rem;color:rgba(255,255,255,.5);margin-top:16px;">No spam. Unsubscribe anytime. 🔒 Your data stays yours.</p>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo" style="color:#fff;"><div class="logo-icon">🔍</div>PriceLens<span class="af" style="margin-left:6px">AFRICA</span></div>
+      <p style="margin-top:12px;">Africa's retail price intelligence platform. Real-time comparisons, historical data, and AI predictions — from Lagos Island to the continent.</p>
+    </div>
+    <div class="footer-col"><h4>Products</h4><ul><li><a href="#">Grains & Staples</a></li><li><a href="#">Protein & Meat</a></li><li><a href="#">Fresh Produce</a></li><li><a href="#">Cooking Essentials</a></li><li><a href="#">Household</a></li><li><a href="#">Pharmacy & Baby</a></li></ul></div>
+    <div class="footer-col"><h4>Platform</h4><ul><li><a href="#">Price Charts</a></li><li><a href="#">Historical Archive</a></li><li><a href="#">AI Predictions</a></li><li><a href="#">AI Shopping Analyzer</a></li><li><a href="#">Store Profiles</a></li><li><a href="#">Vendor Portal</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="#">About PriceLens</a></li><li><a href="#">For FMCG Brands</a></li><li><a href="#">For Investors</a></li><li><a href="#">Press Kit</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 PriceLens Africa. Built in Lagos, Nigeria 🇳🇬</p>
+    <p>Expanding → Abuja · Accra · Nairobi · Johannesburg</p>
+    <p style="color:#0B9462;">Data updated daily · Stored forever · Never deleted</p>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════════
+     MODALS
+════════════════════════════════════════════════ -->
+
+<!-- ── REGISTER MODAL ── -->
+<div class="modal-overlay" id="registerModal" onclick="handleOverlayClick(event,'registerModal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('registerModal')">✕</button>
+    <div style="font-size:2rem;margin-bottom:14px;">🔍</div>
+    <div class="modal-title">Create Your Account</div>
+    <div class="modal-sub">Join PriceLens Africa — see real prices, get AI shopping recommendations, and save money on every market run.</div>
+    <div id="regSuccess" class="form-success">✅ Account created successfully! You can now sign in.</div>
+    <div class="form-row">
+      <div class="form-group" style="margin:0">
+        <label class="form-label">First Name *</label>
+        <input class="form-input" type="text" id="regFirstName" placeholder="e.g. Adaeze">
+      </div>
+      <div class="form-group" style="margin:0">
+        <label class="form-label">Surname *</label>
+        <input class="form-input" type="text" id="regSurname" placeholder="e.g. Okonkwo">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email Address *</label>
+      <input class="form-input" type="email" id="regEmail" placeholder="adaeze@example.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Phone Number *</label>
+      <input class="form-input" type="tel" id="regPhone" placeholder="+234 800 000 0000">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Home Area / Neighbourhood *</label>
+      <select class="form-select" id="regArea">
+        <option value="">Select your area...</option>
+        <optgroup label="Lagos Island">
+          <option>Marina</option><option>Victoria Island</option><option>Ikoyi</option>
+          <option>Lekki Phase 1</option><option>Lekki Phase 2</option><option>Chevron / Lekki</option>
+          <option>Ajah</option><option>Sangotedo</option><option>Lakowe</option><option>Epe</option>
+        </optgroup>
+        <optgroup label="Lagos Mainland">
+          <option>Ikeja</option><option>Surulere</option><option>Yaba</option><option>Oshodi</option>
+          <option>Agege</option><option>Alimosho</option><option>Mushin</option>
+          <option>Gbagada</option><option>Ketu</option><option>Mile 12</option>
+        </optgroup>
+        <optgroup label="Other Nigeria">
+          <option>Abuja</option><option>Port Harcourt</option><option>Kano</option><option>Ibadan</option>
+        </optgroup>
+        <optgroup label="Other Africa">
+          <option>Accra, Ghana</option><option>Nairobi, Kenya</option><option>Johannesburg, SA</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Full Address</label>
+      <input class="form-input" type="text" id="regAddress" placeholder="e.g. 24 Admiralty Way, Lekki Phase 1">
+      <div class="form-hint">Used to find the nearest markets and stores to you</div>
+    </div>
+    <div class="form-row">
+      <div class="form-group" style="margin:0">
+        <label class="form-label">Password *</label>
+        <input class="form-input" type="password" id="regPassword" placeholder="Min. 8 characters">
+      </div>
+      <div class="form-group" style="margin:0">
+        <label class="form-label">Confirm Password *</label>
+        <input class="form-input" type="password" id="regConfirm" placeholder="Repeat password">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">How did you hear about us?</label>
+      <select class="form-select" id="regSource">
+        <option value="">Select one...</option>
+        <option>Twitter / X</option><option>Instagram</option><option>WhatsApp</option>
+        <option>Google Search</option><option>Friend / Family</option><option>Other</option>
+      </select>
+    </div>
+    <button class="btn-primary" onclick="doRegister()">Create My Account →</button>
+    <div class="terms">By registering, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</div>
+    <div class="auth-switch">Already have an account? <a onclick="switchModal('registerModal','loginModal')">Sign In</a></div>
+  </div>
+</div>
+
+<!-- ── LOGIN MODAL ── -->
+<div class="modal-overlay" id="loginModal" onclick="handleOverlayClick(event,'loginModal')">
+  <div class="modal-box" style="max-width:420px;">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <div style="font-size:2rem;margin-bottom:14px;">👋</div>
+    <div class="modal-title">Welcome Back</div>
+    <div class="modal-sub">Sign in to access your shopping lists, AI recommendations, and saved prices.</div>
+    <div id="loginError" style="background:var(--red-dim);border:1px solid rgba(220,38,38,0.2);border-radius:10px;padding:12px 16px;font-size:.82rem;color:var(--red);margin-bottom:16px;display:none;font-weight:600;">Incorrect email or password. Try again.</div>
+    <div class="form-group">
+      <label class="form-label">Email Address</label>
+      <input class="form-input" type="email" id="loginEmail" placeholder="your@email.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Password</label>
+      <input class="form-input" type="password" id="loginPassword" placeholder="Your password">
+    </div>
+    <button class="btn-primary" onclick="doLogin()">Sign In →</button>
+    <button class="btn-secondary" onclick="doDemoLogin()">🎮 Try Demo Account</button>
+    <div class="auth-switch" style="margin-top:14px;">Don't have an account? <a onclick="switchModal('loginModal','registerModal')">Create one free</a></div>
+  </div>
+</div>
+
+<!-- ── USER DASHBOARD + SHOPPING LIST ANALYZER ── -->
+<div class="modal-overlay" id="dashboardModal" onclick="handleOverlayClick(event,'dashboardModal')">
+  <div class="modal-box dashboard-box" style="max-width:900px;">
+    <div class="dash-layout">
+      <div class="dash-sidebar">
+        <div class="profile-avatar" style="width:48px;height:48px;font-size:1.1rem;margin-bottom:12px;" id="dashAvatar">?</div>
+        <h3 id="dashName">Welcome</h3>
+        <p id="dashArea">Lagos</p>
+        <div class="dash-nav-item active" onclick="showDashTab('shoppingList',this)">🛒 Shopping List AI</div>
+        <div class="dash-nav-item" onclick="showDashTab('savedPrices',this)">📌 Saved Prices</div>
+        <div class="dash-nav-item" onclick="showDashTab('priceAlerts',this)">🔔 Price Alerts</div>
+        <div class="dash-nav-item" onclick="showDashTab('myProfile',this)">👤 My Profile</div>
+        <div class="dash-nav-item" style="margin-top:auto;border-top:1px solid rgba(255,255,255,.15);padding-top:12px;margin-top:20px;" onclick="doLogout()">🚪 Sign Out</div>
+      </div>
+      <div class="dash-main" id="dashMain">
+        <!-- SHOPPING LIST TAB -->
+        <div id="tab-shoppingList">
+          <div class="dash-greeting" id="dashGreeting">Hello, User!</div>
+          <div class="dash-sub">Upload your shopping list and our AI will find the best place to buy everything near you.</div>
+          <div class="dash-stats">
+            <div class="dash-stat"><div class="ds-val">₦14,200</div><div class="ds-lbl">Saved This Month</div></div>
+            <div class="dash-stat"><div class="ds-val">3</div><div class="ds-lbl">Lists Analyzed</div></div>
+            <div class="dash-stat"><div class="ds-val">27%</div><div class="ds-lbl">Avg Savings Rate</div></div>
+          </div>
+
+          <div class="list-panel">
+            <h4>🛒 Your Shopping List</h4>
+            <p>Add items you want to buy, choose your location, and click Analyze — our AI will find the cheapest store near you for the full list.</p>
+
+            <!-- MANUAL LIST INPUT -->
+            <div id="manualListItems">
+              <div class="item-input-row">
+                <input class="item-input" placeholder="Item name (e.g. Rice 50kg, Tomatoes, Palm Oil...)" value="Parboiled Rice 50kg">
+                <input class="qty-input" type="number" placeholder="Qty" value="1">
+                <button class="remove-btn" onclick="removeItem(this)">✕</button>
+              </div>
+              <div class="item-input-row">
+                <input class="item-input" placeholder="Item name (e.g. Rice 50kg, Tomatoes, Palm Oil...)" value="Fresh Tomatoes (basket)">
+                <input class="qty-input" type="number" placeholder="Qty" value="2">
+                <button class="remove-btn" onclick="removeItem(this)">✕</button>
+              </div>
+              <div class="item-input-row">
+                <input class="item-input" placeholder="Item name (e.g. Rice 50kg, Tomatoes, Palm Oil...)" value="Frozen Chicken 1.5kg">
+                <input class="qty-input" type="number" placeholder="Qty" value="1">
+                <button class="remove-btn" onclick="removeItem(this)">✕</button>
+              </div>
+              <div class="item-input-row">
+                <input class="item-input" placeholder="Item name (e.g. Rice 50kg, Tomatoes, Palm Oil...)" value="Palm Oil 5L">
+                <input class="qty-input" type="number" placeholder="Qty" value="1">
+                <button class="remove-btn" onclick="removeItem(this)">✕</button>
+              </div>
+              <div class="item-input-row">
+                <input class="item-input" placeholder="Item name (e.g. Rice 50kg, Tomatoes, Palm Oil...)" value="Omo Detergent 2kg">
+                <input class="qty-input" type="number" placeholder="Qty" value="1">
+                <button class="remove-btn" onclick="removeItem(this)">✕</button>
+              </div>
+            </div>
+            <button class="add-item-btn" onclick="addItem()">+ Add Another Item</button>
+
+            <div style="margin:18px 0 10px;font-size:.78rem;font-weight:700;color:var(--text2);">📍 Your Location (for nearest store calculation)</div>
+            <div id="stateLocPickers" style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:6px;">
+              <div>
+                <label style="display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:5px;">State</label>
+                <div class="sel-wrap">
+                  <select id="recStateSelect" onchange="onRecStateChange(this.value)" style="min-width:170px;">
+                    <option value="">🇳🇬 Select State</option>
+                    <optgroup label="── South West ──">
+                      <option value="lagos">🏙️ Lagos</option>
+                      <option value="ogun">🌿 Ogun</option>
+                    </optgroup>
+                    <optgroup label="── South South ──">
+                      <option value="rivers">⛽ Rivers</option>
+                      <option value="delta">🌴 Delta</option>
+                    </optgroup>
+                    <optgroup label="── South East ──">
+                      <option value="enugu">⛏️ Enugu</option>
+                      <option value="anambra">🦅 Anambra</option>
+                    </optgroup>
+                    <optgroup label="── North Central ──">
+                      <option value="kwara">🌾 Kwara</option>
+                      <option value="benue">🌽 Benue</option>
+                    </optgroup>
+                    <optgroup label="── North East ──">
+                      <option value="borno">🏜️ Borno</option>
+                      <option value="adamawa">🏔️ Adamawa</option>
+                    </optgroup>
+                    <optgroup label="── North West ──">
+                      <option value="kano">🏛️ Kano</option>
+                      <option value="kaduna">🌴 Kaduna</option>
+                    </optgroup>
+                    <optgroup label="── FCT ──">
+                      <option value="abuja">🏛️ FCT Abuja</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+              <div id="recLocWrap" style="display:none;">
+                <label style="display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:5px;">Location</label>
+                <div class="sel-wrap">
+                  <select id="recLocSelect" onchange="onRecLocChange(this.value)" style="min-width:220px;">
+                    <option value="">📍 Select Location</option>
+                  </select>
+                </div>
+              </div>
+              <div id="recLocConfirm" style="display:none;padding:8px 16px;background:var(--accent-dim);border:1.5px solid var(--accent);border-radius:10px;font-size:.8rem;font-weight:700;color:var(--accent);">
+                📍 <span id="recLocLabel">—</span>
+              </div>
+            </div>
+
+            <div style="margin:14px 0 6px;">
+              <div style="font-size:.78rem;font-weight:700;color:var(--text2);margin-bottom:8px;">Or upload a list file:</div>
+              <div class="list-upload-zone" onclick="triggerFileUpload()" id="uploadZone">
+                <div class="lz-icon">📄</div>
+                <div class="lz-text">Drag & drop your shopping list here</div>
+                <div class="lz-sub">Supports .txt, .csv, photos of handwritten lists</div>
+                <input type="file" id="listFileInput" style="display:none" accept=".txt,.csv,image/*" onchange="handleFileUpload(event)">
+              </div>
+            </div>
+
+            <button class="analyze-btn" onclick="runAIAnalysis()">
+              🤖 Analyze My List with AI
+            </button>
+          </div>
+
+          <!-- AI RESULTS -->
+          <div id="aiResults" style="display:none;">
+            <div class="ai-result">
+              <div class="ai-result-header">
+                <div class="ai-result-title">🤖 AI Analysis Complete — Best Stores for Your List</div>
+                <div class="ai-result-sub" id="aiResultSub">For 5 items · Near Lekki Phase 1</div>
+              </div>
+              <div class="ai-result-body">
+                <div id="storeRecs"></div>
+                <div class="ai-insight" id="aiInsight"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAVED PRICES TAB -->
+        <div id="tab-savedPrices" style="display:none">
+          <div class="dash-greeting">📌 Saved Prices</div>
+          <div class="dash-sub">Items you've bookmarked to track price changes over time.</div>
+          <div style="background:var(--surface2);border-radius:12px;padding:24px;text-align:center;color:var(--muted);">
+            <div style="font-size:2rem;margin-bottom:10px;">📌</div>
+            <div style="font-weight:700;margin-bottom:6px;">No saved prices yet</div>
+            <div style="font-size:.82rem;">Browse products and click the bookmark icon to save prices you want to track.</div>
+          </div>
+        </div>
+
+        <!-- PRICE ALERTS TAB -->
+        <div id="tab-priceAlerts" style="display:none">
+          <div class="dash-greeting">🔔 Price Alerts</div>
+          <div class="dash-sub">Get notified when a product drops below your target price.</div>
+          <div class="list-panel">
+            <h4>Add a Price Alert</h4>
+            <p>We'll notify you via email when any product hits your target price.</p>
+            <div style="display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-bottom:10px;">
+              <input class="form-input" placeholder="Product name (e.g. Rice 50kg, Palm Oil...)">
+              <input class="form-input" placeholder="Target price (₦)">
+            </div>
+            <select class="form-select" style="margin-bottom:10px;">
+              <option>Any store</option><option>Mile 12 Market</option><option>Ajah Market</option>
+              <option>Ebeano Supermarket</option><option>Justrite Superstore</option>
+            </select>
+            <button class="btn-primary" style="margin-top:4px;" onclick="alert('Alert set! We will notify you at your registered email.')">Set Alert →</button>
+          </div>
+        </div>
+
+        <!-- MY PROFILE TAB -->
+        <div id="tab-myProfile" style="display:none">
+          <div class="dash-greeting">👤 My Profile</div>
+          <div class="dash-sub">Update your account information and preferences.</div>
+          <div class="list-panel">
+            <h4>Personal Information</h4>
+            <div class="form-row">
+              <div class="form-group" style="margin:0"><label class="form-label">First Name</label><input class="form-input" id="profileFirstName" type="text"></div>
+              <div class="form-group" style="margin:0"><label class="form-label">Surname</label><input class="form-input" id="profileSurnameField" type="text"></div>
+            </div>
+            <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" id="profileEmailField" type="email"></div>
+            <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" id="profilePhoneField" type="tel"></div>
+            <div class="form-group"><label class="form-label">Home Area</label><input class="form-input" id="profileAreaField" type="text"></div>
+            <div class="form-group"><label class="form-label">Full Address</label><input class="form-input" id="profileAddressField" type="text"></div>
+            <button class="btn-primary" onclick="saveProfile()">Save Changes →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+// NIGERIA STATES DATA
+// ══════════════════════════════════════════
+const NIGERIA_STATES = {
+  // ── SOUTH WEST ──
+  lagos: {
+    name:'Lagos', region:'sw', emoji:'🏙️', capital:'Ikeja',
+    desc:'Nigeria\'s commercial capital — 20+ mapped zones across Island and Mainland.',
+    locations:[
+      {name:'Marina / CMS', type:'CBD · Financial District', idx:'+18%', cls:'idx-hi'},
+      {name:'Victoria Island', type:'Upscale · Diplomatic', idx:'+22%', cls:'idx-hi'},
+      {name:'Ikoyi', type:'Premium Residential', idx:'+25%', cls:'idx-hi'},
+      {name:'Lekki Phase 1', type:'Mid-High Residential', idx:'+11%', cls:'idx-mid'},
+      {name:'Lekki Phase 2', type:'Growing Residential', idx:'+7%', cls:'idx-mid'},
+      {name:'Ajah', type:'Market Hub · Suburban', idx:'Base', cls:'idx-lo'},
+      {name:'Sangotedo', type:'Suburban Corridor', idx:'−4%', cls:'idx-lo'},
+      {name:'Epe', type:'Rural · Market Town', idx:'−14%', cls:'idx-lo'},
+      {name:'Ikeja GRA', type:'State Capital · Quiet', idx:'+10%', cls:'idx-mid'},
+      {name:'Surulere', type:'Mid Residential', idx:'+5%', cls:'idx-mid'},
+      {name:'Yaba', type:'Tech Hub · Student', idx:'+3%', cls:'idx-mid'},
+      {name:'Mile 12', type:'Biggest Food Market', idx:'−16%', cls:'idx-lo'},
+      {name:'Oshodi', type:'Transit · Market Hub', idx:'−2%', cls:'idx-lo'},
+      {name:'Mushin', type:'Working Class', idx:'−11%', cls:'idx-lo'},
+    ],
+    stores:[
+      {icon:'🛍️',name:'Ebeano Supermarket',area:'Victoria Island · Lekki · Ikoyi',type:'Supermarket'},
+      {icon:'💚',name:'Spa Supermarket',area:'Lekki · Ajah · Chevron',type:'Supermarket'},
+      {icon:'🔵',name:'Blenco Supermarket',area:'Ajah · Sangotedo',type:'Supermarket'},
+      {icon:'🟡',name:'Justrite Superstore',area:'Surulere · Gbagada · Yaba',type:'Supermarket'},
+      {icon:'🔴',name:'Shoprite (Ikeja/VI)',area:'Ikeja City Mall · Palms',type:'Supermarket'},
+      {icon:'🟤',name:'Bokku Mart',area:'Lekki · VI',type:'Supermarket'},
+      {icon:'🧺',name:'Mile 12 Market',area:'Mile 12, Mainland',type:'Open Market'},
+      {icon:'🌊',name:'Oyingbo Market',area:'Oyingbo, Mainland',type:'Open Market'},
+      {icon:'🏛️',name:'Balogun Market',area:'Lagos Island CBD',type:'Open Market'},
+      {icon:'🛒',name:'Ajah Market',area:'Ajah / Abraham Adesanya',type:'Open Market'},
+    ]
+  },
+  ogun: {
+    name:'Ogun', region:'sw', emoji:'🌿', capital:'Abeokuta',
+    desc:'Gateway State — Abeokuta and Sagamu as major commercial centres.',
+    locations:[
+      {name:'Oke-Padi, Abeokuta', type:'Central Business Area', idx:'+5%', cls:'idx-mid'},
+      {name:'Ibara GRA, Abeokuta', type:'Government Residential', idx:'+12%', cls:'idx-hi'},
+      {name:'Sapon, Abeokuta', type:'Dense Residential · Market', idx:'Base', cls:'idx-lo'},
+      {name:'Kuto, Abeokuta', type:'Commercial · Market Hub', idx:'+3%', cls:'idx-mid'},
+      {name:'Ijebu-Ode', type:'Commercial Town', idx:'+2%', cls:'idx-mid'},
+      {name:'Sagamu Junction', type:'Transit Hub', idx:'−3%', cls:'idx-lo'},
+      {name:'Agbara Estate', type:'Industrial · Residential', idx:'+8%', cls:'idx-mid'},
+      {name:'Ota', type:'Manufacturing Hub', idx:'+4%', cls:'idx-mid'},
+      {name:'Ilaro', type:'Border Town', idx:'−5%', cls:'idx-lo'},
+    ],
+    stores:[
+      {icon:'🛍️',name:'Jemi Supermarket',area:'Oke-Padi, Abeokuta',type:'Supermarket'},
+      {icon:'🟢',name:'Abeokuta Shoprite',area:'MKO Abiola Democracy Complex',type:'Supermarket'},
+      {icon:'🏪',name:'Kingsway Stores',area:'Kuto, Abeokuta',type:'Supermarket'},
+      {icon:'🧺',name:'Kuto Market',area:'Abeokuta Central',type:'Open Market'},
+      {icon:'🌿',name:'Lafenwa Market',area:'Abeokuta Outskirts',type:'Open Market'},
+      {icon:'🛒',name:'Ijebu-Ode Central Market',area:'Ijebu-Ode',type:'Open Market'},
+    ]
+  },
+  // ── SOUTH SOUTH ──
+  rivers: {
+    name:'Rivers', region:'ss', emoji:'⛽', capital:'Port Harcourt',
+    desc:'Nigeria\'s oil capital — Port Harcourt as the major commercial and industrial hub.',
+    locations:[
+      {name:'GRA Phase 1 & 2, PH', type:'Premium Residential', idx:'+20%', cls:'idx-hi'},
+      {name:'Old GRA, PH', type:'Executive Residential', idx:'+18%', cls:'idx-hi'},
+      {name:'Trans-Amadi, PH', type:'Industrial / Commercial', idx:'+8%', cls:'idx-mid'},
+      {name:'Rumuola, PH', type:'Mixed Residential', idx:'+5%', cls:'idx-mid'},
+      {name:'Rumuomasi, PH', type:'Dense Residential', idx:'Base', cls:'idx-lo'},
+      {name:'Mile 1, PH', type:'Major Market Hub', idx:'−5%', cls:'idx-lo'},
+      {name:'Mile 3, PH', type:'Transport · Market', idx:'−8%', cls:'idx-lo'},
+      {name:'Diobu / Capt Amangala', type:'Working Class', idx:'−10%', cls:'idx-lo'},
+      {name:'Eleme Junction', type:'Peri-urban · Industrial', idx:'−6%', cls:'idx-lo'},
+      {name:'Obio-Akpor', type:'Growing Suburb', idx:'+3%', cls:'idx-mid'},
+    ],
+    stores:[
+      {icon:'🔴',name:'Shoprite (Port Harcourt)',area:'Rumuola / PH Mall',type:'Supermarket'},
+      {icon:'🟢',name:'Spar Supermarket',area:'GRA Phase 2, PH',type:'Supermarket'},
+      {icon:'🛍️',name:'Genesis Deluxe Cinemas Mall',area:'GRA, Port Harcourt',type:'Mall · Retail'},
+      {icon:'🏪',name:'Grocery Bazaar',area:'Trans-Amadi, PH',type:'Supermarket'},
+      {icon:'🟡',name:'Best Choice Supermarket',area:'Rumuomasi, PH',type:'Supermarket'},
+      {icon:'🧺',name:'Mile 1 Market',area:'Mile 1, PH',type:'Open Market'},
+      {icon:'🐟',name:'Mile 3 Market',area:'Mile 3, PH',type:'Open Market'},
+      {icon:'🛒',name:'Oil Mill Market',area:'Trans-Amadi, PH',type:'Open Market'},
+    ]
+  },
+  delta: {
+    name:'Delta', region:'ss', emoji:'🌴', capital:'Asaba',
+    desc:'Oil-rich Delta State — Warri as commercial giant, Asaba as growing capital city.',
+    locations:[
+      {name:'GRA, Asaba', type:'Government Residential', idx:'+15%', cls:'idx-hi'},
+      {name:'Summit Road, Asaba', type:'Commercial Hub', idx:'+10%', cls:'idx-mid'},
+      {name:'Okpanam Road, Asaba', type:'Residential · Market', idx:'+4%', cls:'idx-mid'},
+      {name:'Cable Point, Asaba', type:'Riverside Residential', idx:'+8%', cls:'idx-mid'},
+      {name:'Effurun, Warri', type:'Commercial · Busy', idx:'+6%', cls:'idx-mid'},
+      {name:'GRA, Warri', type:'Executive Zone', idx:'+18%', cls:'idx-hi'},
+      {name:'Okumagba Layout, Warri', type:'Mid Residential', idx:'+5%', cls:'idx-mid'},
+      {name:'Agbor', type:'Commercial Town', idx:'−2%', cls:'idx-lo'},
+      {name:'Sapele', type:'Industrial Town', idx:'Base', cls:'idx-lo'},
+      {name:'Ughelli', type:'Oil Town · Market', idx:'+3%', cls:'idx-mid'},
+    ],
+    stores:[
+      {icon:'🟢',name:'Spar (Asaba)',area:'Summit Road, Asaba',type:'Supermarket'},
+      {icon:'🛍️',name:'Fiesta Royale Supermarket',area:'Effurun, Warri',type:'Supermarket'},
+      {icon:'🏪',name:'Checkers Supermarket',area:'GRA, Warri',type:'Supermarket'},
+      {icon:'🟡',name:'Emmaland Supermarket',area:'Asaba Central',type:'Supermarket'},
+      {icon:'🧺',name:'Ogbeogonogo Market',area:'Asaba',type:'Open Market'},
+      {icon:'🐠',name:'Warri Main Market',area:'Warri Central',type:'Open Market'},
+      {icon:'🌴',name:'Eke-Obosi Market',area:'Obosi, Delta',type:'Open Market'},
+    ]
+  },
+  // ── SOUTH EAST ──
+  enugu: {
+    name:'Enugu', region:'se', emoji:'⛏️', capital:'Enugu',
+    desc:'Coal City — Enugu\'s leafy residential zones, vibrant markets, and growing retail scene.',
+    locations:[
+      {name:'GRA, Enugu', type:'Government Residential Area', idx:'+18%', cls:'idx-hi'},
+      {name:'Independence Layout', type:'Premium Residential', idx:'+16%', cls:'idx-hi'},
+      {name:'Trans-Ekulu', type:'Upscale · Quiet', idx:'+14%', cls:'idx-hi'},
+      {name:'Ogui Road', type:'Commercial · Busy', idx:'+6%', cls:'idx-mid'},
+      {name:'Abakpa Nike', type:'Dense Residential', idx:'Base', cls:'idx-lo'},
+      {name:'Achara Layout', type:'Mid Residential', idx:'+5%', cls:'idx-mid'},
+      {name:'Agbani Road', type:'Suburban Corridor', idx:'−4%', cls:'idx-lo'},
+      {name:'Coal Camp', type:'Historic · Busy', idx:'−2%', cls:'idx-lo'},
+      {name:'New Haven', type:'New Residential', idx:'+8%', cls:'idx-mid'},
+      {name:'Emene', type:'Industrial Outskirts', idx:'−8%', cls:'idx-lo'},
+    ],
+    stores:[
+      {icon:'🟢',name:'Roban Stores',area:'Ogui Road · Independence Layout',type:'Supermarket'},
+      {icon:'🛍️',name:'Shoprite Enugu',area:'Coal City Shopping Mall',type:'Supermarket'},
+      {icon:'💚',name:'Spa Supermarket',area:'GRA / New Haven, Enugu',type:'Supermarket'},
+      {icon:'🏪',name:'Grand Square Supermarket',area:'Trans-Ekulu, Enugu',type:'Supermarket'},
+      {icon:'🟡',name:'Kings Supermarket',area:'Independence Layout',type:'Supermarket'},
+      {icon:'🧺',name:'Ogbete Main Market',area:'Ogbete, Enugu Central',type:'Open Market'},
+      {icon:'🛒',name:'New Market',area:'Enugu Central',type:'Open Market'},
+      {icon:'🔨',name:'New Artisan Market',area:'Enugu — craftsmen & hardware',type:'Open Market'},
+      {icon:'🍅',name:'Abakpa Market',area:'Abakpa Nike',type:'Open Market'},
+      {icon:'🌿',name:'Gariki Market',area:'Agbani Road area',type:'Open Market'},
+    ]
+  },
+  anambra: {
+    name:'Anambra', region:'se', emoji:'🦅', capital:'Awka',
+    desc:'Nigeria\'s commercial heartland — Onitsha as Africa\'s largest market; Awka as capital.',
+    locations:[
+      {name:'Onitsha Main', type:'Africa\'s Largest Market', idx:'Base', cls:'idx-lo'},
+      {name:'Upper Iweka, Onitsha', type:'Wholesale Commercial', idx:'−5%', cls:'idx-lo'},
+      {name:'Awka CBD', type:'State Capital · Commercial', idx:'+8%', cls:'idx-mid'},
+      {name:'GRA, Awka', type:'Government Residential', idx:'+16%', cls:'idx-hi'},
+      {name:'Nnewi', type:'Auto Parts · Industrial', idx:'+4%', cls:'idx-mid'},
+      {name:'Nnewi Main Market', type:'Auto & General Market', idx:'−3%', cls:'idx-lo'},
+      {name:'Obosi', type:'Quiet Residential Town', idx:'+2%', cls:'idx-mid'},
+      {name:'Ogidi', type:'Residential Town', idx:'−1%', cls:'idx-lo'},
+      {name:'Ekwulobia', type:'Market Town', idx:'−4%', cls:'idx-lo'},
+    ],
+    stores:[
+      {icon:'🛍️',name:'De-Hilary Supermarket',area:'Awka · GRA',type:'Supermarket'},
+      {icon:'🟢',name:'Grand Royale Supermarket',area:'Awka Central',type:'Supermarket'},
+      {icon:'🏪',name:'Checkers Supermarket',area:'Onitsha Main',type:'Supermarket'},
+      {icon:'🟡',name:'Best Buy Supermarket',area:'Nnewi',type:'Supermarket'},
+      {icon:'🧺',name:'Onitsha Main Market',area:'Onitsha — Africa\'s largest',type:'Open Market'},
+      {icon:'🏭',name:'Nnewi Auto & General Mkt',area:'Nnewi',type:'Open Market'},
+      {icon:'🌿',name:'Eke-Awka Market',area:'Awka Traditional Market',type:'Open Market'},
+    ]
+  },
+  // ── NORTH CENTRAL ──
+  kwara: {
+    name:'Kwara', region:'nc', emoji:'🌾', capital:'Ilorin',
+    desc:'Confluence State — Ilorin is a rapidly growing city bridging North and South.',
+    locations:[
+      {name:'GRA, Ilorin', type:'Government Residential', idx:'+14%', cls:'idx-hi'},
+      {name:'Tanke / Fate Road', type:'Growing Residential', idx:'+6%', cls:'idx-mid'},
+      {name:'Kwara Hotel Area', type:'Commercial Hub', idx:'+8%', cls:'idx-mid'},
+      {name:'Oja-Oba / Bode', type:'Traditional Market Hub', idx:'Base', cls:'idx-lo'},
+      {name:'Mandate', type:'Dense Residential', idx:'−4%', cls:'idx-lo'},
+      {name:'Emir Road Area', type:'Old City · Commercial', idx:'−2%', cls:'idx-lo'},
+      {name:'Offa', type:'Secondary Town', idx:'−8%', cls:'idx-lo'},
+      {name:'Erin-Ile / Omu-Aran', type:'Rural Town', idx:'−12%', cls:'idx-lo'},
+    ],
+    stores:[
+      {icon:'🛍️',name:'Grand Eagle Supermarket',area:'GRA, Ilorin',type:'Supermarket'},
+      {icon:'🟢',name:'Spar Supermarket',area:'Tanke Road, Ilorin',type:'Supermarket'},
+      {icon:'🏪',name:'Multichoice Supermarket',area:'Kwara Hotel Road',type:'Supermarket'},
+      {icon:'🧺',name:'Mandate Market',area:'Ilorin Central',type:'Open Market'},
+      {icon:'🛒',name:'Oja-Oba Market',area:'Old Ilorin',type:'Open Market'},
+      {icon:'🌾',name:'Ipata Market',area:'Ilorin South',type:'Open Market'},
+    ]
+  },
+  benue: {
+    name:'Benue', region:'nc', emoji:'🌽', capital:'Makurdi',
+    desc:'Food Basket of the Nation — Makurdi sits on the Benue River; major farming region.',
+    locations:[
+      {name:'High Level, Makurdi', type:'Government · Residential', idx:'+12%', cls:'idx-hi'},
+      {name:'Low Level, Makurdi', type:'Commercial · Busy', idx:'+2%', cls:'idx-mid'},
+      {name:'Modern Market Area', type:'Trade Hub', idx:'Base', cls:'idx-lo'},
+      {name:'North Bank, Makurdi', type:'Riverside · Mixed', idx:'+4%', cls:'idx-mid'},
+      {name:'Wurukum, Makurdi', type:'Residential', idx:'+3%', cls:'idx-mid'},
+      {name:'Gboko', type:'Secondary Town · Farming', idx:'−10%', cls:'idx-lo'},
+      {name:'Otukpo', type:'Market Town · South Benue', idx:'−8%', cls:'idx-lo'},
+    ],
+    stores:[
+      {icon:'🏪',name:'Benue Shoprite',area:'Low Level, Makurdi',type:'Supermarket'},
+      {icon:'🛍️',name:'Destiny Supermarket',area:'High Level, Makurdi',type:'Supermarket'},
+      {icon:'🟡',name:'Premium Supermarket',area:'North Bank, Makurdi',type:'Supermarket'},
+      {icon:'🧺',name:'Modern Market',area:'Makurdi Central',type:'Open Market'},
+      {icon:'🌽',name:'Wurukum Market',area:'Wurukum, Makurdi',type:'Open Market'},
+      {icon:'🛒',name:'Gboko Market',area:'Gboko',type:'Open Market'},
+    ]
+  },
+  // ── NORTH EAST ──
+  borno: {
+    name:'Borno', region:'ne', emoji:'🏜️', capital:'Maiduguri',
+    desc:'Home of the ancient Kanuri Kingdom — Maiduguri is rebounding as a resilient commercial city.',
+    locations:[
+      {name:'GRA, Maiduguri', type:'Government Residential', idx:'+16%', cls:'idx-hi'},
+      {name:'Old GRA, Maiduguri', type:'Executive Zone', idx:'+14%', cls:'idx-hi'},
+      {name:'Gamboru Area', type:'Border · Trade Hub', idx:'+2%', cls:'idx-mid'},
+      {name:'Bulumkutu', type:'Dense Residential', idx:'Base', cls:'idx-lo'},
+      {name:'Kasuwan Kifi Area', type:'Market Zone', idx:'−4%', cls:'idx-lo'},
+      {name:'Customs Area', type:'Trade & Logistics', idx:'+5%', cls:'idx-mid'},
+      {name:'Bama Road', type:'Urban Fringe', idx:'−6%', cls:'idx-lo'},
+    ],
+    stores:[
+      {icon:'🏪',name:'Aisha Supermarket',area:'GRA, Maiduguri',type:'Supermarket'},
+      {icon:'🛍️',name:'Zara Stores',area:'Old GRA, Maiduguri',type:'Supermarket'},
+      {icon:'🟡',name:'Borno Mart',area:'Gamboru Area',type:'Supermarket'},
+      {icon:'🧺',name:'Monday Market (Kasuwan Litinin)',area:'Maiduguri Central',type:'Open Market'},
+      {icon:'🐪',name:'Gamboru Market',area:'Gamboru / Ngala border',type:'Open Market'},
+    ]
+  },
+  adamawa: {
+    name:'Adamawa', region:'ne', emoji:'🏔️', capital:'Yola',
+    desc:'A scenic highland state along the Cameroon border with a growing commercial sector.',
+    locations:[
+      {name:'Jimeta, Yola', type:'Commercial Twin City', idx:'+10%', cls:'idx-mid'},
+      {name:'GRA, Yola', type:'Government Residential', idx:'+14%', cls:'idx-hi'},
+      {name:'Doubeli, Yola', type:'Busy Commercial', idx:'+4%', cls:'idx-mid'},
+      {name:'Yola North Central', type:'Mixed Residential', idx:'Base', cls:'idx-lo'},
+      {name:'Numan', type:'Market Town', idx:'−6%', cls:'idx-lo'},
+      {name:'Mubi', type:'Northern Town · Trade', idx:'+2%', cls:'idx-mid'},
+      {name:'Ganye', type:'Rural Town', idx:'−10%', cls:'idx-lo'},
+    ],
+    stores:[
+      {icon:'🛍️',name:'Mega Plus Supermarket',area:'Jimeta, Yola',type:'Supermarket'},
+      {icon:'🟢',name:'Choice Supermarket',area:'GRA, Yola',type:'Supermarket'},
+      {icon:'🧺',name:'Jimeta Modern Market',area:'Jimeta, Yola',type:'Open Market'},
+      {icon:'🐄',name:'Mubi Market',area:'Mubi — cattle & produce',type:'Open Market'},
+      {icon:'🛒',name:'Yola Central Market',area:'Yola North',type:'Open Market'},
+    ]
+  },
+  // ── NORTH WEST ──
+  kano: {
+    name:'Kano', region:'nw', emoji:'🏛️', capital:'Kano City',
+    desc:'Nigeria\'s second city — ancient Kano is the commercial capital of the North.',
+    locations:[
+      {name:'GRA, Kano', type:'Executive Residential', idx:'+18%', cls:'idx-hi'},
+      {name:'Nasarawa, Kano', type:'Upscale Residential', idx:'+14%', cls:'idx-hi'},
+      {name:'Bompai, Kano', type:'Industrial · Commercial', idx:'+6%', cls:'idx-mid'},
+      {name:'Sabon Gari, Kano', type:'Cosmopolitan Quarter', idx:'+8%', cls:'idx-mid'},
+      {name:'Fagge, Kano', type:'Old City · Trade', idx:'Base', cls:'idx-lo'},
+      {name:'Kurmi Market Area', type:'Historic Trade Hub', idx:'−5%', cls:'idx-lo'},
+      {name:'Dakata', type:'Dense Residential', idx:'−8%', cls:'idx-lo'},
+      {name:'Rijiyar Zaki', type:'Residential', idx:'+2%', cls:'idx-mid'},
+    ],
+    stores:[
+      {icon:'🔴',name:'Shoprite (Kano)',area:'Sahad Stores / City Mall',type:'Supermarket'},
+      {icon:'🛍️',name:'Sahad Stores',area:'GRA · Bompai, Kano',type:'Supermarket'},
+      {icon:'🏪',name:'Park n Shop',area:'Nassarawa GRA, Kano',type:'Supermarket'},
+      {icon:'🟡',name:'Maidex Supermarket',area:'Sabon Gari, Kano',type:'Supermarket'},
+      {icon:'🧺',name:'Kurmi Market',area:'Kano Old City — heritage market',type:'Open Market'},
+      {icon:'🐐',name:'Kantin Kwari Market',area:'Kano — largest textile market',type:'Open Market'},
+      {icon:'🌾',name:'Rimi Market',area:'Kano Central',type:'Open Market'},
+    ]
+  },
+  kaduna: {
+    name:'Kaduna', region:'nw', emoji:'🌴', capital:'Kaduna City',
+    desc:'Centre of commerce for the North West — Kaduna City blends modern retail with traditional trade.',
+    locations:[
+      {name:'GRA, Kaduna', type:'Executive Residential', idx:'+16%', cls:'idx-hi'},
+      {name:'Barnawa', type:'Upscale Residential', idx:'+12%', cls:'idx-hi'},
+      {name:'Ungwan Romi', type:'Commercial District', idx:'+6%', cls:'idx-mid'},
+      {name:'Kawo', type:'Dense Residential', idx:'+2%', cls:'idx-mid'},
+      {name:'Mando Area', type:'Mixed Residential', idx:'Base', cls:'idx-lo'},
+      {name:'Tudun Wada', type:'Old Residential · Market', idx:'−4%', cls:'idx-lo'},
+      {name:'Rigasa', type:'Dense · Working Class', idx:'−8%', cls:'idx-lo'},
+      {name:'Zaria City', type:'Historic · University Town', idx:'+4%', cls:'idx-mid'},
+    ],
+    stores:[
+      {icon:'🛍️',name:'Mopel Supermarket',area:'GRA · Barnawa, Kaduna',type:'Supermarket'},
+      {icon:'🟢',name:'Smart Stores',area:'Ungwan Romi, Kaduna',type:'Supermarket'},
+      {icon:'🏪',name:'Game Stores',area:'Kaduna Central',type:'Supermarket'},
+      {icon:'🟡',name:'City Gate Supermarket',area:'Kawo, Kaduna',type:'Supermarket'},
+      {icon:'🧺',name:'Kaduna Central Market',area:'Kaduna City Centre',type:'Open Market'},
+      {icon:'🐄',name:'Tuesday Market',area:'Zaria — weekly mega market',type:'Open Market'},
+      {icon:'🌿',name:'Kasuwar Barci',area:'Kaduna South',type:'Open Market'},
+    ]
+  },
+  // ── FCT ABUJA ──
+  abuja: {
+    name:'FCT Abuja', region:'fct', emoji:'🏛️', capital:'Abuja',
+    desc:'Nigeria\'s Federal Capital — planned city with upscale districts, embassies, and modern retail.',
+    locations:[
+      {name:'Maitama', type:'Diplomatic · Ultra-Premium', idx:'+30%', cls:'idx-hi'},
+      {name:'Asokoro', type:'Ministers Quarters · VIP', idx:'+28%', cls:'idx-hi'},
+      {name:'Wuse 2', type:'Commercial · Upscale', idx:'+20%', cls:'idx-hi'},
+      {name:'Wuse Zone 4', type:'Commercial Hub', idx:'+15%', cls:'idx-hi'},
+      {name:'Garki 2', type:'Business District', idx:'+12%', cls:'idx-hi'},
+      {name:'Garki Village', type:'Residential · Mixed', idx:'+6%', cls:'idx-mid'},
+      {name:'Utako', type:'Growing Commercial', idx:'+10%', cls:'idx-mid'},
+      {name:'Jabi', type:'Retail Hub · Jabi Lake Mall', idx:'+14%', cls:'idx-hi'},
+      {name:'Gwarinpa', type:'Largest Housing Estate', idx:'+5%', cls:'idx-mid'},
+      {name:'Lugbe', type:'Airport Corridor', idx:'+2%', cls:'idx-mid'},
+      {name:'Karu / Nyanya', type:'Dense Suburban', idx:'−5%', cls:'idx-lo'},
+      {name:'Kubwa', type:'Satellite Town', idx:'−8%', cls:'idx-lo'},
+      {name:'Gwagwalada', type:'Area Council HQ', idx:'−12%', cls:'idx-lo'},
+    ],
+    stores:[
+      {icon:'🔴',name:'Shoprite (Abuja)',area:'Jabi Lake Mall · Ceddi Plaza',type:'Supermarket'},
+      {icon:'🟢',name:'Spar Supermarket',area:'Wuse 2 · Garki · Jabi',type:'Supermarket'},
+      {icon:'🛍️',name:'Sahad Stores',area:'Wuse 2 · Maitama',type:'Supermarket'},
+      {icon:'🟡',name:'Sundry Markets',area:'Gwarinpa · Utako',type:'Supermarket'},
+      {icon:'🏪',name:'Hubmart Stores',area:'Wuse 2 · Garki',type:'Supermarket'},
+      {icon:'🔵',name:'Next Cash & Carry',area:'Jabi · Wuse',type:'Wholesale'},
+      {icon:'🧺',name:'Wuse Market',area:'Wuse Zone 5, Abuja',type:'Open Market'},
+      {icon:'🌿',name:'Garki Market',area:'Garki 2, Abuja',type:'Open Market'},
+      {icon:'🛒',name:'Nyanya Market',area:'Nyanya / Karu',type:'Open Market'},
+      {icon:'🏛️',name:'UTC Market Area',area:'Central Abuja',type:'Open Market'},
+    ]
+  },
+};
+
+const REGION_LABELS = {
+  sw:'South West', ss:'South South', se:'South East',
+  nc:'North Central', ne:'North East', nw:'North West', fct:'FCT Abuja'
+};
+
+const REGION_COLORS = {
+  sw:'var(--green)', ss:'var(--accent)', se:'var(--amber)',
+  nc:'var(--purple)', ne:'var(--red)', nw:'#0891B2', fct:'var(--text)'
+};
+
+let activeState = null;
+let activeRegion = 'all';
+
+function filterRegion(region, el) {
+  document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  activeRegion = region;
+  // Update state chips
+  renderStateChips(region);
+  // Hide all panels
+  hideAllStatePanels();
+  activeState = null;
+}
+
+function renderStateChips(region) {
+  const chips = document.getElementById('stateChips');
+  const states = Object.entries(NIGERIA_STATES).filter(([k,v])=>region==='all'||v.region===region);
+  chips.innerHTML = states.map(([key,s])=>`
+    <div class="state-chip ${activeState===key?'active':''}" onclick="selectState('${key}',this)">
+      ${s.emoji} ${s.name}
+    </div>`).join('');
+}
+
+function selectState(stateKey, el) {
+  document.querySelectorAll('.state-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  if(activeState === stateKey) {
+    // toggle off
+    activeState = null;
+    hideAllStatePanels();
+    return;
+  }
+  activeState = stateKey;
+  renderStatePanel(stateKey);
+}
+
+function hideAllStatePanels() {
+  document.getElementById('nigeriaStatesContainer').innerHTML = '';
+}
+
+function renderStatePanel(key) {
+  const s = NIGERIA_STATES[key];
+  if(!s) return;
+  const regionColor = REGION_COLORS[s.region] || 'var(--accent)';
+  const locsHtml = s.locations.map(l=>`
+    <div class="loc-list-item">
+      <div>
+        <div class="lli-name">${l.name}</div>
+        <div class="lli-type">${l.type}</div>
+      </div>
+      <span class="lli-idx ${l.cls}">${l.idx}</span>
+    </div>`).join('');
+
+  const storesHtml = s.stores.map(st=>`
+    <div class="store-sm-card">
+      <div class="ssc-icon">${st.icon}</div>
+      <div class="ssc-name">${st.name}</div>
+      <div class="ssc-area">${st.area}</div>
+      <span class="ssc-type" style="background:${st.type==='Supermarket'?'rgba(26,86,219,0.08)':st.type==='Open Market'?'rgba(11,148,98,0.08)':'rgba(124,58,237,0.08)'};color:${st.type==='Supermarket'?'var(--accent)':st.type==='Open Market'?'var(--green)':'var(--purple)'};">${st.type}</span>
+    </div>`).join('');
+
+  document.getElementById('nigeriaStatesContainer').innerHTML = `
+    <div class="state-panel visible" id="statePanel_${key}">
+      <div class="state-panel-header">
+        <div class="sph-badge" style="background:linear-gradient(135deg,${regionColor},var(--purple))">${s.emoji}</div>
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:${regionColor};margin-bottom:4px;">${REGION_LABELS[s.region]} · ${s.capital}</div>
+          <div class="sph-title">${s.name} State</div>
+          <div class="sph-sub">${s.desc}</div>
+        </div>
+      </div>
+      <div class="state-content-grid">
+        <div class="state-locs">
+          <h4>📍 Locations & Price Index (${s.locations.length} zones)</h4>
+          <div class="loc-list">${locsHtml}</div>
+        </div>
+        <div class="state-stores">
+          <h4>🏪 Stores, Markets & Supermarkets (${s.stores.length} mapped)</h4>
+          <div class="stores-grid-sm">${storesHtml}</div>
+        </div>
+      </div>
+    </div>`;
+
+  document.getElementById('nigeriaStatesContainer').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+// Init: show all state chips
+renderStateChips('all');
+
+// ══ UPDATE location dropdowns across the site with Nigeria states ══
+function buildNigeriaLocationOptions() {
+  const opts = ['<option value="">📍 Select Location</option>'];
+  // Lagos (special — keep existing detail)
+  opts.push('<optgroup label="── Lagos Island ──">');
+  ['Marina','Victoria Island','Ikoyi','Lekki Phase 1','Lekki Phase 2','Ajah','Sangotedo','Epe'].forEach(l=>opts.push(`<option>${l}, Lagos</option>`));
+  opts.push('</optgroup>');
+  opts.push('<optgroup label="── Lagos Mainland ──">');
+  ['Ikeja','Surulere','Yaba','Oshodi','Mushin','Gbagada','Mile 12','Alimosho'].forEach(l=>opts.push(`<option>${l}, Lagos</option>`));
+  opts.push('</optgroup>');
+  // Other states
+  const regionOrder = ['sw','ss','se','nc','fct','ne','nw'];
+  regionOrder.forEach(r=>{
+    const rStates = Object.entries(NIGERIA_STATES).filter(([k,v])=>v.region===r&&k!=='lagos');
+    rStates.forEach(([k,s])=>{
+      opts.push(`<optgroup label="── ${s.name} State ──">`);
+      s.locations.forEach(l=>opts.push(`<option>${l.name}, ${s.name}</option>`));
+      opts.push('</optgroup>');
+    });
+  });
+  return opts.join('');
+}
+
+// Populate all location selects on page with Nigeria data
+document.querySelectorAll('select').forEach(sel=>{
+  if(sel.querySelector('option[value=""]')?.textContent?.includes('Location') || 
+     sel.querySelector('option')?.textContent?.includes('All Locations')) {
+    // rebuild
+    sel.innerHTML = buildNigeriaLocationOptions();
+  }
+});
+
+// Also update registration area dropdown
+const regArea = document.getElementById('regArea');
+if(regArea) {
+  const areaOpts = ['<option value="">Select your area...</option>'];
+  // Lagos
+  areaOpts.push('<optgroup label="Lagos Island">');
+  ['Marina','Victoria Island','Ikoyi','Lekki Phase 1','Lekki Phase 2','Chevron/Lekki','Ajah','Sangotedo','Lakowe','Epe'].forEach(l=>areaOpts.push(`<option>${l}, Lagos</option>`));
+  areaOpts.push('</optgroup>');
+  areaOpts.push('<optgroup label="Lagos Mainland">');
+  ['Ikeja','Surulere','Yaba','Oshodi','Agege','Alimosho','Mushin','Gbagada','Ketu','Mile 12'].forEach(l=>areaOpts.push(`<option>${l}, Lagos</option>`));
+  areaOpts.push('</optgroup>');
+  // Other states
+  Object.entries(NIGERIA_STATES).filter(([k])=>k!=='lagos').forEach(([k,s])=>{
+    areaOpts.push(`<optgroup label="${s.name} State">`);
+    s.locations.forEach(l=>areaOpts.push(`<option>${l.name}, ${s.name}</option>`));
+    areaOpts.push('</optgroup>');
+  });
+  regArea.innerHTML = areaOpts.join('');
+}
+
+// Also populate hero location select specifically
+const heroLocSel = document.getElementById('heroLocSelect');
+if(heroLocSel) heroLocSel.innerHTML = buildNigeriaLocationOptions();
+
+// ══ STATE ══
+let isLoggedIn = false;
+let currentUser = null;
+const users = {}; // Simple in-memory store
+
+// ══ SCROLL REVEAL ══
+const ro = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => { if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*80);ro.unobserve(e.target);} });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// ══ LIVE TIME ══
+function updateTime(){
+  const now = new Date();
+  const el = document.getElementById('heroTime');
+  if(el) el.textContent = `Updated ${now.toLocaleTimeString('en-NG',{hour:'2-digit',minute:'2-digit'})}`;
+}
+updateTime(); setInterval(updateTime,60000);
+
+// ══ SEARCH ══
+function doSearch(){
+  const q = document.getElementById('heroSearch').value.toLowerCase().trim();
+  if(!q) return;
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>{
+    const cards = document.querySelectorAll('#prodGrid .prod-card');
+    let found=0;
+    cards.forEach(c=>{
+      const n = c.querySelector('.prod-name').textContent.toLowerCase();
+      if(n.includes(q)){c.style.display='block';c.style.outline='2px solid var(--accent)';found++;}
+      else{c.style.display='none';}
+    });
+    if(!found) cards.forEach(c=>{c.style.display='block';c.style.outline='';});
+    document.querySelectorAll('.cat-tab2').forEach(t=>t.classList.remove('active'));
+    document.querySelector('.cat-tab2').classList.add('active');
+  },600);
+}
+document.getElementById('heroSearch').addEventListener('keypress',e=>{if(e.key==='Enter')doSearch();});
+
+// ══ CATEGORY FILTER ══
+function filterCat(cat, el){
+  document.querySelectorAll('.cat-tab2').forEach(t=>t.classList.remove('active'));
+  if(el) el.classList.add('active');
+  const cards = document.querySelectorAll('#prodGrid .prod-card');
+  cards.forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
+    c.style.outline='';
+  });
+  if(el) document.getElementById('products').scrollIntoView({behavior:'smooth'});
+}
+
+// ══ ZONE SELECT ══
+function selectZone(el){
+  document.querySelectorAll('.loc-card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+}
+function filterByLoc(v){console.log('loc:',v);}
+function selectStateAndScroll(key) {
+  // activate the right region tab
+  const s = NIGERIA_STATES[key];
+  if(!s) return;
+  document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
+  const regionTab = document.querySelector(`.rtab[onclick*="${s.region}"]`);
+  if(regionTab) regionTab.classList.add('active');
+  filterRegion(s.region, regionTab||document.querySelector('.rtab'));
+  activeRegion = s.region;
+  renderStateChips(s.region);
+  // now select the state chip
+  setTimeout(()=>{
+    const chip = Array.from(document.querySelectorAll('.state-chip')).find(c=>c.textContent.includes(s.name));
+    if(chip) { selectState(key, chip); }
+    document.getElementById('stateSelectorBar').scrollIntoView({behavior:'smooth'});
+  }, 100);
+}
+
+function scrollTo(id){document.querySelector(id)?.scrollIntoView({behavior:'smooth'});}
+
+// ══ MODAL SYSTEM ══
+function openModal(id){
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow='hidden';
+  if(id==='dashboardModal' && currentUser) populateDashboard();
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow='';
+}
+function handleOverlayClick(e, id){
+  if(e.target.id===id) closeModal(id);
+}
+function switchModal(from, to){
+  closeModal(from);
+  setTimeout(()=>openModal(to),200);
+}
+
+// ══ REGISTRATION ══
+function doRegister(){
+  const fn = document.getElementById('regFirstName').value.trim();
+  const sn = document.getElementById('regSurname').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const phone = document.getElementById('regPhone').value.trim();
+  const area = document.getElementById('regArea').value;
+  const address = document.getElementById('regAddress').value.trim();
+  const pw = document.getElementById('regPassword').value;
+  const confirm = document.getElementById('regConfirm').value;
+
+  if(!fn||!sn||!email||!phone||!area||!pw){
+    alert('Please fill in all required fields.');
+    return;
+  }
+  if(pw !== confirm){
+    alert('Passwords do not match.');
+    return;
+  }
+  if(pw.length < 8){
+    alert('Password must be at least 8 characters.');
+    return;
+  }
+  if(!email.includes('@')){
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  users[email] = { firstName:fn, surname:sn, email, phone, area, address, password:pw };
+  document.getElementById('regSuccess').style.display='block';
+  setTimeout(()=>{
+    closeModal('registerModal');
+    loginUser(users[email]);
+    document.getElementById('regSuccess').style.display='none';
+  }, 1800);
+}
+
+// ══ LOGIN ══
+function doLogin(){
+  const email = document.getElementById('loginEmail').value.trim();
+  const pw = document.getElementById('loginPassword').value;
+  const errEl = document.getElementById('loginError');
+
+  if(users[email] && users[email].password === pw){
+    errEl.style.display='none';
+    closeModal('loginModal');
+    loginUser(users[email]);
+  } else {
+    errEl.style.display='block';
+  }
+}
+
+function doDemoLogin(){
+  const demo = {firstName:'Demo',surname:'User',email:'demo@pricelens.africa',phone:'+234 800 PRICELENS',area:'Lekki Phase 1',address:'1 Admiralty Way, Lekki Phase 1'};
+  closeModal('loginModal');
+  loginUser(demo);
+}
+
+function loginUser(user){
+  currentUser = user;
+  isLoggedIn = true;
+  document.getElementById('authButtons').style.display='none';
+  document.getElementById('profileBadge').style.display='block';
+  document.getElementById('profileName').textContent = user.firstName;
+  const initials = (user.firstName[0] + user.surname[0]).toUpperCase();
+  document.getElementById('profileInitials').textContent = initials;
+  setTimeout(()=>{
+    openModal('dashboardModal');
+  },300);
+}
+
+function doLogout(){
+  isLoggedIn = false;
+  currentUser = null;
+  closeModal('dashboardModal');
+  document.getElementById('authButtons').style.display='flex';
+  document.getElementById('profileBadge').style.display='none';
+}
+
+// ══ POPULATE DASHBOARD ══
+function populateDashboard(){
+  if(!currentUser) return;
+  const initials = (currentUser.firstName[0] + (currentUser.surname?currentUser.surname[0]:'')).toUpperCase();
+  document.getElementById('dashAvatar').textContent = initials;
+  document.getElementById('dashName').textContent = `${currentUser.firstName} ${currentUser.surname||''}`;
+  document.getElementById('dashArea').textContent = currentUser.area || 'Lagos';
+  document.getElementById('dashGreeting').textContent = `Hello, ${currentUser.firstName}! 👋`;
+  // Prefill profile tab
+  document.getElementById('profileFirstName').value = currentUser.firstName||'';
+  document.getElementById('profileSurnameField').value = currentUser.surname||'';
+  document.getElementById('profileEmailField').value = currentUser.email||'';
+  document.getElementById('profilePhoneField').value = currentUser.phone||'';
+  document.getElementById('profileAreaField').value = currentUser.area||'';
+  document.getElementById('profileAddressField').value = currentUser.address||'';
+}
+
+function saveProfile(){
+  if(!currentUser) return;
+  currentUser.firstName = document.getElementById('profileFirstName').value;
+  currentUser.surname = document.getElementById('profileSurnameField').value;
+  currentUser.email = document.getElementById('profileEmailField').value;
+  currentUser.phone = document.getElementById('profilePhoneField').value;
+  currentUser.area = document.getElementById('profileAreaField').value;
+  currentUser.address = document.getElementById('profileAddressField').value;
+  document.getElementById('profileName').textContent = currentUser.firstName;
+  document.getElementById('profileInitials').textContent = (currentUser.firstName[0]+(currentUser.surname?currentUser.surname[0]:'')).toUpperCase();
+  document.getElementById('dashName').textContent = `${currentUser.firstName} ${currentUser.surname}`;
+  document.getElementById('dashArea').textContent = currentUser.area;
+  document.getElementById('dashGreeting').textContent = `Hello, ${currentUser.firstName}! 👋`;
+  alert('Profile saved successfully!');
+}
+
+// ══ DASHBOARD TABS ══
+function showDashTab(tab, el){
+  document.querySelectorAll('.dash-nav-item').forEach(i=>i.classList.remove('active'));
+  if(el) el.classList.add('active');
+  document.querySelectorAll('[id^="tab-"]').forEach(t=>t.style.display='none');
+  const tabEl = document.getElementById('tab-'+tab);
+  if(tabEl) tabEl.style.display='block';
+}
+
+// ══ SHOPPING LIST ══
+function addItem(){
+  const container = document.getElementById('manualListItems');
+  const row = document.createElement('div');
+  row.className = 'item-input-row';
+  row.innerHTML = `<input class="item-input" placeholder="Item name (e.g. Rice 50kg, Tomatoes, Palm Oil...)"><input class="qty-input" type="number" placeholder="Qty" value="1"><button class="remove-btn" onclick="removeItem(this)">✕</button>`;
+  container.appendChild(row);
+}
+
+function removeItem(btn){
+  const row = btn.closest('.item-input-row');
+  const container = document.getElementById('manualListItems');
+  if(container.children.length > 1) row.remove();
+  else { row.querySelectorAll('input').forEach(i=>i.value=''); }
+}
+
+function selectLoc(chip){
+  document.querySelectorAll('.loc-chip').forEach(c=>c.classList.remove('selected'));
+  chip.classList.add('selected');
+}
+
+// ── Recommender state/location dropdowns ──
+function onRecStateChange(stateKey) {
+  const locWrap = document.getElementById('recLocWrap');
+  const locSel = document.getElementById('recLocSelect');
+  const confirm = document.getElementById('recLocConfirm');
+  confirm.style.display = 'none';
+  if (!stateKey) { locWrap.style.display = 'none'; return; }
+
+  const s = NIGERIA_STATES[stateKey];
+  if (!s) { locWrap.style.display = 'none'; return; }
+
+  // Populate location dropdown for chosen state
+  let opts = '<option value="">📍 Select Location in ' + s.name + '</option>';
+  s.locations.forEach(l => {
+    opts += '<option value="' + l.name + ', ' + s.name + '">' + l.name + ' — ' + l.type + '</option>';
+  });
+  locSel.innerHTML = opts;
+  locWrap.style.display = 'block';
+}
+
+function onRecLocChange(val) {
+  const confirm = document.getElementById('recLocConfirm');
+  const label = document.getElementById('recLocLabel');
+  if (val) {
+    label.textContent = val;
+    confirm.style.display = 'block';
+    // Update the AI recommender result text
+    const recSubs = document.querySelectorAll('.rec-sub-loc');
+    recSubs.forEach(el => el.textContent = 'Near ' + val);
+  } else {
+    confirm.style.display = 'none';
+  }
+}
+
+function triggerFileUpload(){
+  document.getElementById('listFileInput').click();
+}
+
+function handleFileUpload(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const zone = document.getElementById('uploadZone');
+  zone.innerHTML = `<div class="lz-icon">✅</div><div class="lz-text">${file.name}</div><div class="lz-sub">File uploaded — click Analyze to process</div>`;
+}
+
+// ══ AI ANALYSIS ══
+function runAIAnalysis(){
+  const items = [];
+  document.querySelectorAll('#manualListItems .item-input-row').forEach(row=>{
+    const name = row.querySelector('.item-input').value.trim();
+    const qty = row.querySelector('.qty-input').value || 1;
+    if(name) items.push({name, qty: parseInt(qty)});
+  });
+  if(items.length === 0){ alert('Please add at least one item to your list.'); return; }
+  
+  const selectedLoc = document.querySelector('.loc-chip.selected')?.textContent || 'Lekki Phase 1';
+  const resultsDiv = document.getElementById('aiResults');
+  resultsDiv.style.display='block';
+  document.getElementById('storeRecs').innerHTML = `<div class="loading-spinner"><div class="spinner"></div>AI is analyzing prices near ${selectedLoc}...</div>`;
+  resultsDiv.scrollIntoView({behavior:'smooth'});
+
+  setTimeout(()=>{
+    document.getElementById('aiResultSub').textContent = `For ${items.length} items · Near ${selectedLoc}`;
+    renderAIResults(items, selectedLoc);
+  }, 2200);
+}
+
+const PRICE_DB = {
+  'rice':          {mile12:38500, ajah:39500, oyingbo:39800, justrite:44000, ebeano:45000, blenco:43200},
+  'tomatoes':      {mile12:3500,  ajah:4000,  oyingbo:4200,  justrite:5600,  ebeano:5800,  blenco:5400},
+  'chicken':       {mile12:6800,  ajah:7000,  oyingbo:7200,  justrite:7800,  ebeano:8200,  blenco:7900},
+  'palm oil':      {mile12:3800,  ajah:3900,  oyingbo:4000,  justrite:4600,  ebeano:4800,  blenco:4700},
+  'omo':           {mile12:3200,  ajah:3300,  oyingbo:3400,  justrite:3100,  ebeano:3700,  blenco:3600},
+  'garri':         {mile12:11200, ajah:11500, oyingbo:11200, justrite:14000, ebeano:15000, blenco:13500},
+  'beef':          {mile12:4600,  ajah:4800,  oyingbo:4500,  justrite:6000,  ebeano:6500,  blenco:6200},
+  'eggs':          {mile12:3100,  ajah:3000,  oyingbo:3200,  justrite:3600,  ebeano:3800,  blenco:3600},
+  'semolina':      {mile12:8500,  ajah:8400,  oyingbo:8600,  justrite:9200,  ebeano:10200, blenco:9800},
+  'bread':         {mile12:1100,  ajah:1100,  oyingbo:1200,  justrite:1350,  ebeano:1500,  blenco:1400},
+  'milk':          {mile12:2100,  ajah:2200,  oyingbo:2150,  justrite:2300,  ebeano:2500,  blenco:2450},
+  'onion':         {mile12:850,   ajah:900,   oyingbo:900,   justrite:1400,  ebeano:1600,  blenco:1500},
+  'maggi':         {mile12:950,   ajah:900,   oyingbo:920,   justrite:1000,  ebeano:1100,  blenco:1050},
+  'toilet rolls':  {mile12:1900,  ajah:1800,  oyingbo:1900,  justrite:1900,  ebeano:2200,  blenco:2100},
+  'groundnut oil': {mile12:4800,  ajah:4900,  oyingbo:4800,  justrite:5400,  ebeano:5800,  blenco:5600},
+  'pepper':        {mile12:2200,  ajah:2000,  oyingbo:2100,  justrite:3400,  ebeano:3600,  blenco:3300},
+  'yam':           {mile12:2800,  ajah:2900,  oyingbo:3000,  justrite:3600,  ebeano:4000,  blenco:3800},
+  'indomie':       {mile12:8200,  ajah:8200,  oyingbo:8400,  justrite:8800,  ebeano:9200,  blenco:9000},
+};
+
+const STORE_META = {
+  mile12:  {name:'Mile 12 Market', type:'Open Market', emoji:'🥦', dist:{Lekki_Phase_1:22,Ajah:28,Ikeja:8,Surulere:14,Victoria_Island:26,Ikoyi:24,Yaba:12}},
+  ajah:    {name:'Ajah Market',    type:'Open Market', emoji:'🛒', dist:{Lekki_Phase_1:12,Ajah:3,Ikeja:38,Surulere:32,Victoria_Island:22,Ikoyi:20,Yaba:30}},
+  oyingbo: {name:'Oyingbo / Balogun Market', type:'Open Market', emoji:'🌊', dist:{Lekki_Phase_1:28,Ajah:34,Ikeja:16,Surulere:12,Victoria_Island:8,Ikoyi:10,Yaba:14}},
+  justrite:{name:'Justrite Superstore', type:'Supermarket', emoji:'🟠', dist:{Lekki_Phase_1:20,Ajah:26,Ikeja:18,Surulere:6,Victoria_Island:24,Ikoyi:22,Yaba:10}},
+  ebeano:  {name:'Ebeano Supermarket', type:'Supermarket', emoji:'🛍️', dist:{Lekki_Phase_1:8,Ajah:14,Ikeja:32,Surulere:28,Victoria_Island:4,Ikoyi:6,Yaba:26}},
+  blenco:  {name:'Blenco Supermarket', type:'Supermarket', emoji:'🔵', dist:{Lekki_Phase_1:10,Ajah:6,Ikeja:36,Surulere:30,Victoria_Island:18,Ikoyi:16,Yaba:28}},
+};
+
+function matchItem(name){
+  const n = name.toLowerCase();
+  for(const key of Object.keys(PRICE_DB)){
+    if(n.includes(key)) return {key, prices: PRICE_DB[key]};
+  }
+  // fuzzy fallback
+  if(n.includes('flour')) return {key:'flour', prices:{mile12:32000,ajah:33000,oyingbo:33500,justrite:36000,ebeano:38000,blenco:37000}};
+  if(n.includes('fish')) return {key:'fish', prices:{mile12:3800,ajah:3900,oyingbo:3700,justrite:5000,ebeano:5200,blenco:4900}};
+  // Unknown — estimate
+  return {key:'unknown', prices:{mile12:2000,ajah:2100,oyingbo:2000,justrite:2500,ebeano:2700,blenco:2600}};
+}
+
+function renderAIResults(items, location){
+  const locKey = location.replace(/\s+/g,'_');
+  const stores = Object.keys(STORE_META);
+
+  // Calculate totals
+  const totals = {};
+  const breakdown = {};
+  stores.forEach(s=>{ totals[s]=0; breakdown[s]={}; });
+
+  items.forEach(item=>{
+    const match = matchItem(item.name);
+    stores.forEach(s=>{
+      const price = (match.prices[s]||2000)*item.qty;
+      totals[s] += price;
+      breakdown[s][item.name] = {price: match.prices[s]||2000, total:price, qty:item.qty};
+    });
+  });
+
+  // Score: combo of price and distance
+  const scored = stores.map(s=>{
+    const distRaw = STORE_META[s].dist[locKey] || STORE_META[s].dist['Lekki_Phase_1'];
+    const priceScore = 1 - (totals[s] - Math.min(...stores.map(x=>totals[x]))) / Math.max(1, Math.max(...stores.map(x=>totals[x])) - Math.min(...stores.map(x=>totals[x])));
+    const distScore = 1 - (distRaw - 2) / 40;
+    const finalScore = Math.round((priceScore*0.65 + distScore*0.35)*100);
+    return {s, total:totals[s], dist:distRaw, score:finalScore, meta:STORE_META[s], breakdown:breakdown[s]};
+  }).sort((a,b)=>b.score-a.score);
+
+  const best = scored[0];
+  const html = scored.slice(0,3).map((item,i)=>{
+    const rankLabels=['🏆 Best Value','🥈 Runner Up','🥉 Third Option'];
+    const rankClasses=['first','second','third'];
+    const itemRows = Object.entries(item.breakdown).slice(0,4).map(([name,d])=>`
+      <div class="sr-item-row">
+        <span class="sr-item-n">${name}${d.qty>1?' ×'+d.qty:''}</span>
+        <span class="sr-item-p ${i===0?'best':''}">₦${d.total.toLocaleString()}</span>
+      </div>`).join('');
+    const moreItems = Object.keys(item.breakdown).length > 4 ? `<div style="font-size:.72rem;color:var(--muted);padding:4px 8px;">+ ${Object.keys(item.breakdown).length-4} more items</div>`:''
+    const savings = i>0?`<div style="font-size:.72rem;color:var(--red);font-family:var(--mono);font-weight:600;">₦${(item.total-best.total).toLocaleString()} more than top pick</div>`:'<div style="font-size:.72rem;color:var(--green);font-weight:600;">✅ Cheapest option for your full list</div>';
+    return `<div class="store-recommendation ${i===0?'top-pick':''}">
+      <div class="sr-header">
+        <div>
+          <div class="sr-rank ${rankClasses[i]}">${rankLabels[i]}</div>
+          <div class="sr-store-name">${item.meta.emoji} ${item.meta.name}</div>
+          <span class="sr-type">${item.meta.type} · ~${item.dist}km away</span>
+        </div>
+        <div style="text-align:right">
+          <div class="sr-total">₦${item.total.toLocaleString()}</div>
+          <div class="sr-total-lbl">total · score: ${item.score}/100</div>
+        </div>
+      </div>
+      <div class="sr-items">${itemRows}${moreItems}</div>
+      ${savings}
+    </div>`;
+  }).join('');
+
+  document.getElementById('storeRecs').innerHTML = html;
+  document.getElementById('aiInsight').innerHTML = `<strong>🤖 AI Insight:</strong> Based on your ${items.length}-item list near <strong>${location}</strong>, <strong>${best.meta.name}</strong> offers the best total value at <strong>₦${best.total.toLocaleString()}</strong>. You'd save <strong>₦${(Math.max(...scored.map(s=>s.total))-best.total).toLocaleString()}</strong> versus the most expensive option. Consider splitting your run: buy fresh produce at the nearest open market and packaged goods at ${scored.find(s=>s.meta.type==='Supermarket')?.meta.name||'a nearby supermarket'}.`;
+}
+
+// ══ HISTORICAL TABLE ══
+const histData = {
+  daily:[
+    {date:'Mar 08 2026',period:'Today',prod:'Rice 50kg',loc:'Mile 12',type:'Market',mkt:'₦38,500',sup:'₦44,000',wk:'−3.2%',mo:'−1.8%',yr:'+22.4%'},
+    {date:'Mar 07 2026',period:'Yesterday',prod:'Rice 50kg',loc:'Mile 12',type:'Market',mkt:'₦39,800',sup:'₦44,200',wk:'−2.8%',mo:'−0.9%',yr:'+23.1%'},
+    {date:'Mar 08 2026',period:'Today',prod:'Tomatoes',loc:'Ajah Market',type:'Market',mkt:'₦4,200',sup:'₦5,600',wk:'+8.1%',mo:'+15.2%',yr:'+42.8%'},
+    {date:'Mar 08 2026',period:'Today',prod:'Beef 1kg',loc:'Oyingbo',type:'Market',mkt:'₦4,500',sup:'₦6,200',wk:'+9.2%',mo:'+12.0%',yr:'+38.5%'},
+    {date:'Mar 08 2026',period:'Today',prod:'Palm Oil 5L',loc:'Lekki Market',type:'Market',mkt:'₦3,800',sup:'₦4,800',wk:'−2.5%',mo:'−0.5%',yr:'+28.3%'},
+    {date:'Mar 07 2026',period:'Yesterday',prod:'Eggs crate',loc:'Ajah Market',type:'Market',mkt:'₦3,000',sup:'₦3,600',wk:'+4.4%',mo:'+6.8%',yr:'+31.2%'},
+  ],
+  weekly:[
+    {date:'Wk Mar 4–8',period:'This Week',prod:'Rice 50kg',loc:'Mile 12',type:'Market',mkt:'₦38,500',sup:'₦44,000',wk:'−3.2%',mo:'−1.8%',yr:'+22.4%'},
+    {date:'Wk Feb 26–Mar 1',period:'Last Week',prod:'Rice 50kg',loc:'Mile 12',type:'Market',mkt:'₦39,800',sup:'₦44,500',wk:'−1.0%',mo:'−2.1%',yr:'+21.8%'},
+    {date:'Wk Mar 4–8',period:'This Week',prod:'Tomatoes',loc:'Ajah',type:'Market',mkt:'₦4,200',sup:'₦5,600',wk:'+8.1%',mo:'+15.2%',yr:'+42.8%'},
+    {date:'Wk Feb 26–Mar 1',period:'Last Week',prod:'Tomatoes',loc:'Ajah',type:'Market',mkt:'₦3,900',sup:'₦5,200',wk:'+2.6%',mo:'+10.2%',yr:'+38.0%'},
+    {date:'Wk Mar 4–8',period:'This Week',prod:'Beef 1kg',loc:'Oyingbo',type:'Market',mkt:'₦4,500',sup:'₦6,200',wk:'+9.2%',mo:'+12.0%',yr:'+38.5%'},
+  ],
+  monthly:[
+    {date:'March 2026',period:'This Month',prod:'Rice 50kg',loc:'All Markets',type:'Average',mkt:'₦39,100',sup:'₦44,200',wk:'+1.5%',mo:'−1.8%',yr:'+22.4%'},
+    {date:'February 2026',period:'Last Month',prod:'Rice 50kg',loc:'All Markets',type:'Average',mkt:'₦40,800',sup:'₦45,100',wk:'+2.1%',mo:'+3.2%',yr:'+19.8%'},
+    {date:'January 2026',period:'2 Months Ago',prod:'Rice 50kg',loc:'All Markets',type:'Average',mkt:'₦39,500',sup:'₦43,800',wk:'+0.8%',mo:'+8.4%',yr:'+15.2%'},
+    {date:'March 2026',period:'This Month',prod:'Tomatoes',loc:'All Markets',type:'Average',mkt:'₦4,050',sup:'₦5,400',wk:'+8.1%',mo:'+15.2%',yr:'+42.8%'},
+  ],
+  yearly:[
+    {date:'2026 (YTD)',period:'This Year',prod:'Rice 50kg',loc:'Lagos avg',type:'Average',mkt:'₦39,500',sup:'₦44,800',wk:'+1.5%',mo:'+2.8%',yr:'+22.4%'},
+    {date:'2025 Full Year',period:'Last Year',prod:'Rice 50kg',loc:'Lagos avg',type:'Average',mkt:'₦31,500',sup:'₦36,500',wk:'+0.2%',mo:'+2.1%',yr:'+18.2%'},
+    {date:'2024 Full Year',period:'2 Yrs Ago',prod:'Rice 50kg',loc:'Lagos avg',type:'Average',mkt:'₦22,000',sup:'₦26,000',wk:'−0.5%',mo:'+1.8%',yr:'+42.0%'},
+    {date:'2023 Full Year',period:'3 Yrs Ago',prod:'Rice 50kg',loc:'Lagos avg',type:'Average',mkt:'₦15,500',sup:'₦19,000',wk:'+0.8%',mo:'+3.5%',yr:'+29.8%'},
+  ]
+};
+
+function renderHistTable(period){
+  const rows = histData[period];
+  const tb = document.getElementById('histBody');
+  if(!tb) return;
+  tb.innerHTML = rows.map(r=>`
+    <tr>
+      <td><span style="font-family:var(--mono);font-size:.75rem">${r.date}</span></td>
+      <td><span class="period-badge">${r.period}</span></td>
+      <td><strong>${r.prod}</strong></td>
+      <td style="color:var(--muted2)">${r.loc}</td>
+      <td><span style="font-size:.7rem;background:var(--surface2);padding:2px 7px;border-radius:4px;">${r.type}</span></td>
+      <td><span class="hist-price" style="color:var(--green)">${r.mkt}</span></td>
+      <td><span class="hist-price" style="color:var(--muted2)">${r.sup}</span></td>
+      <td><span class="${r.wk.startsWith('+') ? 'hist-chg-up' : 'hist-chg-dn'}">${r.wk}</span></td>
+      <td><span class="${r.mo.startsWith('+') ? 'hist-chg-up' : 'hist-chg-dn'}">${r.mo}</span></td>
+      <td><span class="${r.yr.startsWith('+') ? 'hist-chg-up' : 'hist-chg-dn'}">${r.yr}</span></td>
+    </tr>
+  `).join('');
+}
+if(document.getElementById('histBody')) renderHistTable('daily');
+
+function switchPeriod(p, el){
+  document.querySelectorAll('.hist-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderHistTable(p);
+}
+
+// ══ CHART.JS ══
+Chart.defaults.color='#6B7280';
+Chart.defaults.borderColor='rgba(30,40,80,0.07)';
+Chart.defaults.font.family='JetBrains Mono';
+Chart.defaults.font.size=10;
+
+const months3 = ['Oct','Nov','Dec','Jan','Feb','Mar'];
+
+// Main Chart
+const mainCtx = document.getElementById('mainChart')?.getContext('2d');
+let mainChart;
+if(mainCtx){
+  mainChart = new Chart(mainCtx,{
+    type:'line',
+    data:{
+      labels: months3,
+      datasets:[
+        {label:'Mile 12 Market',data:[34000,35500,36500,38000,39800,38500],borderColor:'#0B9462',backgroundColor:'rgba(11,148,98,0.05)',fill:true,tension:0.4,pointRadius:3,pointBackgroundColor:'#0B9462'},
+        {label:'Ajah Market',data:[34800,36200,37500,38800,40200,39100],borderColor:'#1A56DB',backgroundColor:'rgba(26,86,219,0.04)',fill:true,tension:0.4,pointRadius:3,pointBackgroundColor:'#1A56DB'},
+        {label:'Ebeano/Shoprite',data:[39000,40500,42000,43500,44500,44000],borderColor:'#D97706',backgroundColor:'rgba(217,119,6,0.04)',fill:true,tension:0.4,pointRadius:3,pointBackgroundColor:'#D97706'},
+        {label:'QMB/Blenco',data:[38500,40000,41500,43000,44200,43200],borderColor:'#DC2626',backgroundColor:'rgba(220,38,38,0.04)',fill:true,tension:0.4,pointRadius:3,pointBackgroundColor:'#DC2626'},
+      ]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,callbacks:{label:ctx=>`${ctx.dataset.label}: ₦${ctx.raw.toLocaleString()}`}}},scales:{y:{ticks:{callback:v=>`₦${(v/1000).toFixed(0)}k`},grid:{color:'rgba(30,40,80,0.05)'}},x:{grid:{color:'rgba(30,40,80,0.05)'}}}}
+  });
+}
+
+// Inflation Chart
+const infCtx = document.getElementById('inflationChart')?.getContext('2d');
+if(infCtx){
+  new Chart(infCtx,{
+    type:'bar',
+    data:{
+      labels:['Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'],
+      datasets:[{label:'Basket Inflation %',data:[1.8,2.2,1.9,2.8,3.1,2.4,2.9,3.4,2.8,3.2,2.6,3.8,2.8],backgroundColor:ctx=>{const v=ctx.raw;return v>3?'rgba(220,38,38,0.7)':v>2.5?'rgba(217,119,6,0.7)':'rgba(11,148,98,0.7)';},borderRadius:4}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`+${ctx.raw}%`}}},scales:{y:{ticks:{callback:v=>`+${v}%`},grid:{color:'rgba(30,40,80,0.05)'}},x:{grid:{display:false}}}}
+  });
+}
+
+function mkSparkline(id, data, color, fill){
+  const ctx=document.getElementById(id)?.getContext('2d');
+  if(!ctx)return;
+  new Chart(ctx,{type:'line',data:{labels:data.map((_,i)=>i),datasets:[{data,borderColor:color,backgroundColor:fill,fill:true,tension:0.4,pointRadius:0,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{enabled:false}},scales:{x:{display:false},y:{display:false}}}});
+}
+mkSparkline('chart2',[3200,3400,3100,3600,3900,3700,4200],'#DC2626','rgba(220,38,38,0.06)');
+mkSparkline('chart3',[6000,6200,6800,7000,6900,7200,7500],'#DC2626','rgba(220,38,38,0.06)');
+mkSparkline('chart4',[4800,4600,4400,4200,4000,3900,3800],'#0B9462','rgba(11,148,98,0.06)');
+mkSparkline('chart5',[2600,2800,2900,3000,3100,3250,3400],'#DC2626','rgba(220,38,38,0.06)');
+
+const premCtx = document.getElementById('premiumChart')?.getContext('2d');
+if(premCtx){
+  new Chart(premCtx,{type:'bar',data:{labels:['Tomatoes','Beef 1kg','Palm Oil','Chicken','Rice 50kg','Eggs','Garri','Flour'],datasets:[{label:'Supermarket Premium %',data:[60,38,26,14,14,20,29,17],backgroundColor:data=>{const v=data.raw;return v>35?'rgba(220,38,38,0.7)':v>20?'rgba(217,119,6,0.7)':'rgba(26,86,219,0.6)';},borderRadius:5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`+${ctx.raw}% more at supermarket`}}},scales:{y:{ticks:{callback:v=>`+${v}%`},grid:{color:'rgba(30,40,80,0.05)'}},x:{grid:{display:false}}}}});
+}
+
+const fcCtx = document.getElementById('forecastChart')?.getContext('2d');
+if(fcCtx){
+  new Chart(fcCtx,{type:'line',data:{labels:['Now','Wk1','Wk2','Wk3','Wk4'],datasets:[{label:'Actual',data:[38500,null,null,null,null],borderColor:'#0B9462',backgroundColor:'rgba(11,148,98,0.08)',fill:true,tension:0.4,pointRadius:4,pointBackgroundColor:'#0B9462',borderWidth:2},{label:'Predicted',data:[38500,40000,41500,43200,44800],borderColor:'#D97706',backgroundColor:'rgba(217,119,6,0.05)',fill:true,tension:0.4,pointRadius:4,pointBackgroundColor:'#D97706',borderDash:[5,5],borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,callbacks:{label:ctx=>`${ctx.dataset.label}: ₦${(ctx.raw||0).toLocaleString()}`}}},scales:{y:{ticks:{callback:v=>`₦${(v/1000).toFixed(0)}k`},grid:{color:'rgba(30,40,80,0.05)'}},x:{grid:{display:false}}}}});
+}
+
+const chartDataSets = {
+  '7d':{labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],d1:[37800,38200,38000,38500,38800,38500,38500]},
+  '1m':{labels:['Wk1','Wk2','Wk3','Wk4'],d1:[36000,37500,39000,38500]},
+  '3m':{labels:['Oct','Nov','Dec','Jan','Feb','Mar'],d1:[34000,35500,36500,38000,39800,38500]},
+  '1y':{labels:['Mar','Jun','Sep','Dec','Mar'],d1:[24000,27000,32000,36500,38500]},
+  'all':{labels:['2023','2024','2025','2026'],d1:[15500,22000,31500,38500]},
+};
+function updateChart(period, el){
+  document.querySelectorAll('.chart-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  if(!mainChart) return;
+  const d = chartDataSets[period];
+  mainChart.data.labels = d.labels;
+  mainChart.data.datasets[0].data = d.d1;
+  mainChart.data.datasets[1].data = d.d1.map(v=>v+Math.round(v*0.04));
+  mainChart.data.datasets[2].data = d.d1.map(v=>v+Math.round(v*0.14));
+  mainChart.data.datasets[3].data = d.d1.map(v=>v+Math.round(v*0.12));
+  mainChart.update();
+}
+</script>
+</body>
+</html>

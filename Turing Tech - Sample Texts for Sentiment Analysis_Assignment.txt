@@ -1,0 +1,241 @@
+*********
+SAMPLE PASSAGES IN MULTIPLE LANGUAGES FOR TEXTUAL ANNOTATION 
+
+The passages below are in the following languages 
+1. English
+2. Pidgin
+3. Igbo
+4. Yoruba
+5. Hausa
+6. Twi
+7. Bakweri
+
+********
+CLASS ASSIGNMENT
+1. Break up into 6 class teams - Pidgin, Igbo, Yoruba, Hausa, Twi and Bakweri
+2. Perform the following text annotations
+      a. sentiment analysis using color shades
+      b. sentiment analysis using whole sentences
+      c. sentiment analysis using tokens, lemma and stems
+      d. content moderation
+3. You can use the templates that we shared in class 
+
+********
+PASSAGE 1 - ENGLISH
+
+THINGS FALL APART - ENGLISH LANGUAGE NOVEL BY CHINUA ACHEBE
+PAGE 1, PARAGRAPH 2
+
+"...The drums beat and the flutes sang and the spectators held their
+breath. Amalinze was a wily craftsman, but Okonkwo was as slippery as
+a fish in water. Every nerve and every muscle stood out on their arms,
+on their backs and their thighs, and one almost heard them stretching to
+breaking point. In the end Okonkwo threw the Cat..."
+
+**********
+PASSAGE 2 - PIDGIN ENGLISH - NIGERIAN PIDGIN ENGLISH 
+
+Bro, come make I put you tori. No tell anybody say na me tell you oh!
+E get one man for our compound im name na Baba Ajo.
+De other day, when Mama Nkechi fowl disappear, dem say na Baba Ajo na im tif am.
+
+Baba Ajo dey drink well well. E dey drink ogogoro. E dey drink beer. 
+I don even see am with Hennessey bottle. 
+Whether na ogoro wey him put inside, I no sabi
+
+If you see where Baba Ajo dey play draft here, him go dey shout 
+"you must chop oh...you must to chop!!" 
+Baba Ajo dey play pool well well too. 
+
+The other day, I tell Baba Ajo say I wan teach am how to trade in 
+cryptocurrency. Baba Ajo look me up and down like say i dey craze. 
+Then him say "comot here joh". Na im I run away! I don dey fear Baba Ajo oh!
+
+My friend, Kwame, say Baba Ajo na wuruwuru man: mago mago man
+Him say him go show Baba Ajo woto woto
+
+END
+
+*********
+PASSAGE 3 - IGBO NOVEL 1933 - Omenuko by Pita Nwanna
+
+Excerpt 1 - Page 17 - Igbo
+"...O ga-adi m mma nke ukwu ma a si na unu emee ka Omenuko were
+warrant jidere Obiefula nwa m ruo mgbe o ga-enwe ike ichikota
+obodo m. Ana m ekwu nke a ma o buru na District Commissioner
+ekwe..." 
+
+Excerpt 1 - Page 17 - English
+"...I will be very pleased if Omenuko holds the office of a warrant 
+chief on behalf of my son, Obiefula, until Obiefula is old enough to 
+lead the village. I am saying this in the expectation that the 
+District Officer will grant his approval to this request
+
+Excerpt 2 - Page 23 - Igbo
+"...N'ubochia kara aka, District
+Commissioner juru ndi ala Mgborogwu ma ha zuru ezu kwuo ka
+Omenuko jidere Obiefula warrant nna ya. Ha zara na ha kwere
+ekwe. District Commissioner wee nye Omenuko ikike..."
+
+Excerpt 2 - Page 23 - English
+Yesterday, the District Commissioner asked the people of Mgborogu
+if they collectively agreed to let Omenuko act as Warrant Chief 
+in place of Obiefula who himself would have held the position meant 
+for his father. They said that they agreed. The District Commissioner
+now make Omenuko the Warrant Chief
+
+Excerpt 3 - Page 26
+"... Omenuko na umunne ya na-enwe ji na ede nke ukwu, he
+enwekwa umu anumanu nke ulo, di ka ehi na ewu na aturu na
+okuko na umu elulu ndi ozo. Madu ufodu na-ere onwe ha
+n'uzo di iche nke na-adighi egbu ha mgbu n'obi. Ma n'obodo
+anyi ndi mmadu adighi akpo udi ihe ahu orire, kama anyi
+naasi na onye ahu jiri onwe ya gba ibe..."
+
+Excerpt 3 - Page 26 - English
+"...Omenuko and his siblings have abundant yams and cocoyams. 
+They also a variety of animals like cows, goats, sheep, 
+chickens and other animals..."
+
+*********
+PASSAGE 4 - YORUBA STORY - Ijapa And The Elephant by Olootu
+
+https://www.morethan-stories.com/ijapa-and-the-elephant/
+
+Excerpt 1
+“A o m’erin joba – Eweku ewele
+A o m’erin joba – Eweku ewele
+(We’ll make the elephant King)
+
+Erin Olu igbo – Eweku ewele
+(Elephant the lord of the bush)
+
+Erin Olu Odan – Eweku ewele
+(Elephant lord of the Savannah)
+
+A o m’erin joba – Eweku ewele
+A o m’erin joba – Eweku ewele
+(We’ll make the elephant King)”
+
+******
+Excerpt 2
+“Erin ma da won l’ohun O! – Erin yeye, Erin yeye
+Erin ma da won l’ohun o! – Erin yeye, Erin yeye
+(Erin don’t list to them o!)
+
+Iwoyi ola n’ko – Erin yeye, Erin yeye
+(This time tomorrow)
+
+Agede a ma dun Kele – Erin yeye Erin yeye
+(The cutlass will sound “Kele”)
+
+Eje a ma sun gbala – Erin yeye, Erin yeye
+(Blood will flow “gbala”)
+
+Erin ma da won l’ohun o! Erin yeye, Erin yeye
+(Erin don’t listen to them o!)”
+
+
+********
+PASSAGE 5 - HAUSA NOVEL- GOBE NA By Khadeeja Candy
+
+Excerpt 1 
+
+Babu mace da zata labarta yadda wata macen take ji har sai 
+ta taba kasancewa a cikin halin da wacan macen ta kasance. 
+Daga ni sai ire-irena mu ke iya labarta yadda mace ta ke 
+ji idan aka keta haddin yarta ko kuma ita kanta! 
+Ina ma ace yau haddina ni Halimatu aka keta ba na yata ba? 
+
+*****
+Excerpt 2 - Novel - ƘWAI cikin ƘAYA!! By Bilyn Abdull
+
+Turƙashi, wannanfa shine cakwakiyoyi ba cakwakiya ba, bamma 
+san yanda zan musalta muku kitimurmurar dake cikin book ɗinnan ba sam, 
+dan  wani irin ruɗaɗɗen labarine mai cike da abubuwan mamaki da 
+tarin al'ajabi harma da ban haushi, labarin ya taɓo wasu a cikin 
+matsalolin zuminci, gidajen aurenmu, Tsaro, rikita-rikita, harma da 
+ruguntsumi. Kai lamarinfa ba'a cewa komai, mai karatune kawai zai 
+banbance tsakanin aya da tsakkuwar zancena bayan mun tsunduma cikin labarin tsundum
+
+********
+
+PASSAGE 6 - TWI LANGUAGE - CONTRIBUTED BY AKUA
+
+English 1
+
+Ghana is a very peaceful country with very caring, respectful and loving citizens. We have various local foods you would love such as Tuo zaafi, Banku, Kenkey, rice ball, fufu and a lot more, but what i really love is Kenkey with pepper and fried fish. Ghanaian food is filled with a lot of natural flavors and protein. And when it comes to displaying Ghanaian culture, Ghanaians do not play with that especially the Ashanti’s who show off the Kente fabric with pride as they dance to the rhythmic sound of the drums.
+I love Ghana 
+
+Twi 1
+
+Ghana yɛ asomdwoeɛ man. Na ne mu nipa nso wɔ obuo, tima ne ɔdɔ ma wɔnho wɔnho. Yɛ wɔ nnuane bebree a ɛyɛ dɛ na ɛsombo ma yɛ pa ara, ɛbi ne diehuo, banku, dɔkono, ɛmotuo, fufuo ne deɛ ɛkeka ho, nanso medeɛ, deɛ me pɛ wɔ mu pa ara ɛyɛ dɔkono ne nkyenam. Ɔman Ghana nnuane deɛ nubena mu ahoɔden ahyɛ no ma, na ɛba no ya mammerɛ nso a, yɛn to to no ase koraa, ɛnkankan ne Asantefoɔ ne wɔn kente. Yɛ hyɛ no wɔ ɔdɔ ne ahohoahoa mu na yɛ de sa yɛn man mu ndwene wɔ anigyeɛ mu.
+Medɔ ɔman Ghana
+
+English 2
+
+Ghana is a very peaceful country with caring, respectful, and loving citizens. The nation is known for its strong sense of unity and hospitality, where people warmly welcome visitors and treat one another like family. Different cultures and traditions exist side by side in harmony, creating a rich and vibrant society. Ghanaians value respect, kindness, and community, which can be seen in their daily interactions and celebrations. This peaceful environment makes Ghana not only a great place to live but also an attractive destination for tourists from around the world.
+
+Twi 2
+
+Ghana yɛ ɔman a asomdwoe wom paa, na ne manfo nso yɛ nnipa a wɔwɔ ɔdɔ, obu, ne ayamye. Wɔnim ɔman no sɛ baabi a nkabom ne ahɔhoyɛ da adi kɛse, baabi a nnipa de anigye gye ahɔho tom na wɔhwɛ wɔn ho te sɛ abusua. Amammerɛ ne atetesɛm ahorow wɔ hɔ, nanso wɔtena ase wɔ asomdwoe mu, ma ɔman no yɛ fɛ na ɛyɛ anigye ma obiara. Ghanamanfo de obu, ayamye, ne nkabom bɔ bra, na eyi da adi wɔ wɔn da biara da abrabɔ ne wɔn afahyɛ ahorow mu. Saa asomdwoe yi ma Ghana yɛ baabi pa a wɔtena, na ɛma no yɛ beae a ɛtwetwe ahɔho fi wiase nyinaa.
+
+******
+PASSAGE 7 - SOCIAL MEDIA EXTRACT ON THE JOLLOF WARS
+
+1. If its about jollof Senegalese jollof beats any African jollof, madam I won't argue with u on this oya choose yours since its two option   /Facebook
+
+2. I will rather go for the Senegal jollof with okro than to eat that nigeria red oil rice with gray fish and 15 maggi that looks 
+like rice ball nu  /F
+
+3. Nigeria Jollof looks like popcorn  /F
+
+4. Nigeria get jollof ?   /F
+
+5. Ghana jollof all the way   /F
+
+6. I love Ghana jollof! It's nice    /F
+
+7. It was never a debate Nigerian Jollof has always been the best in that aspect . Anybody with objection should go and hug transformer    /T
+
+8. You don taste red oil rice?  Na Nigerian own.. /T
+
+9. I haven't tasted Ghana jollof but I recommend you guys to try Senegal jollof, it's call TCHEP, I love it *heart*   /T
+
+10. Ghana Jollof is very starchy... the pattern of rice    /T
+
+11. Abeg oo Senegal jollof is another level pls I'm Ghanaian but Senegal is the best    /F
+
+12. Ghana Jollof nah the burnt part of Nigerian Jollof     /T
+
+13. I will have one for Lunch and the other for Dinner. I choose both     /T
+
+14. Ghana jollof is what made my white friend become a vegetarian...    /T
+
+15. Nigerian jollof comes second to none…… I figured yesterday you people only problem with the Nigerian jollof is with the rice’s size    /T
+
+16. Me am a Nigerian, but lets call a spade a spade, Ghana Jollof is far better .    /T
+
+********
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

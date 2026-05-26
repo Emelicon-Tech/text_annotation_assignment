@@ -1,0 +1,1 @@
+If you navigate back to the http://localhost:3000/centres page, you will see all of these departments instantly available for tracking your costs and expenses! Let me know if there's anything else you need.
